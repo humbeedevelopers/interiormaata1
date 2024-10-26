@@ -1,0 +1,549 @@
+.first_project_text_header {
+  color: #7f7047;
+  text-align: center;
+  font-family: "Dream Avenue";
+  font-size: 7vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.413px;
+  text-transform: uppercase;
+}
+.first_project_text_content {
+  color: #cc7d45;
+  text-align: left;
+  font-family: var(--font-poppins);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.first_project_text_firstcontent {
+  width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  /* float: right; */
+  margin-right: 17rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.first_project_layout_outer {
+  padding-top: 10rem;
+}
+
+.First_project_layout_image {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 22%;
+  grid-gap: 20px;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+}
+.Single_project_image1 {
+  width: 100%;
+  height: revert-layer;
+  object-fit: cover;
+  transition: 0.4s;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  display: block;
+  /* overflow: hidden; */
+}
+.Single_project_image1:hover {
+  transform: scale(1.05);
+}
+.First_project_layout_image2 {
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.interior_material_outer {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+}
+.interior_material_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.interior_material_img {
+  max-width: 100%;
+  cursor: pointer;
+  object-fit: cover;
+  height: auto;
+  transition: 0.4s;
+}
+.interior_material_text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  overflow: hidden;
+}
+.interior_material_img:hover {
+  transform: scale(1.05);
+}
+.interior_material_overlay {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.interior_material_overlay_text {
+  color: #ffffff;
+  font-family: var(--font-poppins);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.interior_material_specs_content {
+  padding-left: 4rem;
+  padding-right: 0rem;
+  padding-bottom: 4rem;
+  width: 36%;
+}
+.interior_material_specs_text {
+  color: #cc7d45;
+  font-family: var(--font-poppins);
+  font-size: 15.616px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.Interior_second_text_content {
+  display: flex;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.Interior_second_text_content_first {
+  width: 66%;
+  color: #7f7047;
+  font-family: "Dream Avenue";
+  font-size: 3.2vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.interior_last_room_Section {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+  position: relative;
+}
+.interior_last_room_img {
+  width: 100% !important;
+  cursor: pointer;
+  height: auto;
+  object-fit: cover;
+}
+.interior_last_room_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.interior_last_room_overlay_svgs {
+  cursor: pointer;
+}
+.inetrior_lastroom_img_ {
+  max-width: 100%;
+  height: auto;
+}
+
+.First_project_layout_image2_innerX {
+  overflow: hidden;
+}
+
+.First_project_layout_image2_inner {
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/*  */
+
+.interior_material_text {
+  cursor: pointer;
+  position: relative;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+  position: relative;
+  width: 80%;
+  max-width: 350px;
+}
+
+.close {
+  position: absolute;
+  top: -4px;
+  right: -32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1500px) {
+  .interior_material_img {
+    width: 100%;
+    height: auto;
+  }
+  .interior_material_text {
+    width: 20%;
+  }
+}
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .modalContent {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .first_project_text_header {
+    font-size: 7vw;
+  }
+  .first_project_text_firstcontent {
+    width: 100%;
+    margin-right: 25rem;
+  }
+  .first_project_text_content {
+    font-size: 16px;
+  }
+  .interior_material_specs_text {
+    font-size: 16px;
+  }
+  .interior_material_specs_content {
+    width: 35%;
+  }
+
+  .Interior_second_text_content_first {
+    width: 66%;
+    color: #7f7047;
+    font-family: "Dream Avenue";
+    font-size: 3vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  .Interior_second_text_content_first {
+    font-size: 3.6vw;
+  }
+  .Single_project_image1 {
+    height: 100%;
+  }
+
+  .interior_last_room_img {
+    height: auto;
+  }
+  .First_project_layout_image2 {
+    margin-bottom: 0rem;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  .Interior_second_text_content_first {
+    font-size: 3.6vw;
+  }
+  .interior_last_room_img {
+    height: auto;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 500px) {
+  .first_project_text_content {
+    font-size: 14px;
+  }
+  .Interior_second_text_content_first {
+    font-size: 7.5vw;
+  }
+  .interior_last_room_img {
+    height: auto;
+  }
+}
+
+@media (max-width: 1440px) {
+  .first_project_text_firstcontent {
+    margin-right: 13rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 100%;
+  }
+  .interior_material_specs_content {
+    width: 45%;
+  }
+
+  .Interior_second_text_content_first {
+    width: 80%;
+    color: #7f7047;
+    font-family: "Dream Avenue";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 1199px) {
+  .Interior_second_text_content_first {
+    width: 80%;
+    color: #7f7047;
+    font-family: "Dream Avenue";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 1024px) {
+  .interior_material_specs_content {
+    width: 57%;
+  }
+
+  .Interior_second_text_content_first {
+    width: 80%;
+  }
+
+  .First_project_layout_image2 {
+    gap: 2rem;
+  }
+  .first_project_text_firstcontent {
+    width: 100%;
+    margin-right: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .First_project_layout_image {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .interior_material_content {
+    gap: 2rem;
+  }
+  .interior_material_img {
+    align-items: center;
+  }
+  .first_project_layout_outer {
+    padding-top: 10rem;
+  }
+  .first_project_text_firstcontent {
+    margin-right: 4rem;
+    width: 100%;
+    padding-bottom: 4rem;
+  }
+  .First_project_layout_image {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .interior_material_specs_content {
+    width: 72%;
+  }
+  .Interior_second_text_content_first {
+    width: 100%;
+  }
+  .Interior_second_text_content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+  }
+  .Single_project_image1 {
+    max-width: 100%;
+    height: auto;
+  }
+  .interior_last_room_Section {
+    padding-bottom: 2rem;
+  }
+  .interior_material_specs_content {
+    padding-bottom: 0rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .interior_material_content {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .interior_material_outer {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+  }
+  .interior_material_text {
+    flex: 0 0 auto;
+  }
+  .interior_material_img {
+    max-width: none;
+    width: 100%;
+  }
+  .interior_last_room_Section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .Interior_second_text_content_first {
+    width: 85%;
+    color: #7f7047;
+    font-family: "Dream Avenue";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  .First_project_layout_image {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .First_project_layout_image {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .First_project_layout_image {
+    grid-template-columns: auto;
+  }
+  .interior_last_room_Section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .interior_material_specs_content {
+    padding-bottom: 0rem;
+  }
+  .Interior_second_text_content_first {
+    width: 100%;
+  }
+  .first_project_layout_outer {
+    padding-top: 7rem;
+  }
+  .first_project_text_firstcontent {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    margin-right: 0rem;
+    width: 100%;
+  }
+  .First_project_layout_image2 {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  .First_project_layout_image2_inner {
+    width: 100%;
+  }
+  .interior_material_outer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 1rem;
+  }
+  .interior_material_content {
+    gap: 1rem;
+  }
+  .Interior_second_text_content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+  }
+  .interior_material_specs_text {
+    font-size: 13px;
+  }
+  .interior_material_specs_content {
+    width: 100%;
+  }
+  .inetrior_lastroom_img {
+    height: 120px;
+  }
+  .interior_last_room_overlay {
+    top: 42%;
+  }
+}
+
+@media (max-width: 375px) {
+  .First_project_layout_image {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .interior_material_outer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .Single_project_image1 {
+    padding-bottom: 1rem;
+  }
+  .first_project_text_firstcontent {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    margin-right: 0rem;
+    width: 100%;
+  }
+  .interior_material_specs_content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .Interior_second_text_content {
+    padding-bottom: 2rem;
+  }
+  .interior_last_room_Section {
+    padding-bottom: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .first_project_text_content {
+    font-size: 13px;
+  }
+  .inetrior_lastroom_img {
+    height: 65px;
+  }
+  .interior_last_room_overlay {
+    top: 50%;
+  }
+}

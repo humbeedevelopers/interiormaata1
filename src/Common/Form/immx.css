@@ -1,0 +1,163 @@
+/* .p-dropdown-items {
+  background-color: white !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  font-family: "NeueMontreal-Regular" !important;
+}
+.p-dropdown-item {
+  padding-top: 2px !important;
+  padding-left: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+#standard-basic-label {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+#outlined-basic-label {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  font-size: 17px !important;
+  color: white !important;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border: 1px solid white !important;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:not(:hover)
+  .MuiOutlinedInput-notchedOutline {
+  border: 1px solid white !important;
+}
+
+.css-1eed5fa-MuiInputBase-root-MuiInput-root::before {
+  border-bottom: none !important;
+}
+.css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: none !important;
+}
+.css-1eed5fa-MuiInputBase-root-MuiInput-root {
+  border-bottom: 1px solid white !important;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+}
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root:hover{
+  border: none !important;
+  outline: none !important;
+}
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root:focus-visible{
+  border: none !important;
+  outline: none !important;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  border: 1px solid white !important;
+}
+
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon{
+  color: white !important;
+}
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
+  color: white !important;
+}
+.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white !important;
+} */
+
+/* @media (max-width: 1199px){
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding: 10px 12px !important;
+}
+} */
+.contactFormNotification {
+  color: white !important;
+  padding-left: 2rem;
+  font-family: "NeueMontreal-Regular" !important;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.p-dropdown-trigger {
+  border-bottom: 1px solid white;
+}
+.p-dropdown {
+  width: 100%;
+}
+.p-dropdown-label {
+  color: white !important;
+  border-bottom: 1px solid white !important;
+  box-sizing: border-box;
+  color: white;
+  font-family: var(--font-poppins);
+  height: 50px;
+  background: transparent;
+  width: 100%;
+  padding: 10px 0px;
+  font-size: 18px;
+  resize: none;
+  outline: none;
+  border: none;
+}
+svg {
+  color: white;
+}
+.p-dropdown-item {
+  padding-left: 8px;
+  transition: all 0.2 ease;
+  font-family: var(--font-poppins);
+  font-size: 18px;
+}
+.p-dropdown-item:hover {
+  background-color: #7f7047;
+  transition: all 0.2 ease;
+  color: white;
+}
+.p-dropdown-items {
+  border-radius: 0px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  background-color: white;
+}
+@media (max-width: 430px) {
+  .p-dropdown-label {
+    font-size: 16px;
+  }
+  .p-dropdown-item{
+    font-size: 16px;
+  }
+}

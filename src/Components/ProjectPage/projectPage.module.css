@@ -1,0 +1,430 @@
+.ProjectSection_header {
+  font-family: "Dream Avenue";
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.projectPageOuter {
+  padding-top: 10rem;
+}
+
+.ProjectSection_headerText {
+  display: flex;
+  color: #d9d9d9;
+  font-size: 58px;
+  font-weight: 400;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  display: flex;
+  justify-content: center;
+}
+
+.tabItem {
+  color: #ada58e;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.active {
+  color: #726339;
+}
+
+.svg {
+  fill: #ada58e;
+  transition: fill 0.3s ease;
+}
+.active .svg {
+  fill: #7f7047;
+}
+
+.ProjectSection_Content {
+  padding: 0 5rem;
+  margin-bottom: -2rem;
+}
+
+.ProjectSection_imageContent {
+  position: relative;
+}
+
+.ProjectSection_image {
+  background-color: beige;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  right: 0;
+  height: auto;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ProjectSection_imageContent:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.ProjectSection_textContent {
+  display: flex;
+  font-family: var(--font-poppins);
+  color: #cc7d45;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0 5rem 0;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+/* For architecture and commercial categories */
+.ProjectSection_textContent[data-category="architecture"],
+.ProjectSection_textContent[data-category="commercial"] {
+  justify-content: flex-start;
+}
+
+/* For residential category */
+.ProjectSection_textContent[data-category="residential"] {
+  justify-content: space-between;
+}
+.ProjectSection_textContent span {
+  color: black;
+}
+
+.section_3 {
+  text-transform: none;
+}
+
+.year span {
+  color: #cc7d45;
+}
+
+.section_1 div,
+.section_2 div,
+.section_3 div {
+  padding: 2px 0;
+  font-size: 18px;
+}
+.project_heading {
+  font-size: 35px !important;
+  font-family: var(--font-poppins);
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 0;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+/* -----------------Pagination-------------- */
+
+.projects_pagination {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-poppins);
+  padding: 3rem 0;
+}
+/* -------------------------------media-1600------------------------------- */
+@media screen and (min-width: 1600px) {
+  .ProjectSection_headerText {
+    display: flex;
+    justify-content: center;
+    padding: 0 11rem;
+    font-size: 58px;
+    font-weight: 400;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    right: 0;
+    height: auto;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .ProjectSection_image {
+    background-color: beige;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+  }
+
+  .svg {
+    padding: 0 1rem;
+  }
+
+  .ProjectSection_Content {
+    padding: 0 5rem;
+    margin-bottom: -2rem;
+  }
+  .ProjectSection_image {
+    background-color: beige;
+    width: 100%;
+    height: auto;
+  }
+
+  .ProjectSection_textContent {
+    padding: 0rem 0 5rem 0;
+    font-family: var(--font-poppins);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .section_1 div,
+  .section_2 div,
+  .section_3 div {
+    padding: 2px 0;
+  }
+}
+@media screen and (max-width: 1350px){
+  .ProjectSection_headerText {
+    font-size: 50px;
+  }
+}
+/* ------------------------------1024----------------------------- */
+@media screen and (max-width: 1230px) {
+  .ProjectSection_header {
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .projectPageOuter {
+    padding-top: 8rem;
+  }
+  .ProjectSection_headerText {
+    padding: 0 30px;
+    font-size: 40px;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .svg {
+    padding: 0 0.5rem;
+    width: 25px;
+    height: 25px;
+  }
+
+  .ProjectSection_Content {
+    padding: 0 4.5rem;
+    margin-bottom: -2rem;
+  }
+  .ProjectSection_image {
+    background-color: beige;
+    width: 100%;
+    height: auto;
+  }
+
+  .ProjectSection_textContent {
+    padding: 1rem 0 5rem 0;
+    font-family: var(--font-poppins);
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .section_1 div,
+  .section_2 div,
+  .section_3 div {
+    padding: 2px 0;
+    font-size: 18px;
+  }
+  .project_heading {
+    font-size: 30px !important;
+  }
+}
+
+/* ---------------------------768-------------------- */
+@media screen and (max-width: 800px) {
+  .ProjectSection_header {
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .projectPageOuter {
+    padding-top: 8rem;
+  }
+
+  .ProjectSection_headerText {
+    padding: 0 30px;
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .svg {
+    padding: 0 0.5rem;
+    width: 18px;
+    height: 18px;
+  }
+
+  .ProjectSection_Content {
+    padding: 0 4rem;
+    margin-bottom: -2rem;
+  }
+  .ProjectSection_image {
+    background-color: beige;
+    width: 100%;
+    height: auto;
+  }
+
+  .ProjectSection_textContent {
+    padding: 1rem 0 5rem 0;
+    font-family: var(--font-poppins);
+    font-size: 12px;
+    font-weight: 400;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .section_1 div,
+  .section_2 div,
+  .section_3 div {
+    padding: 2px 10px;
+  }
+  .project_heading {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .ProjectSection_headerText {
+    padding: 0;
+    font-size: 5vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+  }
+}
+/* ---------------------------575-------------------- */
+@media screen and (max-width: 575px) {
+  .ProjectSection_header {
+    padding-bottom: 2.5rem;
+    display: block;
+  }
+
+  .projectPageOuter {
+    padding-top: 8rem;
+  }
+
+  .ProjectSection_headerText {
+    padding: 0 24px;
+    font-size: 8vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .svg {
+    padding: 0 0.3rem;
+    width: 14px;
+    height: 14px;
+  }
+
+  .ProjectSection_Content {
+    padding: 0 1.4rem;
+    margin-bottom: 0rem;
+  }
+
+  .ProjectSection_textContent {
+    align-items: start;
+    padding: 2rem 0 3rem 0;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .section_1 div,
+  .section_2 div,
+  .section_3 div {
+    padding: 2px 0;
+    text-align: start;
+  }
+  .project_heading {
+    padding: 1rem 0 0;
+  }
+}
+
+/* ---------------------------425-------------------- */
+@media screen and (max-width: 425px) {
+  .ProjectSection_header {
+    padding-bottom: 2.5rem;
+    display: block;
+  }
+
+  .ProjectSection_headerText {
+    padding: 0 20px;
+    font-size: 8vw;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+  }
+
+  .svg {
+    padding: 0 0.3rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .ProjectSection_Content {
+    padding: 0 1.5rem;
+    margin-bottom: 0rem;
+  }
+  .ProjectSection_image {
+    background-color: beige;
+    width: 100%;
+    height: auto;
+  }
+
+  .ProjectSection_textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem 0 3rem 0;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .section_1 div,
+  .section_2 div,
+  .section_3 div {
+    padding: 2px 0;
+    text-align: start;
+  }
+}
+@media screen and (max-width: 280px) {
+  .ProjectSection_headerText {
+    padding: 0 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+  }
+}

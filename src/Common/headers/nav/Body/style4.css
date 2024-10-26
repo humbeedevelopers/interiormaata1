@@ -1,0 +1,190 @@
+.nav_body {
+  flex-wrap: wrap;
+  display: flex;
+  /* max-width: 1400px; */
+}
+.nav_body a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  /* display: flex; */
+  /* margin-right: 2rem; */
+  width:30%;
+  /* width: fit-content; */
+  text-transform: uppercase;
+}
+
+
+.coming-soon {
+  font-size: 12px;
+   font-family: var(--font-poppins);
+  margin-left: 5px;
+}
+
+.nav_body p {
+  margin: 0px;
+  display: block;
+  font-family:"Dream Avenue";
+  overflow: hidden;
+  font-size: 4vw;
+  margin-right: 0rem;
+  font-weight: 300;
+}
+.navOpenLogo{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  position: absolute;
+  top: 40px;
+}
+.interiormaata_openMenu_Text {
+  font-size: 30px;
+   font-family: var(--font-poppins);
+  text-transform: uppercase;
+  color: #fff;
+}
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .nav_body {
+    flex-wrap: wrap;
+  }
+  .nav_body a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav_body p {
+    margin: 0px;
+    display: block;
+    overflow: hidden;
+    margin-right:0rem;
+    font-size: 4vw;
+    font-weight: 300;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav_body p {
+    font-size: 5vw;
+  }
+}
+
+
+
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .nav_body a {
+    width:80%;
+    margin-right:0rem;
+  }
+  .nav_body p 
+  {
+    margin-right:0rem;
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 767px) {
+  .nav_body {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    /* max-width: 1400px; */
+  }
+}
+
+@media (min-width: 425px) and (max-width: 500px) {
+  .nav_body p {
+    margin: 0px;
+    margin-right:0rem;
+    display: block;
+    overflow: hidden;
+    font-size: 40px;
+    font-weight: 300;
+  }
+  .nav_body a {
+    margin-right:0rem;
+    width:100%;
+  }
+  .navOpenLogo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 25px;
+  }
+
+  .nav_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+}
+
+
+@media (min-width: 360px) and (max-width: 424px) {
+  .nav_body a {
+    margin-right:0rem;
+    width:100%;
+  }
+  .nav_body p {
+    margin: 0px;
+    display: block;
+    overflow: hidden;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .navOpenLogo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 25px;
+  }
+
+  .nav_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
+
+
+
+
+
+@media (min-width: 200px) and (max-width: 360px) {
+  .nav_body a {
+    margin-right:0rem;
+    width:100%;
+  }
+  .nav_body p {
+    margin: 0px;
+    display: block;
+    overflow: hidden;
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .navOpenLogo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 25px;
+  }
+
+  .nav_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
+
+

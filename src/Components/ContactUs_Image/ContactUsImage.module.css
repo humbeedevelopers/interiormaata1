@@ -1,0 +1,116 @@
+.contactUsPageOuter {
+  height: 100vh;
+  display: flex;
+  padding-top: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Contact_Us_img_outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin-top: 0rem;
+  flex-direction: column;
+}
+
+.Contact_us_overlay_text {
+  color: #7f7047;
+  width: 100%;
+  font-family: "Dream Avenue";
+  font-size: 4.5vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.Contact_us_person_details {
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  background: #cc7d45;
+  font-family: var(--font-poppins);
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.Contact_us_person_details_second {
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  background: #7f7047;
+  font-family: var(--font-poppins);
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.Contact_us_person_text {
+  display: flex;
+  width: 100%;
+  padding: 2rem 2rem;
+  justify-content: center;
+}
+
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .Contact_us_overlay_text {
+    font-size: 5.5vw;
+  }
+}
+@media (max-width: 1200px) and (min-height: 1366px) {
+  .iframe_inner {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Contact_us_overlay_text {
+    font-size: 6.5vw;
+  }
+}
+@media (max-width: 1200px) {
+  .iframe_inner {
+    height: 50vh;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1024px) {
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .Contact_us_overlay_text {
+    font-size: 6.5vw;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .contactUsPageOuter {
+    padding-top: 0rem;
+    height: 100vh;
+    gap: 1.5rem;
+  }
+  .Contact_us_person_text {
+    display: flex;
+    width: 100%;
+    padding: 0rem 2rem;
+    justify-content: center;
+  }
+  .Contact_us_overlay_text {
+    font-size: 8.5vw;
+    width: 100%;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 520px) {
+  .Contact_us_person_text {
+    display: block;
+  }
+  .Contact_us_person_details {
+    font-size: 14px;
+  }
+  .Contact_us_person_details_second {
+    font-size: 14px;
+  }
+}
