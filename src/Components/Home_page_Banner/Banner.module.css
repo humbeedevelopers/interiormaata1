@@ -332,6 +332,30 @@
     bottom: 12rem;
   }
 }
+@media(max-height: 700px){
+  .text1 {
+    bottom: 30rem;
+  }
+  .interiormaata {
+    bottom: 28rem;
+  }
+}
+@media(max-height: 650px){
+  .text1 {
+    bottom: 29rem;
+  }
+  .interiormaata {
+    bottom: 27rem;
+  }
+}
+@media(max-height: 600px){
+  .text1 {
+    bottom: 25rem;
+  }
+  .interiormaata {
+    bottom: 23rem;
+  }
+}
 
 @media (min-width: 200px) and (max-width: 500px) {
   .buttonX {
