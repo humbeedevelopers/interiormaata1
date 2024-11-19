@@ -6,6 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
 import styles from "@/Components/Home_page_Banner/Banner.module.css";
+import Lenis from "@studio-freight/lenis"; // Import Lenis
 import "./scroll.css";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +25,29 @@ const Animation = ({ loadImage, counter }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   console.log(loadingCounter);
+
+  // Lenis smooth scroll setup
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.1, // Smoother scroll effect
+      smooth: true,
+      direction: "vertical",
+      gestureDirection: "vertical",
+      mouseMultiplier: 1,
+      smoothTouch: true,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -60,36 +84,70 @@ const Animation = ({ loadImage, counter }) => {
         .toString()
         .padStart(4, "0")}.webp`;
 
-    let imgL = [];
-    for (let i = 0; i < frameCount; i++) {
-      let img = new Image();
-      img.src = currentFrame(i);
-      imagesRef.current.push(img);
-      imgL.push(img.src);
-    }
+    // let imgL = [];
+    // for (let i = 0; i < frameCount; i++) {
+    //   let img = new Image();
+    //   img.src = currentFrame(i);
+    //   imagesRef.current.push(img);
+    //   imgL.push(img.src);
+    // }
 
-    const loadImages = async () => {
-      try {
-        const loadImagePromises = imgL.map((imageUrl, index) => {
-          return new Promise((resolve) => {
+    // const loadImages = async () => {
+    //   const loadBatch = async (startIndex) => {
+    //     const batchSize = 10;
+    //     const promises = [];
+    
+    //     for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+    //       promises.push(new Promise((resolve) => {
+    //         const img = new Image();
+    //         img.src = currentFrame(i);
+    //         img.onload = () => {
+    //           imagesRef.current[i] = img;
+    //           resolve();
+    //         };
+    //       }));
+    //     }
+    
+    //     await Promise.all(promises);
+    //     setLoadingCounter((prev) => prev + batchSize);
+    //   };
+    
+    //   for (let i = 0; i < frameCount; i += 10) {
+    //     await loadBatch(i);
+    //   }
+    
+    //   setLoading(false);
+    // };
+     // Preloading images in batches
+     const loadImages = async () => {
+      const loadBatch = async (startIndex) => {
+        const batchSize = 10;
+        const promises = [];
+
+        for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+          promises.push(new Promise((resolve) => {
             const img = new Image();
-            img.src = imageUrl;
+            img.src = currentFrame(i);
             img.onload = () => {
-              setLoadingCounter(index + 1);
+              imagesRef.current[i] = img;
               resolve();
             };
-          });
-        });
+          }));
+        }
 
-        await Promise.all(loadImagePromises);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
+        await Promise.all(promises);
+        setLoadingCounter((prev) => prev + batchSize);
+      };
+
+      for (let i = 0; i < frameCount; i += 10) {
+        await loadBatch(i);
       }
+
+      setLoading(false);
     };
 
     loadImages();
-    console.log(imgL);
+    // console.log(imgL);
     console.log("Counter", loadingCounter);
 
     const animationTimeline = gsap.timeline({
@@ -100,7 +158,7 @@ const Animation = ({ loadImage, counter }) => {
         airpodsRef.current.frame = frame;
         console.log(`Scroll Progress: ${progress}, Frame: ${frame}`);
       },
-      onComplete: () => setAnimationEnded(true),
+      // onComplete: () => setAnimationEnded(true),
       scrollTrigger: {
         trigger: section,
         pin: true,
@@ -109,27 +167,39 @@ const Animation = ({ loadImage, counter }) => {
   // effects: true, // looks for data-speed and data-lag attributes on elements
   // smoothTouch: 100,
         end: "+=1200%",
+        onUpdate: (self) => {
+          const progress = self.progress;
+          airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
+          render();
+        },
       },
     });
 
-    animationTimeline.to(airpodsRef.current, {
-      frame: frameCount - 1,
-      snap: "frame",
-      ease: "none",
-      duration: 1,
-    });
+    // animationTimeline.to(airpodsRef.current, {
+    //   frame: frameCount - 1,
+    //   snap: "frame",
+    //   ease: "none",
+    //   duration: 1,
+    // });
 
-    imagesRef.current[0].onload = render;
+    // imagesRef.current[0].onload = render;
+       // Ensure that the first image is loaded before setting onload handler
+       if (imagesRef.current[0]) {
+        imagesRef.current[0].onload = render;
+      }
 
     function render() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(
-        imagesRef.current[airpodsRef.current.frame],
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
+      // Ensure that we only render if the current image is available
+      if (imagesRef.current[airpodsRef.current.frame]) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(
+          imagesRef.current[airpodsRef.current.frame],
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      }
     }
 
     return () => {
@@ -137,6 +207,22 @@ const Animation = ({ loadImage, counter }) => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+  //   function render() {
+  //     context.clearRect(0, 0, canvas.width, canvas.height);
+  //     context.drawImage(
+  //       imagesRef.current[airpodsRef.current.frame],
+  //       0,
+  //       0,
+  //       canvas.width,
+  //       canvas.height
+  //     );
+  //   }
+
+  //   return () => {
+  //     window.removeEventListener("resize", setCanvasSize);
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
 
   console.log(loadImage(loading));
 
@@ -198,18 +284,6 @@ const Animation = ({ loadImage, counter }) => {
 //     window.removeEventListener("scroll", handleScroll);
 //   };
 // }, []);
-
-
-
-
-
-
-
-
-
-
-
-
 
   useEffect(() => {
     const handleScroll = () => {
