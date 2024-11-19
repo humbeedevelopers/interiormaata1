@@ -68,24 +68,50 @@ const Animation = ({ loadImage, counter }) => {
       imgL.push(img.src);
     }
 
-    const loadImages = async () => {
-      try {
-        const loadImagePromises = imgL.map((imageUrl, index) => {
-          return new Promise((resolve) => {
+    // const loadImages = async () => {
+    //   try {
+    //     const loadImagePromises = imgL.map((imageUrl, index) => {
+    //       return new Promise((resolve) => {
+    //         const img = new Image();
+    //         img.src = imageUrl;
+    //         img.onload = () => {
+    //           setLoadingCounter(index + 1);
+    //           resolve();
+    //         };
+    //       });
+    //     });
+
+    //     await Promise.all(loadImagePromises);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     console.error("Error loading images:", error);
+    //   }
+    // };
+const loadImages = async () => {
+      const loadBatch = async (startIndex) => {
+        const batchSize = 10;
+        const promises = [];
+    
+        for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+          promises.push(new Promise((resolve) => {
             const img = new Image();
-            img.src = imageUrl;
+            img.src = currentFrame(i);
             img.onload = () => {
-              setLoadingCounter(index + 1);
+              imagesRef.current[i] = img;
               resolve();
             };
-          });
-        });
-
-        await Promise.all(loadImagePromises);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
+          }));
+        }
+    
+        await Promise.all(promises);
+        setLoadingCounter((prev) => prev + batchSize);
+      };
+    
+      for (let i = 0; i < frameCount; i += 10) {
+        await loadBatch(i);
       }
+    
+      setLoading(false);
     };
     loadImages();
     console.log(imgL);
