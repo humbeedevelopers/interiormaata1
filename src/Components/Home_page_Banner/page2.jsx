@@ -149,6 +149,26 @@ const Animation = ({ loadImage, counter }) => {
     loadImages();
     // console.log(imgL);
     console.log("Counter", loadingCounter);
+    // Ensure the first frame is available
+    const checkFirstFrame = () => {
+      if (imagesRef.current[0]) {
+        render(); // Render first frame immediately
+      }
+    };
+
+    // Update canvas with the current frame
+    const render = () => {
+      if (imagesRef.current[airpodsRef.current.frame]) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(
+          imagesRef.current[airpodsRef.current.frame],
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      }
+    };
 
     const animationTimeline = gsap.timeline({
       onUpdate: () => {
@@ -175,6 +195,7 @@ const Animation = ({ loadImage, counter }) => {
       },
     });
 
+    checkFirstFrame();
     // animationTimeline.to(airpodsRef.current, {
     //   frame: frameCount - 1,
     //   snap: "frame",
@@ -184,23 +205,23 @@ const Animation = ({ loadImage, counter }) => {
 
     // imagesRef.current[0].onload = render;
        // Ensure that the first image is loaded before setting onload handler
-       if (imagesRef.current[0]) {
-        imagesRef.current[0].onload = render;
-      }
+      //  if (imagesRef.current[0]) {
+      //   imagesRef.current[0].onload = render;
+      // }
 
-    function render() {
-      // Ensure that we only render if the current image is available
-      if (imagesRef.current[airpodsRef.current.frame]) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(
-          imagesRef.current[airpodsRef.current.frame],
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-      }
-    }
+    // function render() {
+    //   // Ensure that we only render if the current image is available
+    //   if (imagesRef.current[airpodsRef.current.frame]) {
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
+    //     context.drawImage(
+    //       imagesRef.current[airpodsRef.current.frame],
+    //       0,
+    //       0,
+    //       canvas.width,
+    //       canvas.height
+    //     );
+    //   }
+    // }
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
