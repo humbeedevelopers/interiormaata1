@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis"; // Import Lenis
 import MusicPlayer from "@/Components/musicPlayer/page";
 import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
@@ -22,38 +23,33 @@ const Animation = ({ loadImage, counter }) => {
   const [loadingCounter, setLoadingCounter] = useState(0);
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
   console.log(loadingCounter);
 
-  const frameCount = 720;
-
-  // Preload images
-  const preloadImages = () => {
-    const imgPromises = [];
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.src = `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(i + 1).toString().padStart(4, "0")}.webp`;
-      imgPromises.push(new Promise((resolve) => {
-        img.onload = () => resolve(img);
-      }));
-      imagesRef.current.push(img);
-    }
-    return Promise.all(imgPromises);
-  };
-
   useEffect(() => {
-    // Load images before starting animation
-    preloadImages()
-      .then(() => {
-        setAllImagesLoaded(true);  // Set to true once all images are loaded
-        setLoading(false);  // Set loading to false
-      })
-      .catch((error) => {
-        console.error("Error loading images:", error);
-      });
+    const lenis = new Lenis({
+      lerp: 0, // Increase for more smoothness (0 - 1)
+      smooth: true, // Ensure smooth scrolling is enabled
+      direction: "vertical", // Scrolling direction, use 'horizontal' for horizontal scroll
+      gestureDirection: "vertical", // Direction for touch gestures
+      mouseMultiplier: 1, // Adjust how sensitive the scroll reacts to the mouse
+      smoothTouch: true, // Enable smooth scroll for touch devices
+      touchMultiplier: 2, // Increase this value for a smoother effect on touch devices
+    });
 
-    // Set up canvas and animation once images are loaded
+    // RAF (Request Animation Frame) loop for Lenis
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy(); // Clean up Lenis instance on unmount
+    };
+  }, []);
+  useEffect(() => {
     const section = sectionRef.current;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -79,49 +75,162 @@ const Animation = ({ loadImage, counter }) => {
     };
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
+    // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/desktop/0001.webp
+    const frameCount = 720;
+    const currentFrame = (index) =>
+      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(
+        index + 1
+      )
+        .toString()
+        .padStart(4, "0")}.webp`;
 
-    // Set up GSAP animation
+    let imgL = [];
+    for (let i = 0; i < frameCount; i++) {
+      let img = new Image();
+      img.src = currentFrame(i);
+      imagesRef.current.push(img);
+      imgL.push(img.src);
+    }
+// old code
+    // const loadImages = async () => {
+    //   try {
+    //     const loadImagePromises = imgL.map((imageUrl, index) => {
+    //       return new Promise((resolve) => {
+    //         const img = new Image();
+    //         img.src = imageUrl;
+    //         img.onload = () => {
+    //           setLoadingCounter(index + 1);
+    //           resolve();
+    //         };
+    //       });
+    //     });
+
+    //     await Promise.all(loadImagePromises);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     console.error("Error loading images:", error);
+    //   }
+    // };
+// new code
+    const loadImages = async () => {
+      const loadBatch = async (startIndex) => {
+        const batchSize = 10;
+        const promises = [];
+    
+        for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+          promises.push(new Promise((resolve) => {
+            const img = new Image();
+            img.src = currentFrame(i);
+            img.onload = () => {
+              imagesRef.current[i] = img;
+              resolve();
+            };
+          }));
+        }
+    
+        await Promise.all(promises);
+        setLoadingCounter((prev) => prev + batchSize);
+      };
+    
+      for (let i = 0; i < frameCount; i += 10) {
+        await loadBatch(i);
+      }
+    
+      setLoading(false);
+    };
+    
+    // const loadImages = async () => {
+    //   const batchSize = 10; // Number of images to load at once
+    //   const totalFrames = frameCount;
+      
+    //   const loadBatch = (startIndex) => {
+    //     const endIndex = Math.min(startIndex + batchSize, totalFrames);
+    //     const loadImagePromises = [];
+    
+    //     for (let i = startIndex; i < endIndex; i++) {
+    //       loadImagePromises.push(new Promise((resolve) => {
+    //         const img = new Image();
+    //         img.src = currentFrame(i);
+    //         img.onload = () => {
+    //           imagesRef.current[i] = img; // Store the loaded image
+    //           setLoadingCounter(prev => prev + 1);
+    //           resolve();
+    //         };
+    //       }));
+    //     }
+    
+    //     return Promise.all(loadImagePromises);
+    //   };
+    
+    //   try {
+    //     for (let i = 0; i < totalFrames; i += batchSize) {
+    //       await loadBatch(i);
+    //       // Allow some time between batches to avoid overwhelming the browser
+    //       await new Promise(resolve => setTimeout(resolve, 50)); // Adjust as necessary
+    //     }
+    //     setLoading(false);
+    //   } catch (error) {
+    //     console.error("Error loading images:", error);
+    //   }
+    // };
+    
+    loadImages();
+    console.log(imgL);
+    console.log("Counter", loadingCounter);
+
     const animationTimeline = gsap.timeline({
       onUpdate: () => {
         render();
         const progress = animationTimeline.progress();
         const frame = Math.floor(progress * (frameCount - 1));
         airpodsRef.current.frame = frame;
+        console.log(`Scroll Progress: ${progress}, Frame: ${frame}`);
       },
-      onComplete: () => setAnimationEnded(true),
+      // onComplete: () => setAnimationEnded(true),
       scrollTrigger: {
         trigger: section,
         pin: true,
-        scrub: true,
+        scrub: false, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
+        //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+        // effects: true, // looks for data-speed and data-lag attributes on elements
+        // smoothTouch: 100,
         end: "+=1200%",
+        onUpdate: (self) => {
+          const progress = self.progress;
+          airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
+          console.log(
+            `Scroll Progress: ${progress}, Frame: ${airpodsRef.current.frame}`
+          );
+          render();
+        },
       },
     });
+    imagesRef.current[0].onload = render;
+    // animationTimeline.to(airpodsRef.current, {
+    //   frame: frameCount - 1,
+    //   snap: "frame",
+    //   ease: "none",
+    //   duration: 1,
+    // });
 
-    animationTimeline.to(airpodsRef.current, {
-      frame: frameCount - 1,
-      snap: "frame",
-      ease: "none",
-      duration: 1,
-    });
+    // imagesRef.current[0].onload = render;
 
     function render() {
-      if (allImagesLoaded) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(
-          imagesRef.current[airpodsRef.current.frame],
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-      }
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(
+        imagesRef.current[airpodsRef.current.frame],
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
     }
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [allImagesLoaded]);
+  }, []);
 
   console.log(loadImage(loading));
 
@@ -162,39 +271,25 @@ const Animation = ({ loadImage, counter }) => {
     setIsVisible(false);
   };
 
+  //  code for video show and hide
+  // useEffect(() => {
+  //   // Function to handle scroll direction and video visibility
+  //   const handleScroll = () => {
+  //     const video = document.querySelector(`.${styles.videoBg}`);
+  //     if (window.scrollY > 0) {
+  //       // Check if window has scrolled down
+  //       video.style.visibility = "hidden";
+  //     } else {
+  //       video.style.visibility = "visible";
+  //     }
+  //   };
 
-
-  //  code for video show and hide 
-// useEffect(() => {
-//   // Function to handle scroll direction and video visibility
-//   const handleScroll = () => {
-//     const video = document.querySelector(`.${styles.videoBg}`);
-//     if (window.scrollY > 0) {
-//       // Check if window has scrolled down
-//       video.style.visibility = "hidden";
-//     } else {
-//       video.style.visibility = "visible";
-//     }
-//   };
-
-//   // Add scroll event listener
-//   window.addEventListener("scroll", handleScroll);
-//   return () => {
-//     window.removeEventListener("scroll", handleScroll);
-//   };
-// }, []);
-
-
-
-
-
-
-
-
-
-
-
-
+  //   // Add scroll event listener
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -217,7 +312,7 @@ const Animation = ({ loadImage, counter }) => {
   const buttonVariants = {
     hidden: { opacity: 0, y: 120 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    upsideDown: { opacity: 0, y: 180, transition: { duration: 0.3 } }
+    upsideDown: { opacity: 0, y: 180, transition: { duration: 0.3 } },
   };
 
   return (
@@ -265,10 +360,7 @@ const Animation = ({ loadImage, counter }) => {
 
       <div class="scroll-down-wrap no-border">
         {isVisible && (
-          <div
-            className="section-down-arrow"
-            onClick={scrollDownByTenPercent}
-          >
+          <div className="section-down-arrow" onClick={scrollDownByTenPercent}>
             <svg
               class="nectar-scroll-icon"
               viewBox="0 0 30 45"
@@ -288,9 +380,7 @@ const Animation = ({ loadImage, counter }) => {
         )}
       </div>
 
-{/* just add the second video new one link here >> source is in public folder  */}
-
-       {/* <video
+      {/* <video
         className={styles.videoBg}
         width="750"
         height="500"
@@ -298,12 +388,8 @@ const Animation = ({ loadImage, counter }) => {
         loop
         muted
       >
-        <source src="./video/mobile_video.mp4" type="video/mp4" />
+        <source src="./video/final_frame_video.mp4" type="video/mp4" />
       </video> */}
-
-
-
-
 
       <MusicPlayer />
       {scrollPercentage >= 45 && (
