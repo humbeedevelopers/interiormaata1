@@ -6,7 +6,6 @@ import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
 import styles from "@/Components/Home_page_Banner/Banner.module.css";
-import Lenis from "@studio-freight/lenis"; // Import Lenis
 import "./scroll.css";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,33 +22,38 @@ const Animation = ({ loadImage, counter }) => {
   const [loadingCounter, setLoadingCounter] = useState(0);
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
   console.log(loadingCounter);
 
-  // Lenis smooth scroll setup
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1, // Smoother scroll effect
-      smooth: true,
-      direction: "vertical",
-      gestureDirection: "vertical",
-      mouseMultiplier: 1,
-      smoothTouch: true,
-      touchMultiplier: 2,
-    });
+  const frameCount = 720;
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+  // Preload images
+  const preloadImages = () => {
+    const imgPromises = [];
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(i + 1).toString().padStart(4, "0")}.webp`;
+      imgPromises.push(new Promise((resolve) => {
+        img.onload = () => resolve(img);
+      }));
+      imagesRef.current.push(img);
     }
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+    return Promise.all(imgPromises);
+  };
 
   useEffect(() => {
+    // Load images before starting animation
+    preloadImages()
+      .then(() => {
+        setAllImagesLoaded(true);  // Set to true once all images are loaded
+        setLoading(false);  // Set loading to false
+      })
+      .catch((error) => {
+        console.error("Error loading images:", error);
+      });
+
+    // Set up canvas and animation once images are loaded
     const section = sectionRef.current;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -75,90 +79,33 @@ const Animation = ({ loadImage, counter }) => {
     };
     setCanvasSize();
     window.addEventListener("resize", setCanvasSize);
-    // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/mobile/0001.webp
-    const frameCount = 720;
-    const currentFrame = (index) =>
-      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(
-        index + 1
-      )
-        .toString()
-        .padStart(4, "0")}.webp`;
 
-    // let imgL = [];
-    // for (let i = 0; i < frameCount; i++) {
-    //   let img = new Image();
-    //   img.src = currentFrame(i);
-    //   imagesRef.current.push(img);
-    //   imgL.push(img.src);
-    // }
+    // Set up GSAP animation
+    const animationTimeline = gsap.timeline({
+      onUpdate: () => {
+        render();
+        const progress = animationTimeline.progress();
+        const frame = Math.floor(progress * (frameCount - 1));
+        airpodsRef.current.frame = frame;
+      },
+      onComplete: () => setAnimationEnded(true),
+      scrollTrigger: {
+        trigger: section,
+        pin: true,
+        scrub: true,
+        end: "+=1200%",
+      },
+    });
 
-    // const loadImages = async () => {
-    //   const loadBatch = async (startIndex) => {
-    //     const batchSize = 10;
-    //     const promises = [];
-    
-    //     for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
-    //       promises.push(new Promise((resolve) => {
-    //         const img = new Image();
-    //         img.src = currentFrame(i);
-    //         img.onload = () => {
-    //           imagesRef.current[i] = img;
-    //           resolve();
-    //         };
-    //       }));
-    //     }
-    
-    //     await Promise.all(promises);
-    //     setLoadingCounter((prev) => prev + batchSize);
-    //   };
-    
-    //   for (let i = 0; i < frameCount; i += 10) {
-    //     await loadBatch(i);
-    //   }
-    
-    //   setLoading(false);
-    // };
-     // Preloading images in batches
-     const loadImages = async () => {
-      const loadBatch = async (startIndex) => {
-        const batchSize = 10;
-        const promises = [];
+    animationTimeline.to(airpodsRef.current, {
+      frame: frameCount - 1,
+      snap: "frame",
+      ease: "none",
+      duration: 1,
+    });
 
-        for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
-          promises.push(new Promise((resolve) => {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-              imagesRef.current[i] = img;
-              resolve();
-            };
-          }));
-        }
-
-        await Promise.all(promises);
-        setLoadingCounter((prev) => prev + batchSize);
-      };
-
-      for (let i = 0; i < frameCount; i += 10) {
-        await loadBatch(i);
-      }
-
-      setLoading(false);
-    };
-
-    loadImages();
-    // console.log(imgL);
-    console.log("Counter", loadingCounter);
-    // Ensure the first frame is available
-    const checkFirstFrame = () => {
-      if (imagesRef.current[0]) {
-        render(); // Render first frame immediately
-      }
-    };
-
-    // Update canvas with the current frame
-    const render = () => {
-      if (imagesRef.current[airpodsRef.current.frame]) {
+    function render() {
+      if (allImagesLoaded) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(
           imagesRef.current[airpodsRef.current.frame],
@@ -168,82 +115,13 @@ const Animation = ({ loadImage, counter }) => {
           canvas.height
         );
       }
-    };
-
-    const animationTimeline = gsap.timeline({
-      onUpdate: () => {
-        render();
-        const progress = animationTimeline.progress();
-        const frame = Math.floor(progress * (frameCount - 1));
-        airpodsRef.current.frame = frame;
-        console.log(`Scroll Progress: ${progress}, Frame: ${frame}`);
-      },
-      // onComplete: () => setAnimationEnded(true),
-      scrollTrigger: {
-        trigger: section,
-        pin: true,
-        scrub: true, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
-  //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-  // effects: true, // looks for data-speed and data-lag attributes on elements
-  // smoothTouch: 100,
-        end: "+=1400%",
-        onUpdate: (self) => {
-          const progress = self.progress;
-          airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
-          render();
-        },
-      },
-    });
-
-    checkFirstFrame();
-    // animationTimeline.to(airpodsRef.current, {
-    //   frame: frameCount - 1,
-    //   snap: "frame",
-    //   ease: "none",
-    //   duration: 1,
-    // });
-
-    // imagesRef.current[0].onload = render;
-       // Ensure that the first image is loaded before setting onload handler
-      //  if (imagesRef.current[0]) {
-      //   imagesRef.current[0].onload = render;
-      // }
-
-    // function render() {
-    //   // Ensure that we only render if the current image is available
-    //   if (imagesRef.current[airpodsRef.current.frame]) {
-    //     context.clearRect(0, 0, canvas.width, canvas.height);
-    //     context.drawImage(
-    //       imagesRef.current[airpodsRef.current.frame],
-    //       0,
-    //       0,
-    //       canvas.width,
-    //       canvas.height
-    //     );
-    //   }
-    // }
+    }
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
-  //   function render() {
-  //     context.clearRect(0, 0, canvas.width, canvas.height);
-  //     context.drawImage(
-  //       imagesRef.current[airpodsRef.current.frame],
-  //       0,
-  //       0,
-  //       canvas.width,
-  //       canvas.height
-  //     );
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("resize", setCanvasSize);
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, []);
+  }, [allImagesLoaded]);
 
   console.log(loadImage(loading));
 
@@ -305,6 +183,18 @@ const Animation = ({ loadImage, counter }) => {
 //     window.removeEventListener("scroll", handleScroll);
 //   };
 // }, []);
+
+
+
+
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     const handleScroll = () => {
