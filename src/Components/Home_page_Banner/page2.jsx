@@ -186,7 +186,7 @@ const Animation = ({ loadImage, counter }) => {
   //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
   // effects: true, // looks for data-speed and data-lag attributes on elements
   // smoothTouch: 100,
-        end: "+=1200%",
+        end: "+=1400%",
         onUpdate: (self) => {
           const progress = self.progress;
           airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
