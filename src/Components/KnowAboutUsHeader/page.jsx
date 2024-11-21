@@ -7,10 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Button6 from "@/Common/Buttons/button6";
 import Image from "next/image";
 import { FreeMode, Thumbs, Pagination, Autoplay } from "swiper/modules";
-import project1 from "@/images/project1.jpg";
-import project2 from "@/images/newimg1.jpg";
-import project3 from "@/images/project3.jpg";
-import project4 from "@/images/project4.jpg";
+// import project1 from "@/images/project1.jpg";
+// import project2 from "@/images/newimg1.jpg";
+// import project3 from "@/images/project3.jpg";
+// import project4 from "@/images/project4.jpg";
 import styles from "@/Components/KnowAboutUsHeader/knowAboutUs.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -82,7 +82,10 @@ const Page = () => {
       <div>
         <div className={styles.aboutUsHeader_outer}>
           <div className={styles.aboutUsHeader} ref={ref}>
-            <motion.div
+            <div>
+              <p className={styles.ananya}>TRAD-MO</p>
+            </div>
+            {/* <motion.div
               ref={ref}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
@@ -93,12 +96,12 @@ const Page = () => {
                 justifyContent={"center"}
                 className={styles.ananya}
               />
-            </motion.div>
+            </motion.div> */}
             <div className={styles.aboutUs_flex_divider}>
               <div className={styles.aboutUs_banner_image_outer}>
                 <Swiper
                   modules={[FreeMode, Thumbs, Pagination, Autoplay]}
-                  spaceBetween={10}
+                  spaceBetween={10} 
                   slidesPerView={1}
                   autoplay={{
                     delay: 2500,
@@ -107,54 +110,54 @@ const Page = () => {
                   speed={1000}
                 >
                   <SwiperSlide>
-                    <div className={styles.aboutUs_banner_image}>
+                    <div>
                       <Image
-                        src={project1}
+                        src={"https://interiormaataassets.humbeestudio.xyz/mainsiteassets/newimg1.webp"}
                         alt="image"
                         className={styles.aboutUs_banner_image}
                         width={480}
                         height={400}
-                        // priority
-                        loading="lazy"
+                        priority
+                        // loading="lazy"
                       />
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className={styles.aboutUs_banner_image}>
+                    <div >
                       <Image
-                        src={project2}
+                        src={"https://interiormaataassets.humbeestudio.xyz/mainsiteassets/project1.webp"}
                         alt="image"
                         className={styles.aboutUs_banner_image}
                         width={480}
                         height={400}
-                        // priority
-                        loading="lazy"
+                        priority
+                        // loading="lazy"
                       />
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className={styles.aboutUs_banner_image}>
+                    <div>
                       <Image
-                        src={project3}
+                        src={"https://interiormaataassets.humbeestudio.xyz/mainsiteassets/project3.webp"}
                         alt="image"
                         className={styles.aboutUs_banner_image}
                         width={480}
                         height={400}
-                        // priority
-                        loading="lazy"
+                        priority
+                        // loading="lazy"
                       />
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className={styles.aboutUs_banner_image}>
+                    <div>
                       <Image
-                        src={project4}
+                        src={"https://interiormaataassets.humbeestudio.xyz/mainsiteassets/project4.webp"}
                         alt="image"
                         className={styles.aboutUs_banner_image}
                         width={480}
                         height={400}
-                        loading="lazy"
-                        // priority
+                        // loading="lazy"
+                        priority
                       />
                     </div>
                   </SwiperSlide>
@@ -162,11 +165,12 @@ const Page = () => {
               </div>
               <motion.div
                 className={styles.aboutUs_banner_text_outer}
-                variants={sentence}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
+                // variants={sentence}
+                // initial="hidden"
+                // animate={inView ? "visible" : "hidden"}
               >
-                {text.split("").map((char, index) => (
+                <p className={styles.aboutUs_banner_text}>Trad-Mo embodies the harmonious fusion of Traditional Indian and Modern minimal Design . Its an idea of an open bright space with Complementary furniture but some Indian traditional elements were you have your roots hold , that’s when you know you are in the right space . This a sustainable style of design , more than that this is a way of life .If you think about the Practical side of the Style , Minimal maintenance required for Trad-Mo . Timeless , Sustainable , Close to your root , Maintenance free Life complementing today’s lifestyle . </p>
+                {/* {text.split("").map((char, index) => (
                   <motion.span
                     className={styles.aboutUs_banner_text}
                     key={char + "-" + index}
@@ -174,15 +178,15 @@ const Page = () => {
                   >
                     {char}
                   </motion.span>
-                ))}
-                <motion.div
+                ))} */}
+                <div
                   className={styles.aboutUs_buttonOuter}
-                  variants={buttonAnimation}
-                  initial="hidden"
-                  animate={controls}
+                  // variants={buttonAnimation}
+                  // initial="hidden"
+                  // animate={controls}
                 >
                   <Button6 button_text="KNOW MORE" />
-                </motion.div>
+                </div>
               </motion.div>
             </div>
           </div>
