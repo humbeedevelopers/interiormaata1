@@ -17,6 +17,29 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }) {
   const location1 = usePathname();
+   useEffect(() => {
+    // console.log(window);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-9X7CWWC2RR");
+
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer");
+// })(window, document, "script", "dataLayer", "GTM-W6VNSPT6");
+  });
+
   return (
     <html lang="en" className={`${poppins.variable}`}>
          <head>
@@ -42,6 +65,7 @@ export default function RootLayout({ children }) {
 
         {/* <link rel="preload" href="https://interiormaataassets.humbeestudio.xyz/mainsiteassets/images/AboutUs_Ananya_image.png" as="image" /> */}
         {/* Add more preload links as necessary */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X7CWWC2RR"></script>
       </head>
       {/* <meta http-equiv="refresh" content="3"/>  to refresh the website in every 3 seconds just for learning  */}
       <body>
