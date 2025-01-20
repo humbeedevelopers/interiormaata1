@@ -449,8 +449,8 @@ const Animation = ({ loadImage, counter }) => {
             }
             variants={buttonVariants}
           >
-            <a href="tel:+918031406773" className={styles.textX}>
-              Contact Us | +918031406773
+            <a href="tel:08031406773" className={styles.textX}>
+              Contact Us | 08031406773
             </a>
           </motion.button>
         </div>
