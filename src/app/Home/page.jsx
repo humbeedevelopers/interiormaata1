@@ -58,9 +58,9 @@ const Page = ({ lData }) => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {isLoading && <Preloader counter={isCounter} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       {width && (
         <>
           {width > 575 ? (

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  padding-top: 5rem;
 }
 
 .aboutUs_banner_image_outer {
@@ -95,7 +96,11 @@
     line-height: 26px;
   }
 }
-
+/* @media(max-width: 1200px){
+  .aboutUsHeader {
+    padding-top: 30rem;
+  }
+} */
 @media screen and (max-width: 1024px) {
   .ananya {
     font-size: 80px;
@@ -115,6 +120,10 @@
   .aboutUs_banner_text_outer {
     margin: 0 auto;
     width: 70%;
+  }
+  .aboutUsHeader{
+    padding-top: 20rem;
+    height: auto;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -155,7 +164,7 @@
   }
 
   .aboutUsHeader {
-    height: 122vh;
+    /* height: 122vh; */
   }
 
   .aboutUs_banner_text {
@@ -176,8 +185,8 @@
   }
 
   .aboutUsHeader {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
+    /* padding-top: 0rem;
+    padding-bottom: 0rem; */
   }
 
   .aboutUs_banner_text_outer {
@@ -207,8 +216,10 @@
     gap: 1rem;
   }
   .aboutUsHeader {
-    padding-bottom: 1rem;
-    padding-top: 2rem;
+    height: auto;
+    padding-top: 6rem;
+    /* padding-bottom: 1rem;
+    padding-top: 2rem; */
   }
 }
 @media (max-width: 375px) {
@@ -225,11 +236,15 @@
 }
 @media screen and (max-width: 320px) {
   .aboutUsHeader {
-    height: 134vh;
+    /* padding-top: 35rem; */
+    height: auto;
+    
+    padding-top: 6rem;
+    /* height: 134vh; */
   }
   .aboutUsHeader {
-    padding-bottom: 1rem;
-    padding-top: 4rem;
+    /* padding-bottom: 1rem;
+    padding-top: 4rem; */
   }
 
   .ananya {
