@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  padding-top: 5rem;
 }
 
 .aboutUs_banner_image_outer {
@@ -96,13 +97,8 @@
   }
 }
 @media(max-width: 1300px){
-
   .ImageProject{
     height: 65vh;
-  }
-  .aboutUsHeader{
-    height: auto;
-    padding-top: 4rem;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -125,19 +121,19 @@
     margin: 0 auto;
     width: 70%;
   }
+  .aboutUsHeader{
+    /* padding-top: 20rem; */
+    height: auto;
+  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .aboutUs_flex_divider {
     display: flex;
     /* width: 50rem; */
-    flex-direction: row;
+    flex-direction: column;
     gap: 2rem;
     margin: 0 auto;
-    padding-bottom: 4rem;
     /* padding-left: 0rem; */
-  }
-  .ImageProject{
-    height: auto;
   }
   .aboutUs_banner_text_outer {
     margin: 0 auto;
@@ -158,9 +154,10 @@
     padding-bottom: 0rem;
     width: 100%;
   }
+  
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .aboutUs_buttonOuter {
     display: flex;
     /* justify-content: center; */
@@ -169,14 +166,12 @@
 
   .aboutUsHeader {
     /* height: 122vh; */
+    padding-top: 5rem;
   }
 
   .aboutUs_banner_text {
     font-size: 18px;
     line-height: 25px;
-  }
-  .ImageProject{
-    height: 50vh;
   }
 
   .ananya {
@@ -189,6 +184,9 @@
   .aboutUs_flex_divider {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  .ImageProject{
+    height: 50vh;
   }
 
   .aboutUsHeader {
@@ -215,6 +213,9 @@
     line-height: normal;
     padding-bottom: 0rem;
   }
+  .ImageProject{
+    height: 30vh;
+  }
   .aboutUs_banner_text_outer {
     font-size: 14px;
     width: 100%;
@@ -222,10 +223,9 @@
   .aboutUs_flex_divider {
     gap: 1rem;
   }
-  .ImageProject{
-    height: 30vh;
-  }
   .aboutUsHeader {
+    height: auto;
+    padding-top: 6rem;
     /* padding-bottom: 1rem;
     padding-top: 2rem; */
   }
@@ -244,6 +244,10 @@
 }
 @media screen and (max-width: 320px) {
   .aboutUsHeader {
+    /* padding-top: 35rem; */
+    height: auto;
+    
+    padding-top: 6rem;
     /* height: 134vh; */
   }
   .aboutUsHeader {

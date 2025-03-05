@@ -8,7 +8,7 @@ import TextRevel from "@/Animations/TextRevel/page";
 // import ServicesCards from "@/Components/ServicesCards/page";
 import Services_Slider from "@/Components/Service_Slider/page";
 import AboutUs_ourDesign from "@/Components/AboutUs_ourDesign/page";
-
+import KnowAboutUsHeaderOne from "@/Components/KnowAboutUsHeaderOne/page";
 const Page = () => {
   useEffect(() => {
     (async () => {
@@ -22,6 +22,7 @@ const Page = () => {
   return (
     <>
       <Stairs />
+      <KnowAboutUsHeaderOne />
       <HowWeWorkHeader />
       <HowWeWorkTimeline />
       <TextRevel phrase={phrase} />
