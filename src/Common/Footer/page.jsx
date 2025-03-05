@@ -45,9 +45,18 @@ const Footer = () => {
             <a href="tel:08031406773" className={styles.phone_no}>
               08031406773
             </a>
-            <br />
+
             <a href="tel:0256-4000981" className={styles.phone_no}>
               0256-4000981
+            </a>
+
+              <br />
+            <a href="mailto:consultancy@interiormaata.com" className={styles.email_no}>
+              consultancy@interiormaata.com
+            </a>
+            <br />
+            <a href="mailto:business@interiormaata.com" className={styles.email_no}>
+            business@interiormaata.com
             </a>
 
             <Link
