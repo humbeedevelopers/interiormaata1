@@ -103,91 +103,101 @@ const Page = () => {
                   </motion.div>
                   <div>
                     <p className={styles.Services_Content_residential_desc}>
-                      Our residential interior design services are designed to
-                      create beautiful and functional homes that reflect your
-                      personal style and preferences.
+                      Our firm specializes in creating thoughtfully designed
+                      homes that blend aesthetics, functionality, and
+                      personalization, ensuring every space reflects the
+                      client’s lifestyle and vision.
                     </p>
                   </div>
                   <div>
                     <div className={styles.Services_Content_residential_list}>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg} alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Consultation and Needs Assessment
+                          Consultation & Needs Assessment – Understanding client
+                          requirements, lifestyle, and design aspirations.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg} alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Space Planning and Layout Design
+                          Space Planning & Layout Design – Optimizing space for
+                          functionality, flow, and comfortwith the help of
+                          Autocad layout
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg} alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Concept Development and Design
+                          Concept Development & Visualization – Creating mood
+                          boards, 3D renders, and design themes.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg} alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Furniture and Decor Selection
+                          Furniture & Decor Selection – Curating furniture,
+                          decor, and accessories for a cohesive look.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg}  alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Custom Furniture and Built-ins
+                          Custom Furniture & Built-ins – Designing tailor-made
+                          furniture for seamless integration.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg}  alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Lighting Design
+                          Lighting & Ambience Design – Enhancing mood and
+                          functionality through strategic lighting.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg} alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Color Consultation and Finishing
+                          Material & Color Consultation – Selecting materials,
+                          textures, and finishes for durability and style.
                         </p>
                       </div>
                       <div className={styles.Services_Content_list_inner}>
-                        <Image src={Services_interior_svg}  alt="none"/>
+                        <Image src={Services_interior_svg} alt="none" />
                         <p
                           className={
                             styles.Services_Content_residential_list_text
                           }
                         >
-                          Project Management
+                          End-to-End Project Management – Overseeing design
+                          execution, vendor coordination, and timely completion.
                         </p>
                       </div>
                     </div>
@@ -230,81 +240,95 @@ const Page = () => {
                     </motion.div>
                     <div>
                       <p className={styles.Services_Content_residential_desc}>
-                        Our commercial interior design services are designed to
-                        create inspiring and functional spaces that enhance
-                        productivity and creativity.
+                        Our Commercial architectural services focus on crafting
+                        timeless, functional, and sustainable homes that reflect
+                        personal lifestyles while optimizing space and
+                        aesthetics.
                       </p>
                     </div>
                     <div>
                       <div className={styles.Services_Content_residential_list}>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Space planning
+                            Site Analysis & Feasibility Studies – Evaluating
+                            terrain, climate, and zoning regulations for optimal
+                            design decisions.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Layout design
+                            Concept Development & Space Planning – Designing
+                            thoughtful layouts that enhance flow, comfort, and
+                            usability.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Furniture and decor selection
+                            Architectural Design & 3D Visualization – Creating
+                            detailed plans, elevations, and renders for clear
+                            visualization.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Lighting design
+                            Structural & MEP Integration – Ensuring seamless
+                            coordination of structural, mechanical, electrical,
+                            and plumbing elements.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Material selection
+                            Material Selection & Sustainability – Choosing
+                            eco-friendly, durable materials for long-term
+                            performance.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Procurement
+                            Regulatory Compliance & Approvals – Managing
+                            permits, codes, and legal clearances.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Project management and execution
+                            Project Management & Execution – Overseeing the
+                            construction process, ensuring quality, efficiency,
+                            and timely delivery.
                           </p>
                         </div>
                       </div>
@@ -348,83 +372,96 @@ const Page = () => {
                     </motion.div>
                     <div>
                       <p className={styles.Services_Content_residential_desc}>
-                        Our office interior design services are designed to
-                        create modern and functional workspaces that reflect
-                        your brand and values and enhance employee productivity
-                        and satisfaction.
+                        Our office interior design services focus on creating
+                        modern, functional, and inspiring workspaces that
+                        enhance productivity, reflect brand identity, and ensure
+                        employee well-being.
                       </p>
                     </div>
 
                     <div>
                       <div className={styles.Services_Content_residential_list}>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Acoustic Design
+                            Workplace Strategy & Consultation – Understanding
+                            business goals to create efficient and ergonomic
+                            workspaces.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Consultation and Needs Assessment
+                            Space Planning & Layout Design – Optimizing office
+                            layouts for collaboration, flexibility, and workflow
+                            efficiency.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Space Planning and Layout Design
+                            Furniture & Décor Selection – Curating office
+                            furniture, materials, and aesthetics for a cohesive
+                            brand experience.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Concept Development and Design
+                            Acoustic & Lighting Design – Enhancing comfort,
+                            focus, and energy efficiency with strategic
+                            solutions.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Lighting Design
+                            Sustainable & Smart Office Solutions – Integrating
+                            eco-friendly materials and technology for a
+                            future-ready workspace.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg}  alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Sustainable Design Solutions
+                            Brand Integration & Aesthetics – Designing offices
+                            that visually communicate company values and
+                            culture.
                           </p>
                         </div>
                         <div className={styles.Services_Content_list_inner}>
-                          <Image src={Services_interior_svg} alt="none"/>
+                          <Image src={Services_interior_svg} alt="none" />
                           <p
                             className={
                               styles.Services_Content_residential_list_text
                             }
                           >
-                            Project Management
+                            Project Management & Execution – Overseeing design
+                            implementation to ensure seamless completion.
                           </p>
                         </div>
                       </div>
