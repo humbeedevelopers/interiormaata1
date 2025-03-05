@@ -35,14 +35,27 @@ const Page = () => {
           return clone;
         }),
         positionClones = () => elements.forEach((el, i) => gsap.set(clones[i], { overwrite: false, top: el.offsetTop }));
+
       positionClones();
       elements.forEach((el, i) => tl.to([el, clones[i]], { xPercent: -100, ...vars }, 0));
+
       window.addEventListener("resize", () => {
         let time = tl.totalTime();
         tl.totalTime(0);
         positionClones();
         tl.totalTime(time);
       });
+
+      // Pause animation on hover
+      elements.forEach(el => {
+        el.addEventListener("mouseenter", () => {
+          tl.pause(); // Pause the animation
+        });
+        el.addEventListener("mouseleave", () => {
+          tl.play(); // Resume the animation
+        });
+      });
+
       return tl;
     }
   }, []);
