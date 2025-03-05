@@ -1,5 +1,5 @@
 .project {
-  padding-top: 0.8vw;
+  /* padding-top: 0.8vw; */
   padding-bottom: 0.8vw;
   cursor: pointer;
   width: 100%;
@@ -26,7 +26,7 @@
 
 .project p {
   font-size: 55px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   color: #7f7047;
   font-family: "Dream Avenue";
   margin: 0px;

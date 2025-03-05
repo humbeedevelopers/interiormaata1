@@ -91,7 +91,7 @@ const Page = () => {
                     transition={{ duration: 0.1, delay: 0 }}
                   >
                     <HeadingTextAnimation
-                      heading={"Residential "}
+                      heading={"Residential"}
                       justifyContent={"left"}
                       className={styles.Services_Content_residential}
                     />

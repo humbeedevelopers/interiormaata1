@@ -51,7 +51,7 @@
   flex-direction: column;
   width: 50%;
   background-color: #ffffff;
-  padding: 65px 0 52px 70px;
+  padding: 20px 0 30px 60px;
 }
 
 @media (max-width: 768px) {
