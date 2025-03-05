@@ -5,7 +5,7 @@
 .ananya {
   color: #7f7047;
   font-family: "Dream Avenue";
-  font-size: 100px;
+  font-size: 60px;
   font-style: normal;
   width: 90%;
   margin: 0 auto;
@@ -23,11 +23,16 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
+.aboutUs_banner_textOne{
+  padding-top: 1rem;
+}
 .aboutUs_flex_divider {
   display: flex;
-  width: 60rem;
+  width: 100%;
   gap: 2rem;
-  margin: 0 auto;
+  padding: 0 150px;
+  text-align: justify;
+  /* margin: 0 auto; */
   padding-top: 3rem;
   /* padding-left: 20rem; */
 }
@@ -45,15 +50,16 @@
 .aboutUs_banner_text {
   color: #cc7d45;
   font-family: var(--font-poppins);
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
-  line-height: 19px;
+  line-height: 25px;
+  text-align: justify;
   /* text-transform: capitalize; */
 }
 @media (min-width: 1600px) and (max-width: 1920px) {
   .ananya {
-    font-size: 140.669px;
+    font-size: 90px;
     width: 90%;
     line-height: 140px;
   }
@@ -93,10 +99,19 @@
     height: 500px;
   }
 }
-
+@media(max-width: 1360px){
+  .aboutUs_flex_divider {
+    padding: 0 100px;
+  }
+}
+@media(max-width: 1260px){
+  .aboutUs_flex_divider {
+    padding: 0 4rem;
+  }
+}
 @media screen and (max-width: 1024px) {
   .ananya {
-    font-size: 80px;
+    font-size: 60px;
     line-height: 80px;
     padding-bottom: 1.5rem;
     width: 100%;
@@ -135,6 +150,10 @@
     font-size: 46px;
     line-height: normal;
     padding-bottom: 0rem;
+  }
+  .aboutUs_banner_imageX{
+    padding: 0 20px;
+    height: 400px;
   }
   .aboutUs_banner_text_outer {
     font-size: 14px;

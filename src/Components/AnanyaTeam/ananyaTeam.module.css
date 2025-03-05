@@ -16,7 +16,7 @@
 }
 .aboutUs_banner_imageX{
   width: 600px;
-  height: auto;
+  height: 600px;
 }
 .designStyle {
   font-family: var(--font-poppins);
@@ -27,6 +27,9 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
+.aboutUs_banner_textOne{
+  padding-top: 1rem;
+}
 .aboutUs_flex_divider {
   display: flex;
   flex-direction: row-reverse;
@@ -34,7 +37,7 @@
   gap: 2rem;
   margin: 0 auto;
   padding-top: 0rem;
-  padding: 0 50px;
+  padding: 0 100px;
   /* padding-left: 20rem; */
 }
 .aboutUs_buttonOuter {
@@ -51,10 +54,11 @@
 .aboutUs_banner_text {
   color: #cc7d45;
   font-family: var(--font-poppins);
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
-  line-height: 19px;
+  line-height: 25px;
+  text-align: justify;
   /* text-transform: capitalize; */
 }
 @media (min-width: 1600px) and (max-width: 1920px) {
@@ -130,7 +134,8 @@
 }
 @media(max-width: 768px){
   .aboutUs_banner_imageX{
-    width: 60%;
+    width: 80%;
+    height: auto;
   }
 }
 @media (max-width: 575px) {

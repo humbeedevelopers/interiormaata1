@@ -98,8 +98,8 @@ const Page = () => {
                   alt="image"
                   className={styles.aboutUs_banner_imageX}
                   // priority
-                  width={276}
-                  height={400}
+                  width={350}
+                  height={550}
                   loading="lazy" // Add this attribute
                 />
               </motion.div>
@@ -124,7 +124,9 @@ const Page = () => {
                   way to translate emotions into spaces. Kolkata was where she
                   first carved her place in the world, but Mumbai, with its
                   restless pulse, pushed her forward. Her career soared,
-                  creativity flourished—until life asked something new of her. A
+                  creativity flourished—until life asked something new of her. 
+                </p>
+                <p className={styles.aboutUs_banner_textOne}>A
                   move to Vadodara, a pause for family. But art does not pause.
                   What seemed like an interruption became an evolution. Ananya
                   picked up a camera, not to seek fame, but to share what she
@@ -139,8 +141,7 @@ const Page = () => {
                   tell stories, where the simplicity of modern minimalism meets
                   the soul of traditional Indian craftsmanship. Every detail
                   speaks. Every corner hums with intention. Because a home, in
-                  the end, is not just a place. It is a feeling
-                </p>
+                  the end, is not just a place. It is a feeling</p>
               </motion.div>
               {/* for better optimisation removed it */}
               {/* {text.split("").map((char, index) => (
@@ -152,14 +153,14 @@ const Page = () => {
                   {char}
                 </motion.span>
               ))} */}
-              <motion.div
+              {/* <motion.div
                 className={styles.aboutUs_buttonOuter}
                 variants={buttonAnimation}
                 initial="hidden"
                 animate={controls}
               >
                 interior maata
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>

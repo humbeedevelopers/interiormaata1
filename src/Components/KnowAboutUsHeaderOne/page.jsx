@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Button6 from "@/Common/Buttons/button6";
 import Image from "next/image";
 import { FreeMode, Thumbs, Pagination, Autoplay } from "swiper/modules";
-import project1 from "@/images/project3.jpg";
+import project1 from "@/images/img71.jpg";
 // import project2 from "@/images/newimg1.jpg";
 // import project3 from "@/images/project3.jpg";
 // import project4 from "@/images/project4.jpg";
@@ -102,7 +102,7 @@ const Page = () => {
                 <Image
                   src={project1}
                   alt="none"
-                  className={styles.aboutUs_banner_image}
+                  className={styles.ImageProject}
                 />
               </div>
               <motion.div
@@ -112,27 +112,45 @@ const Page = () => {
                 // animate={inView ? "visible" : "hidden"}
               >
                 <p className={styles.aboutUs_banner_text}>
-                  A name that carries meaning in every syllable— "Trad" for the
-                  traditions that shape us, "Mo" for the effortless modernity we
-                  embrace. A home that carries the whispers of the past yet
+                 <p style={{textAlign: "center"}}> A name that carries meaning in every syllable— </p>
+                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center"}}>
+                  "Trad" for the
+                  traditions that shape us,
+                  </p>
+                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center"}}>
+                   "Mo" for the effortless modernity we
+                  embrace.
+                  </p>
+                  <p className={styles.aboutUs_banner_textOne}>
+                     A home that carries the whispers of the past yet
                   breathes with the ease of the present. A space where modern
                   minimalism does not erase history but rather lets it shine in
-                  its purest form. It was in this beautiful harmony of old and
+                  its purest form. 
+                  </p>
+                  <p className={styles.aboutUs_banner_textOne}>
+                  It was in this beautiful harmony of old and
                   new that Ananya, the founder of Interior Maata Studio, found
                   inspiration. She saw how Indian homes were evolving—embracing
                   clean, functional design, yet holding onto their deep love for
                   tradition. And so, TradMo was born—a design philosophy that
                   blends the sleekness of modern living with the rich soul of
-                  Indian heritage. And so, Tradmo is not just a design style—it
+                  Indian heritage.
+                  </p>
+                  <p className={styles.aboutUs_banner_textOne}>
+                   And so, Tradmo is not just a design style—it
                   is a way of life. It brings together the best of both worlds:
                   clean, breathable, and functional spaces infused with the
                   warmth of Indian aesthetics. A practical home, yet deeply
                   emotional. A place where the past and present exist in
-                  harmony. From modern city apartments to soulful heritage
+                  harmony.
+                  </p>
+                  <p className={styles.aboutUs_banner_textOne}>
+                   From modern city apartments to soulful heritage
                   homes, Interior Maata Studio has shaped Tradmo into a
                   movement—one that redefines Indian homes for a new generation.
                   Because no matter how much we evolve, our roots always find a
                   way back home.
+                  </p>
                 </p>
                 {/* {text.split("").map((char, index) => (
                   <motion.span

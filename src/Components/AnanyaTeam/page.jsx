@@ -125,7 +125,9 @@ const Page = () => {
                   Interior Maata Studio began transforming spaces, blending
                   modern minimalism with the warmth of traditional Indian
                   craftsmanship. Word spread, and what started as a quiet
-                  initiative quickly grew into something bigger. A team formed,
+                  initiative quickly grew into something bigger.
+                </p>
+                <p className={styles.aboutUs_banner_textOne}> A team formed,
                   ideas flourished, and soon, Interior Maata was no longer just
                   a name—it was a movement. Today, the studio stands strong with
                   20+ designers and a vast network of experts, shaping homes
@@ -143,8 +145,7 @@ const Page = () => {
                   into everyday life. Because a home is more than walls and
                   furniture. It is a reflection of the lives within it. And at
                   Interior Maata Studio, that belief is woven into every space
-                  we create.
-                </p>
+                  we create.</p>
               </motion.div>
               {/* for better optimisation removed it */}
               {/* {text.split("").map((char, index) => (
