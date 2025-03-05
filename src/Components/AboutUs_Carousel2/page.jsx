@@ -15,6 +15,8 @@ import earth from "@/images/earth_moodboard.webp";
 import "@/Components/AboutUs_Carousel2/Inbuilt.css";
 import styles from "@/Components/AboutUs_Carousel2/AboutUS_Carousel2.module.css";
 
+
+
 const Page = () => {
   // const [isExpanded, setIsExpanded] = useState(false);
 
