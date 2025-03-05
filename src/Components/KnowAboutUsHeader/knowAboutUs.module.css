@@ -17,7 +17,7 @@
 }
 .ImageProject{
   max-width: 100%;
-  height: 100%;
+  height: 65vh;
   object-fit: cover;
 }
 .ananya {
@@ -95,7 +95,16 @@
     line-height: 26px;
   }
 }
+@media(max-width: 1300px){
 
+  .ImageProject{
+    height: 65vh;
+  }
+  .aboutUsHeader{
+    height: auto;
+    padding-top: 4rem;
+  }
+}
 @media screen and (max-width: 1024px) {
   .ananya {
     font-size: 80px;
@@ -124,7 +133,11 @@
     flex-direction: row;
     gap: 2rem;
     margin: 0 auto;
+    padding-bottom: 4rem;
     /* padding-left: 0rem; */
+  }
+  .ImageProject{
+    height: auto;
   }
   .aboutUs_banner_text_outer {
     margin: 0 auto;
@@ -155,12 +168,15 @@
   }
 
   .aboutUsHeader {
-    height: 122vh;
+    /* height: 122vh; */
   }
 
   .aboutUs_banner_text {
     font-size: 18px;
     line-height: 25px;
+  }
+  .ImageProject{
+    height: 50vh;
   }
 
   .ananya {
@@ -176,8 +192,8 @@
   }
 
   .aboutUsHeader {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
+    /* padding-top: 0rem;
+    padding-bottom: 0rem; */
   }
 
   .aboutUs_banner_text_outer {
@@ -206,9 +222,12 @@
   .aboutUs_flex_divider {
     gap: 1rem;
   }
+  .ImageProject{
+    height: 30vh;
+  }
   .aboutUsHeader {
-    padding-bottom: 1rem;
-    padding-top: 2rem;
+    /* padding-bottom: 1rem;
+    padding-top: 2rem; */
   }
 }
 @media (max-width: 375px) {
@@ -225,11 +244,11 @@
 }
 @media screen and (max-width: 320px) {
   .aboutUsHeader {
-    height: 134vh;
+    /* height: 134vh; */
   }
   .aboutUsHeader {
-    padding-bottom: 1rem;
-    padding-top: 4rem;
+    /* padding-bottom: 1rem;
+    padding-top: 4rem; */
   }
 
   .ananya {
