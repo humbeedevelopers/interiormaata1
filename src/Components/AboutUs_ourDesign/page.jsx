@@ -83,7 +83,7 @@ function Seventh_Section() {
         <div className={styles.table_content}>
           <Image
             className={styles.ourDesign_icons}
-            src={Unity_logo}
+            src={Variety_logo}
             alt="image"
           />
           <div className={styles.table_section_content}>
