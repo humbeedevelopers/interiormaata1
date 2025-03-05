@@ -25,13 +25,15 @@ const Work = () => {
             transition={{ duration: 0.9 }}
           >
             <HeadingTextAnimation
-              heading={"WE CAN MAKE YOUR"}
+              heading={"WE CAN MAKE YOUR DREAM COME TRUE"}
               justifyContent={"center"}
+              className={styles.TextCenter}
             />
-            <HeadingTextAnimation
+            {/* <HeadingTextAnimation
               heading={"DREAM COME TRUE"}
               justifyContent={"center"}
-            />
+              className={styles.TextCenter}
+            /> */}
           </motion.div>
         </div>
       </div>

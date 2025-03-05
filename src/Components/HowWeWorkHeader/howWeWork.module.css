@@ -11,6 +11,9 @@
 .ananya_said{
   color: #cc7d45;
 }
+.TextCenter{
+  font-size: 60px;
+}
 .work_text {
   color: #7f7047;
   text-align: center;
@@ -60,6 +63,16 @@
     font-size: 22px;
   }
 }
+@media(max-width: 1250px){
+  .TextCenter{
+    font-size: 50px;
+  }
+}
+@media(max-width: 1199px){
+  .TextCenter{
+    font-size: 42px;
+  }
+}
 
 @media (max-width: 768px) {
   .work_title1 {
@@ -91,5 +104,13 @@
 
   .work_title1 {
     padding-bottom: 0rem;
+  }
+  .TextCenter{
+    font-size: 30px;
+  }
+}
+@media(max-width: 375px){
+  .TextCenter{
+    font-size: 25px;
   }
 }

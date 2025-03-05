@@ -53,8 +53,8 @@ const Page = () => {
       <Stairs />
       <ConsultancyHeader />
       <ConsultancyTextFlex />
-      <AboutUs_ourDesign />
-      <TextRevel phrase={phrase} />
+      {/* <AboutUs_ourDesign /> */}
+      {/* <TextRevel phrase={phrase} /> */}
 
       {/* <ConsultancyTab/>
       <ConsultancyCarousal/> */}
