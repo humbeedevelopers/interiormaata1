@@ -9,6 +9,7 @@ import Variety_logo from "@/svgs/variety1.svg";
 import Unity_logo from "@/svgs/unity1.svg";
 import Functionality_logo from "@/svgs/functionality1.svg";
 import Materiality_logo from "@/svgs/materiality1.svg";
+import Sustainability_logo from "../../../public/image/Sustainability_Icon.png";
 
 function Seventh_Section() {
   const [ref, inView] = useInView({
@@ -96,8 +97,8 @@ function Seventh_Section() {
         </div>
         <div className={styles.table_content}>
           <Image
-            className={styles.ourDesign_icons}
-            src={Functionality_logo}
+            className={styles.ourDesign_icons1}
+            src={Sustainability_logo}
             alt="image"
           />
           <div className={styles.table_section_content}>
@@ -125,7 +126,7 @@ function Seventh_Section() {
         <div className={styles.table_content}>
           <Image
             className={styles.ourDesign_icons}
-            src={Materiality_logo}
+            src={Unity_logo}
             alt="image"
           />
           <div className={styles.table_section_content}>
