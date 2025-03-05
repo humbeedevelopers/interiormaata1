@@ -25,8 +25,8 @@ const Page = () => {
       <KnowAboutUsHeaderOne />
       <HowWeWorkHeader />
       <HowWeWorkTimeline />
-      <TextRevel phrase={phrase} />
-      <AboutUs_ourDesign />
+      {/* <TextRevel phrase={phrase} /> */}
+      {/* <AboutUs_ourDesign /> */}
       {/* <ServicesCards /> */}
       <Services_Slider />
       <HowWeWorkText />

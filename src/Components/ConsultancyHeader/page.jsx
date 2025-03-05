@@ -37,7 +37,7 @@ const Consultancy = () => {
           </motion.div>
         </div>
       </div>
-      <div className={styles.work_title1}>
+      {/* <div className={styles.work_title1}>
         <p className={styles.work_text1}>
         <span className={styles.ananya_said}>Ananya said,</span> Every project is like a baby, you take care of them
           with lots of love and care, pamper them till it's big enough to move
@@ -46,7 +46,7 @@ const Consultancy = () => {
           project is unique and customized according to your requirements. Here
           have a look at how it goes.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

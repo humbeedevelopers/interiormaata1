@@ -7,10 +7,10 @@ import img5 from "@/images/mambo_mambo 2.png"
 import NewRevel from "@/Animations/newRevel/page";
 import styles from "@/Components/AboutUsInfo/AboutUsInfo.module.css"
 export default function Home() {
-  const paragraph = 'Crafting Dreamy Interiors That Speak Volumes, Merging Style With Soul To Redefine Your Living Experience. Elevate Your image Space With Us!';
+  const paragraph = 'Crafting Dreamy interiors That Speak Volumes, Merging Style With Soul To Redefine Your Living Experience. Elevate Your image Space With Us!';
   const projects = [
     {
-      title1: "Crafting dreamy Interiors",
+      title1: "Crafting dreamy interiors",
       title2: "",
       src: img1,
       url: "/Projects"

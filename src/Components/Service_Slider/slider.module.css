@@ -23,18 +23,18 @@
 .Services_Content_residential {
   color: #cc7d45;
   font-family: "Dream Avenue";
-  font-size: 3.78vw;
+  font-size: 3.6vw;
   width: 82%;
   font-style: normal;
   font-weight: 400;
   white-space: pre-line;
   line-height: normal;
   text-transform: capitalize;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 .Services_Content_residential_desc {
   color: #000;
-  width: 80%;
+  width: 85%;
   font-family: var(--font-poppins);
   font-size: 15.616px;
   font-style: normal;
