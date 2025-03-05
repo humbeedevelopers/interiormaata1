@@ -8,7 +8,7 @@ const Button = (props) => {
   return (
     <div>
       <button
-        onClick={() => router.push("/Projects#residential")}
+        onClick={() => router.push("/HowWeWork")}
         className="button2"
         role="button"
       >
