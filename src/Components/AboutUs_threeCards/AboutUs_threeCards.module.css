@@ -74,18 +74,23 @@
 }
 
 .Landing_image1:hover .overlay_text{
-  transform: translate(-50%, 150%);
+  transform: translate(-50%, 170%);
   cursor: pointer;
   
 }
 
+
+
+
+
+
 .Landing_image2:hover .overlay_text{
-  transform: translate(-50%, 150%);
+  transform: translate(-50%, 170%);
   cursor: pointer;
 }
 
 .Landing_image3:hover .overlay_text{
-  transform: translate(-50%, 230%);
+  transform: translate(-50%, 125%);
   cursor: pointer;
 }
 

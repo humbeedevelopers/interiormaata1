@@ -7,6 +7,7 @@ import styles from "@/Components/AboutUs_threeCards/AboutUs_threeCards.module.cs
 import about_image1 from "@/images/archimg1.png";
 import about_image2 from "@/images/archimg2.png";
 import about_image3 from "@/images/archimg3.png";
+import Link from "next/link";
 function Landing_page() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -22,6 +23,7 @@ function Landing_page() {
   return (
     <div className={styles.landing_page_second_container} ref={ref}>
       <div className={styles.landing_page_second_images}>
+      <Link href="/Services">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -31,10 +33,12 @@ function Landing_page() {
           <Image src={Home_Layer} alt="none" />
           <Image src={about_image1} alt="none" className={styles.about_hover} />
           <div className={styles.overlay_text}>
-            <p className={styles.overlay_text_content}>Interior</p>
-            <p className={styles.overlay_text_content1}>Design<br />Consultancy</p>
+            <p className={styles.overlay_text_content}>Interior <br />Consultancy</p>
+            <p className={styles.overlay_text_content1}>Design & PMC</p>
           </div>
         </motion.div>
+        </Link>
+        <Link href="/Services">
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -45,10 +49,12 @@ function Landing_page() {
           <Image src={Home_Layer} alt="none" />
           <Image src={about_image2} alt="none" className={styles.about_hover} />
           <div className={styles.overlay_text}>
-          <p className={styles.overlay_text_content}>architectural</p>
-            <p className={styles.overlay_text_content1}>Consultation<br />design</p>
+          <p className={styles.overlay_text_content}>architectural <br />Consultancy</p>
+            <p className={styles.overlay_text_content1}>Design & PMC</p>
           </div>
         </motion.div>
+        </Link>
+        <Link href="/Services">
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -59,10 +65,11 @@ function Landing_page() {
           <Image src={Home_Layer} alt="none" />
           <Image src={about_image3} alt="none" className={styles.about_hover} />
           <div className={styles.overlay_text}>
-            <p className={styles.overlay_text_content}>turn key </p>
-            <p className={styles.overlay_text_content1}>Executions </p>
+            <p className={styles.overlay_text_content}>Complete Build Solution</p>
+            <p className={styles.overlay_text_content1}>End-to-End Execution </p>
           </div>
         </motion.div>
+        </Link>
       </div>
     </div>
   );
