@@ -141,6 +141,7 @@ const Project_Header = () => {
                   className={styles.Single_project_image1}
                   width={1000}
                   height={600}
+                  onClick={() => handleImageClick(item.acf.heading_image)} // ✅ Click to open modal
                 />
                 <Image
                   src={item.acf.image2}
@@ -148,6 +149,7 @@ const Project_Header = () => {
                   className={styles.Single_project_image1}
                   width={1000}
                   height={400}
+                  onClick={() => handleImageClick(item.acf.image2)} // ✅ Click to open modal
                 />
               </div>
             )}
@@ -181,6 +183,7 @@ const Project_Header = () => {
                   className={styles.Single_project_image1}
                   width={1000}
                   height={400}
+                  onClick={() => handleImageClick(item.acf.image3)} // ✅ Click to open modal
                 />
                 <Image
                   src={item.acf.image4}
@@ -188,6 +191,7 @@ const Project_Header = () => {
                   className={styles.Single_project_image1}
                   width={1000}
                   height={600}
+                  onClick={() => handleImageClick(item.acf.image4)} // ✅ Click to open modal
                 />
                 {/* <Image
                   src={item.acf.image4}
@@ -206,6 +210,7 @@ const Project_Header = () => {
                     <div
                       className={styles.First_project_layout_image2_inner}
                       key={imgIndex}
+                      onClick={() => handleImageClick(imgSrc)} // ✅ Click to open modal
                     >
                       <Image
                         src={imgSrc}
@@ -228,13 +233,15 @@ const Project_Header = () => {
                   className={styles.Single_project_image1}
                   width={1000}
                   height={700}
+                  onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
                 />
-                <Image
+                <Image     
                   src={item.acf.image8}
                   alt="none"
                   className={styles.Single_project_image1}
                   width={1000}
                   height={300}
+                  onClick={() => handleImageClick(item.acf.image8)} // ✅ Click to open modal
                 />
               </div>
             )}
