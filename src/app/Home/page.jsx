@@ -21,7 +21,7 @@ const HomeBanner1 = dynamic(() =>
 
 const Page = ({ lData }) => {
   const paragraph =
-    "INTERIOR MAATA STUDIO : STEP INTO A REALM WHERE TRADITION DANCE WITH MODERN MINIMALISM, CREATING SPACES THAT RESONATE WITH SOULFUL ELEGANCE";
+    "A SPACE IS MORE THAN WALLS AND FURNITURE. IT IS A REFLECTION OF THE LIVES WITHIN IT. AND AT INTERIOR MAATA STUDIO, THAT BELIEF IS WOVEN INTO EVERY SPACE WE CREATE.";
   const [isLoading, setIsLoading] = useState(true);
   const [isCounter, setCounter] = useState(0);
   const [width, setWidth] = useState(null);
@@ -58,9 +58,9 @@ const Page = ({ lData }) => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {isLoading && <Preloader counter={isCounter} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       {width && (
         <>
           {width > 575 ? (

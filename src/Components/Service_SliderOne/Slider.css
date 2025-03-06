@@ -1,6 +1,6 @@
 .productSlider .wrapper {
   position: relative;
-  padding: 4rem 11rem;
+  padding: 0rem 5rem 4rem;
   height: 100%;
 
 }
@@ -30,6 +30,7 @@
 .swiper-pagination-bullet-active{
   background-color: #cc7d45 !important;
 }
+
 .card1{
   position: relative !important;
 }
@@ -50,8 +51,8 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: #ffffff;
-  padding: 20px 0 30px 60px;
+  /* background-color: #ffffff; */
+  padding: 20px 0 30px 0px;
 }
 
 @media (max-width: 768px) {
@@ -248,11 +249,14 @@
     bottom: 35px;
     left: auto;
   }
+  .productSlider .wrapper {
+    padding: 0rem 0rem 4rem;
   
+  }
 }
 
 .productSlider .wrapper .productSliderCardItem .card2 {
-  background-color: #D9D9D9;
+  /* background-color: #D9D9D9; */
   text-align: center;
   width: 50%;
   display: flex;
@@ -265,24 +269,24 @@
   .productSlider .wrapper .productSliderCardItem .card2 {
     width: 100%;
     /* height: 100%; */
-    background-color: #EBEBEB;
+    /* background-color: #EBEBEB; */
     /* display: block; */
     text-align: left;
   }
 }
 
 .productSlider .wrapper .productSliderCardItem .card2 img {
-  max-width: 100%;
+  /* max-width: 100%;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: cover; */
 }
 
 @media (max-width: 768px) {
   .productSlider .wrapper .productSliderCardItem .card2 img {
-    width: 100%;
+    /* width: 100%;
     height: 30rem;
-    object-fit: cover;
+    object-fit: cover; */
     /* padding: 50px 0; */
   }
   
@@ -377,14 +381,14 @@
 {
   .productSlider .wrapper {
     position: relative;
-    padding: 4rem 5rem;
+    /* padding: 4rem 5rem; */
   }
   .productSlider .wrapper .productSliderCardItem .card1 {
     display: flex;
     flex-direction: column;
     width: 50%;
-    background-color: #EBEBEB;
-    padding: 65px 0 52px 50px;
+    /* background-color: #EBEBEB; */
+    padding: 65px 0 52px 0px;
 }
 }
 
@@ -393,13 +397,13 @@
 {
   .productSlider .wrapper {
     position: relative;
-    padding: 4rem 3.5rem;
+    /* padding: 4rem 3.5rem; */
   }
   .productSlider .wrapper .productSliderCardItem .card1 {
     display: flex;
     flex-direction: column;
     width: 50%;
-    background-color: #EBEBEB;
+    /* background-color: #EBEBEB; */
     padding: 30px 16px 5px 50px;
 }
 }
@@ -410,10 +414,12 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
+    
+  padding: 0 20px;
 }
 .productSlider .wrapper {
   position: relative;
-  padding: 4rem 3rem;
+  /* padding: 4rem 3rem; */
 }
 .productSlider .wrapper .productSliderCardItem .card2 {
   width: 100%;
@@ -455,8 +461,8 @@
 
 .productSlider .wrapper .productSliderCardItem .card2 img
 {
-  object-fit: cover;
-  height: 20rem;
+  /* object-fit: cover;
+  height: 20rem; */
 }
 
 }
@@ -516,13 +522,13 @@
 }
 .productSlider .wrapper {
   position: relative;
-  padding: 4rem 1rem;
+  /* padding: 4rem 1rem; */
 }
 
 .productSlider .wrapper .productSliderCardItem .card2 img
 {
-  height: 20rem;
-  object-fit: cover;
+  /* height: 20rem;
+  object-fit: cover; */
 }
 }
 

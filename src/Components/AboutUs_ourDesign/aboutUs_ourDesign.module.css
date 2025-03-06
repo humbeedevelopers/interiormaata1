@@ -29,7 +29,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.3px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .table_Section {
@@ -302,5 +302,9 @@
 
   .table_Section {
     padding: 0 15px;
+  }
+  .ourDesign_icons1 {
+    height: 60px;
+    display: block;
   }
 }

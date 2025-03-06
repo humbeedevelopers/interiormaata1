@@ -94,12 +94,24 @@
 .phone_no {
   color: #cc7d45;
   font-family: var(--font-poppins);
-  font-size: 35.075px;
+  font-size: 30.075px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-transform: capitalize;
+  padding-right: 2rem;
 }
+
+.email_no {
+  color: #cc7d45;
+  font-family: var(--font-poppins);
+  font-size: 25.075px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-right: 2rem;
+}
+
 
 .footerUl {
   list-style: none;
@@ -151,6 +163,7 @@
   line-height: normal;
   text-transform: capitalize;
   align-items: end;
+  padding-top: 2rem;
 }
 
 .footer_website {
@@ -414,6 +427,9 @@
     justify-content: flex-end;
     align-items: center;
   }
+  .email_no{
+    padding-right: 0rem;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
@@ -447,11 +463,32 @@
   .footer_website {
     font-size: 19px;
   }
+  .phone_no{
+    font-size: 22px;
+  }
+  .email_no{
+    font-size: 22px;
+  }
+  .footer_address{
+    font-size: 25px;
+  }
+  .Footer_Content{
+    padding-top: 0rem;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 424px) {
   .footer_Second {
     gap: 2rem;
+  }
+  .phone_no{
+    font-size: 22px;
+  }
+  .email_no{
+    font-size: 22px;
+  }
+  .footer_address{
+    font-size: 25px;
   }
   .Footer_Section {
     padding-left: 2rem;
@@ -463,10 +500,31 @@
     width: 100%;
     justify-content: flex-end;
   }
+  .phone_no{
+    font-size: 22px;
+  }
+  .email_no{
+    font-size: 22px;
+  }
+  .Footer_Content{
+    padding-top: 0rem;
+  }
 }
 @media(max-width:400px){
   .justTesting {
     transform: translate(0%, -8%);
+}
+.phone_no{
+  font-size: 18px;
+}
+.email_no{
+  font-size: 18px;
+}
+.footer_address{
+  font-size: 25px;
+}
+.Footer_Content{
+  padding-top: 0rem;
 }
 }
 
@@ -510,10 +568,18 @@
     line-height: 23.5px;
   }
   .phone_no {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
-
+@media(max-width: 325px){
+  .phone_no {
+    font-size: 15px;
+    padding-right: 1rem;
+  }
+  .email_no {
+    font-size: 15px;
+  }
+}
 @media (max-width: 300px) {
   .footer_website {
     font-size: 13px;

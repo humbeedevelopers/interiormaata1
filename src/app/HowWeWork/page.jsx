@@ -8,7 +8,7 @@ import TextRevel from "@/Animations/TextRevel/page";
 // import ServicesCards from "@/Components/ServicesCards/page";
 import Services_Slider from "@/Components/Service_Slider/page";
 import AboutUs_ourDesign from "@/Components/AboutUs_ourDesign/page";
-
+import KnowAboutUsHeaderOne from "@/Components/KnowAboutUsHeaderOne/page";
 const Page = () => {
   useEffect(() => {
     (async () => {
@@ -17,18 +17,19 @@ const Page = () => {
     })();
   }, []);
   const phrase =
-    "Get Your Home Designed In The Comfort Of Your Home Without Any Hassle. Our Team Of Excellent Designers Will Guide You In Designing Your Home Exactly The Way You Want.";
+    "Get your home designed in the comfort of your home without any hassle. Our team of excellent designers will guide you in designing your home exactly the way you want.";
 
   return (
     <>
       <Stairs />
+      <KnowAboutUsHeaderOne />
       <HowWeWorkHeader />
       <HowWeWorkTimeline />
       <TextRevel phrase={phrase} />
       <AboutUs_ourDesign />
       {/* <ServicesCards /> */}
       <Services_Slider />
-      <HowWeWorkText />
+      <HowWeWorkText  />
     </>
   );
 };

@@ -83,7 +83,7 @@
   .Services_Content_residential {
     color: #cc7d45;
     font-family: "Dream Avenue";
-    font-size: 4.5vw;
+    font-size: 3.5vw;
     width: 100%;
     font-style: normal;
     font-weight: 400;
@@ -199,7 +199,7 @@
     padding-bottom: 1rem;
   }
   .Services_second_Content_inner {
-   height: 759px;
+   height: auto;
   }
 }
 @media (max-width: 320px) {
@@ -219,6 +219,6 @@
     padding-bottom: 1rem;
   }
   .Services_second_Content_inner {
-    height: 759px;
+    height: auto;
    }
 }

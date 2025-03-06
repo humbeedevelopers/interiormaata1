@@ -1,7 +1,7 @@
 .work_container {
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
   padding-bottom: 8rem;
 }
 .work_title {
@@ -10,6 +10,9 @@
 }
 .ananya_said{
   color: #cc7d45;
+}
+.TextCenter{
+  font-size: 60px;
 }
 .work_text {
   color: #7f7047;
@@ -60,6 +63,16 @@
     font-size: 22px;
   }
 }
+@media(max-width: 1250px){
+  .TextCenter{
+    font-size: 50px;
+  }
+}
+@media(max-width: 1199px){
+  .TextCenter{
+    font-size: 42px;
+  }
+}
 
 @media (max-width: 768px) {
   .work_title1 {
@@ -68,7 +81,7 @@
   .work_container {
     padding-left: 3rem;
     padding-right: 3rem;
-    padding-top: 10rem;
+    padding-top: 5rem;
     padding-bottom: 5rem;
   }
 }
@@ -81,7 +94,7 @@
   .work_container {
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-top: 8rem;
+    padding-top: 5rem;
     padding-bottom: 2rem;
   }
 
@@ -91,5 +104,13 @@
 
   .work_title1 {
     padding-bottom: 0rem;
+  }
+  .TextCenter{
+    font-size: 30px;
+  }
+}
+@media(max-width: 375px){
+  .TextCenter{
+    font-size: 25px;
   }
 }

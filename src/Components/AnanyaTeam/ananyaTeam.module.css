@@ -5,7 +5,7 @@
 .ananya {
   color: #7f7047;
   font-family: "Dream Avenue";
-  font-size: 60px;
+  font-size: 40px;
   font-style: normal;
   width: 90%;
   margin: 0 auto;
@@ -13,6 +13,10 @@
   font-weight: 400;
   line-height: 100px;
   text-transform: uppercase;
+}
+.aboutUs_banner_imageX{
+  width: 600px;
+  height: 600px;
 }
 .designStyle {
   font-family: var(--font-poppins);
@@ -28,12 +32,12 @@
 }
 .aboutUs_flex_divider {
   display: flex;
+  flex-direction: row-reverse;
   width: 100%;
   gap: 2rem;
-  padding: 0 150px;
-  text-align: justify;
-  /* margin: 0 auto; */
-  padding-top: 3rem;
+  margin: 0 auto;
+  padding-top: 0rem;
+  padding: 0 100px;
   /* padding-left: 20rem; */
 }
 .aboutUs_buttonOuter {
@@ -59,7 +63,7 @@
 }
 @media (min-width: 1600px) and (max-width: 1920px) {
   .ananya {
-    font-size: 90px;
+    font-size: 50px;
     width: 90%;
     line-height: 140px;
   }
@@ -70,11 +74,11 @@
 }
 
 @media (min-width: 1921px) and (max-width: 2600px) {
-  .ananya {
+  /* .ananya {
     font-size: 150.669px;
     width: 90%;
     line-height: 150px;
-  }
+  } */
 
   .aboutUsHeader {
     padding-top: 17rem;
@@ -88,31 +92,31 @@
 
   .aboutUs_flex_divider {
     display: flex;
-    width: 70rem;
+    width: 100%;
     gap: 2rem;
     margin: 0 auto;
     /* padding-left: 20rem; */
   }
 
-  .aboutUs_banner_imageX {
-    width: 350px;
-    height: 500px;
-  }
+  
 }
-@media(max-width: 1360px){
-  .aboutUs_flex_divider {
-    padding: 0 100px;
-  }
+@media(max-width: 1250px){
+.ananya {
+  font-size: 35px;
+  line-height: 40px;
+  padding-bottom: 1.5rem;
+  width: 100%;
 }
-@media(max-width: 1260px){
-  .aboutUs_flex_divider {
-    padding: 0 4rem;
-  }
+.aboutUs_flex_divider {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 }
 @media screen and (max-width: 1024px) {
   .ananya {
-    font-size: 60px;
-    line-height: 80px;
+    font-size: 35px;
+    line-height: 40px;
     padding-bottom: 1.5rem;
     width: 100%;
   }
@@ -128,9 +132,15 @@
     width: 80%;
   }
 }
+@media(max-width: 768px){
+  .aboutUs_banner_imageX{
+    width: 80%;
+    height: auto;
+  }
+}
 @media (max-width: 575px) {
   .ananya {
-    font-size: 55px;
+    font-size: 30px;
     line-height: normal;
     padding-bottom: 0rem;
     width: 100%;
@@ -147,13 +157,9 @@
 }
 @media screen and (max-width: 425px) {
   .ananya {
-    font-size: 46px;
+    font-size: 25px;
     line-height: normal;
     padding-bottom: 0rem;
-  }
-  .aboutUs_banner_imageX{
-    padding: 0 20px;
-    height: 400px;
   }
   .aboutUs_banner_text_outer {
     font-size: 14px;
@@ -169,7 +175,7 @@
 }
 @media (max-width: 375px) {
   .ananya {
-    font-size: 40px;
+    font-size: 22px;
     line-height: normal;
     padding-bottom: 0rem;
   }
@@ -181,8 +187,9 @@
 }
 @media screen and (max-width: 320px) {
   .ananya {
-    font-size: 40px;
+    font-size: 20px;
     line-height: normal;
+    padding: 0 20px;
   }
   .aboutUs_banner_text_outer {
     width: 95%;

@@ -7,6 +7,8 @@ import ConsultancyTextFlex from "@/Components/ConsultancyTextFlex/page";
 // import ConsultancyCarousal from "@/Components/ConsultancyCarousal/page"
 import TextRevel from "@/Animations/TextRevel/page";
 import AboutUs_ourDesign from "@/Components/AboutUs_ourDesign/page";
+import AboutUs_threeCardsOne from "@/Components/AboutUs_threeCardsOne/page";
+import Services_Slider from "@/Components/Service_SliderOne/page";
 // import Lenis from "@studio-freight/lenis";
 const Page = () => {
   const phrase =
@@ -52,12 +54,15 @@ const Page = () => {
     <>
       <Stairs />
       <ConsultancyHeader />
-      <ConsultancyTextFlex />
-      <AboutUs_ourDesign />
-      <TextRevel phrase={phrase} />
+      {/* <ConsultancyTextFlex /> */}
+      {/* <AboutUs_threeCardsOne /> */}
+     
+      {/* <TextRevel phrase={phrase} /> */}
 
       {/* <ConsultancyTab/>
       <ConsultancyCarousal/> */}
+      <Services_Slider />
+      <AboutUs_ourDesign />
     </>
   );
 };
