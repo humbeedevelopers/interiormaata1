@@ -235,7 +235,7 @@ const Project_Header = () => {
                   height={700}
                   onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
                 />
-                <Image
+                <Image     
                   src={item.acf.image8}
                   alt="none"
                   className={styles.Single_project_image1}
