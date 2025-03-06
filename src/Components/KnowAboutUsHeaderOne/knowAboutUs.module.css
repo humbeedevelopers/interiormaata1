@@ -99,9 +99,14 @@
     line-height: 26px;
   }
 }
+@media(max-width: 1400px){
+  .ImageProject{
+    height: auto;
+  }
+}
 @media(max-width: 1300px){
   .ImageProject{
-    height: 65vh;
+    height: auto;
   }
   .aboutUs_banner_image_outer {
     width: 70%;
