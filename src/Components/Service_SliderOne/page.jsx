@@ -76,7 +76,7 @@ const Page = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="productSliderCardItem">
+            <div className="productSliderCardItemOne">
               <div className="card2">
                 <Image
                   src={Residential_Interior_Design}
@@ -116,7 +116,7 @@ const Page = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="productSliderCardItem">
+            <div className="productSliderCardItemOne">
               <div className="card2">
                 <Image
                   src={Commercial_Interior_Design}
@@ -160,7 +160,7 @@ const Page = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="productSliderCardItem">
+            <div className="productSliderCardItemOne">
               <div className="card2">
                 <Image
                   src={Office_Interior_Design}
