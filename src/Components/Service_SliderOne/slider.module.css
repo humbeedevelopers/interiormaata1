@@ -36,7 +36,7 @@
   color: #000;
   width: 85%;
   font-family: var(--font-poppins);
-  font-size: 15.616px;
+  font-size: 20.616px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -185,6 +185,7 @@
   .Services_Content_residential,
   .Services_Content_residential_desc {
     width: 100%;
+    font-size: 15px;
   }
 
   .Services_Content_residential {
@@ -206,6 +207,7 @@
   .Services_Content_residential,
   .Services_Content_residential_desc {
     width: 100%;
+    font-size: 15px;
   }
   .Services_Content_residential {
     font-size: 7.5vw;
