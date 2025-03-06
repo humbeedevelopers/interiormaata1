@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import "./style4.css";
@@ -26,7 +27,7 @@ export default function Body({
   const [isLinkHovered, setIsLinkHovered] = useState(false); // State to track if the link is hovered
   const [noExitAnimation, setNoExitAnimation] = useState(false); // State to skip exit animation
   const popupHideTimeout = useRef(null); // Ref to store the timeout ID
-
+const pathname = usePathname(); // Get the current route
   const getChars = (word) => {
     let chars = [];
     word.split("").forEach((char, i) => {
@@ -83,7 +84,10 @@ export default function Body({
   return (
     <>
       <div className="nav_body">
-        <div className={`navOpenLogo`} onClick={() => router.push("/")}>
+        <div className={`navOpenLogo`} 
+        // onClick={() => router.push("/")}
+        onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
+        >
           <Image
             src={nav_logo}
             alt="Description of the image"

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { AnimatePresence } from "framer-motion";
 import NavSection from "./nav/index";
@@ -8,6 +9,7 @@ import "./style1.css";
 import Popup from "@/Components/Popup/page";
 
 export default function NewNav() {
+  const pathname = usePathname(); // Get the current route
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const [popup, setPopup] = useState(false);
@@ -50,7 +52,10 @@ export default function NewNav() {
   return (
     <div className="headerMain">
       {popup && <Popup close={closePopup} />}
-      <div className={`nav_logo_outer`} onClick={() => router.push("/")}>
+      <div className={`nav_logo_outer`}
+        onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
+      // onClick={() => router.push("/")}
+      >
         <Image
           src={nav_logo}
           alt="Description of the image"
