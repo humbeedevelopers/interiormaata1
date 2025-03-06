@@ -13,6 +13,12 @@
 .productSlider .wrapper .productSliderCardItem {
   display: flex;
   height: 100%;
+  gap: 3rem;
+}
+.imgg{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
 }
 
 .productSlider .wrapper .slider_btn .right
@@ -59,6 +65,9 @@
   .productSlider .wrapper .productSliderCardItem .card1 {
     width: 100%;
     padding: 0!important;
+  }
+  .imgg{
+    height: auto;
   }
 }
 
