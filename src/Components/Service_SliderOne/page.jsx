@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/scrollbar";
-import "./Slider.css";
+import "./SliderOne.css";
 import Residential_Interior_Design from "@/images/Group16.png";
 import Commercial_Interior_Design from "@/images/Group7.png";
 import Office_Interior_Design from "@/images/Group8.png";

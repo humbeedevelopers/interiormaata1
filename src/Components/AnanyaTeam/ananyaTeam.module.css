@@ -1,21 +1,25 @@
 .aboutUsHeader {
-  padding-top: 6rem;
-  padding-bottom: 4rem;
+  /* padding-top: 6rem;
+  padding-bottom: 4rem; */
+  
+  padding: 6rem 150px;
 }
 .ananya {
   color: #7f7047;
   font-family: "Dream Avenue";
   font-size: 40px;
   font-style: normal;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  padding-bottom: 2rem;
   font-weight: 400;
-  line-height: 100px;
+  /* line-height: 100px; */
   text-transform: uppercase;
 }
 .aboutUs_banner_imageX{
-  width: 600px;
+  width: 100%;
+  object-fit: cover;
   height: 600px;
 }
 .designStyle {
@@ -29,15 +33,27 @@
 }
 .aboutUs_banner_textOne{
   padding-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+.aboutUs_banner_textOne.show {
+  max-height: 1000px; /* Adjust this value based on content height */
+}
+.viewMoreButton{
+  display: inline-block;
+  color: #cc7d45;
+  border-bottom: 1px solid #cc7d45;
+  cursor: pointer;
+  padding-top: 1rem;
 }
 .aboutUs_flex_divider {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   width: 100%;
   gap: 2rem;
   margin: 0 auto;
   padding-top: 0rem;
-  padding: 0 100px;
   /* padding-left: 20rem; */
 }
 .aboutUs_buttonOuter {
@@ -60,6 +76,11 @@
   line-height: 25px;
   text-align: justify;
   /* text-transform: capitalize; */
+}
+@media (min-width: 1500px){
+  .ananya{
+    font-size: 44px;
+  }
 }
 @media (min-width: 1600px) and (max-width: 1920px) {
   .ananya {
@@ -114,6 +135,9 @@
 }
 }
 @media screen and (max-width: 1024px) {
+  .aboutUsHeader{
+    padding: 6rem 100px;
+  }
   .ananya {
     font-size: 35px;
     line-height: 40px;
@@ -128,14 +152,17 @@
     padding: 0;
   }
   .aboutUs_banner_text_outer {
-    margin: 0 auto;
-    width: 80%;
+    /* margin: 0 auto;
+    width: 80%; */
   }
 }
 @media(max-width: 768px){
   .aboutUs_banner_imageX{
-    width: 80%;
+    width: 100%;
     height: auto;
+  }
+  .aboutUsHeader{
+    padding: 6rem 50px;
   }
 }
 @media (max-width: 575px) {
@@ -150,9 +177,9 @@
     padding-bottom: 4rem;
   }
   .aboutUs_banner_text_outer {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     font-size: 14px;
-    width: 90%;
+    /* width: 90%; */
   }
 }
 @media screen and (max-width: 425px) {
@@ -161,16 +188,15 @@
     line-height: normal;
     padding-bottom: 0rem;
   }
+  .aboutUsHeader{
+    padding: 6rem 25px;
+  }
   .aboutUs_banner_text_outer {
     font-size: 14px;
-    width: 88%;
+    /* width: 88%; */
   }
   .aboutUs_flex_divider {
     gap: 1.3rem;
-  }
-  .aboutUsHeader {
-    padding-bottom: 1rem;
-    padding-top: 5rem;
   }
 }
 @media (max-width: 375px) {
@@ -192,7 +218,7 @@
     padding: 0 20px;
   }
   .aboutUs_banner_text_outer {
-    width: 95%;
-    padding: 0 15px;
+    /* width: 95%; */
+    /* padding: 0 15px; */
   }
 }

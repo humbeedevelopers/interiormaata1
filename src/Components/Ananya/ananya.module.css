@@ -2,12 +2,28 @@
   padding-top: 6rem;
   padding-bottom: 4rem;
 }
+.aboutUs_banner_textOneOuter{
+  padding-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+.aboutUs_banner_textOneOuter.show {
+  max-height: 1000px; /* Adjust this value based on content height */
+}
+.viewMoreButton{
+  display: inline-block;
+  color: #cc7d45;
+  border-bottom: 1px solid #cc7d45;
+  cursor: pointer;
+  padding-top: 1rem;
+}
 .ananya {
   color: #7f7047;
   font-family: "Dream Avenue";
   font-size: 60px;
   font-style: normal;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   font-weight: 400;
@@ -152,15 +168,17 @@
     padding-bottom: 0rem;
   }
   .aboutUs_banner_imageX{
-    padding: 0 20px;
+    /* padding: 0 20px; */
     height: 400px;
+    width: 100%;
   }
   .aboutUs_banner_text_outer {
     font-size: 14px;
-    width: 88%;
+    width: 100%;
   }
   .aboutUs_flex_divider {
     gap: 1.3rem;
+    padding: 0 25px;
   }
   .aboutUsHeader {
     padding-bottom: 1rem;
@@ -185,7 +203,7 @@
     line-height: normal;
   }
   .aboutUs_banner_text_outer {
-    width: 95%;
-    padding: 0 15px;
+    /* width: 95%;
+    padding: 0 15px; */
   }
 }
