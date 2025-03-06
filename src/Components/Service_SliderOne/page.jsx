@@ -15,6 +15,7 @@ import "./SliderOne.css";
 import Residential_Interior_Design from "@/images/Rectangle-350.png";
 import Commercial_Interior_Design from "@/images/Rectangle-261.png";
 import Office_Interior_Design from "@/images/officeInerior.jpg";
+import Button11 from "@/Common/Buttons/button11"
 import Services_interior_svg from "@/svgs/Services_svg.svg";
 import arrow from "@/svgs/slider_arrow.svg";
 import styles from "@/Components/Service_SliderOne/slider.module.css";
@@ -110,6 +111,7 @@ const Page = () => {
                       your vision—blending aesthetics, functionality, and expert
                       project management for a seamless transformation.
                     </p>
+                    <Button11 button_text="Inquire Now"/>
                   </div>
                 </div>
               </div>
@@ -153,6 +155,7 @@ const Page = () => {
                         form, function, and finesse, backed by seamless Project
                         management.
                       </p>
+                      <Button11 button_text="Inquire Now"/>
                     </div>
                   </div>
                 </motion.div>
@@ -198,6 +201,7 @@ const Page = () => {
                         execution with expert team with more than 15+ years of
                         experience .
                       </p>
+                      <Button11 button_text="Inquire Now"/>
                     </div>
                   </div>
                   {/* content ends */}

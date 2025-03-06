@@ -99,7 +99,7 @@ const Page = () => {
   };
   return (
     <>
-      <div className={styles.Contact_form_section}>
+      <div className={styles.Contact_form_section} id="Form">
         <div className={styles.contact_form}>
           <div className={styles.contact_form_wrapper}>
             <h1 className={styles.contact_form_title}>Reach out to us</h1>
