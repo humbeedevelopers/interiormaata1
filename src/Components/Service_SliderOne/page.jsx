@@ -151,7 +151,7 @@ const Page = () => {
                       <p className={styles.Services_Content_residential_desc}>
                         Crafting designs from timeless structures that harmonize
                         form, function, and finesse, backed by seamless Project
-                        management .
+                        management.
                       </p>
                     </div>
                   </div>

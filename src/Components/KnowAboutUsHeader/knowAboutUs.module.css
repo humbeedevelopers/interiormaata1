@@ -88,12 +88,12 @@
     /* width: 80rem; */
   }
   .aboutUs_banner_text_outer {
-    padding-right: 7rem;
+    /* padding-right: 7rem; */
   }
 
   .aboutUs_banner_text {
-    font-size: 19px;
-    line-height: 26px;
+    font-size: 30px;
+    line-height: 40px;
   }
 }
 @media(max-width: 1300px){
