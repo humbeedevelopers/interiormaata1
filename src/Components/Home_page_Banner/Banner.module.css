@@ -197,7 +197,11 @@
   color: #ffffff;
   bottom: 15rem;
 }
-
+@media(min-width: 1600px){
+  .text1{
+    bottom: 19rem;
+  }
+}
 @media (min-width: 1600px) and (max-width: 1920px) {
   .canvas_factory_settings {
     object-fit: cover;
@@ -207,6 +211,7 @@
     left: 6rem;
     bottom: 20rem;
   }
+  
 
   .LivingRoom {
     position: absolute;
