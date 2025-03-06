@@ -414,7 +414,7 @@
     height: 100%;
     width: 100%;
     flex-direction: column;
-    
+    gap: 2rem;
   padding: 0 20px;
 }
 .productSlider .wrapper {
