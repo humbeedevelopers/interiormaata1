@@ -12,8 +12,8 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/scrollbar";
 import "./SliderOne.css";
-import Residential_Interior_Design from "@/images/Rectangle-350.png";
-import Commercial_Interior_Design from "@/images/Rectangle-261.png";
+import Residential_Interior_Design from "@/images/Rectangle-261.png";
+import Commercial_Interior_Design from "@/images/Rectangle-350.png";
 import Office_Interior_Design from "@/images/officeInerior.jpg";
 import Button11 from "@/Common/Buttons/button11"
 import Services_interior_svg from "@/svgs/Services_svg.svg";
