@@ -4,9 +4,9 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Home_Layer from "@/svgs/new_border.svg";
 import styles from "@/Components/AboutUs_threeCardsOne/AboutUs_threeCards.module.css";
-import about_image1 from "@/images/archimg1.png";
-import about_image2 from "@/images/archimg2.png";
-import about_image3 from "@/images/archimg3.png";
+import about_image1 from "@/images/Group8.png";
+import about_image2 from "@/images/Group7.png";
+import about_image3 from "@/images/Group16.png";
 import Link from "next/link";
 function Landing_page() {
   const [ref, inView] = useInView({
@@ -29,14 +29,17 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.2 }}
           className={styles.Landing_image1}
         >
-          <Image src={Home_Layer} alt="none" />
-          <Image src={about_image1} alt="none" className={styles.about_hover} />
-          <div className={styles.overlay_text}>
-            <p className={styles.overlay_text_content}>
+          {/* <div>
+          <p className={styles.overlay_text_content}>
               Interior <br />
               Consultancy
             </p>
             <p className={styles.overlay_text_content1}>Design & PMC</p>
+          </div> */}
+          {/* <Image src={Home_Layer} alt="none" /> */}
+          <Image src={about_image1} alt="none" className={styles.about_hover} />
+          <div className={styles.overlay_text}>
+           
           </div>
           <p className={styles.overlay_text_new}>
             From concept to creation, we shape spaces that reflect your
@@ -50,14 +53,17 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.3 }}
           className={styles.Landing_image2}
         >
-          <Image src={Home_Layer} alt="none" />
-          <Image src={about_image2} alt="none" className={styles.about_hover} />
-          <div className={styles.overlay_text}>
-            <p className={styles.overlay_text_content}>
+          {/* <div>
+          <p className={styles.overlay_text_content}>
               architectural <br />
               Consultancy
             </p>
             <p className={styles.overlay_text_content1}>Design & PMC</p>
+          </div> */}
+          {/* <Image src={Home_Layer} alt="none" /> */}
+          <Image src={about_image2} alt="none" className={styles.about_hover} />
+          <div className={styles.overlay_text}>
+           
           </div>
           <p className={styles.overlay_text_new}>
             Crafting designs from timeless structures that harmonize form,
@@ -70,15 +76,18 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.4 }}
           className={styles.Landing_image3}
         >
-          <Image src={Home_Layer} alt="none" />
-          <Image src={about_image3} alt="none" className={styles.about_hover} />
-          <div className={styles.overlay_text}>
-            <p className={styles.overlay_text_content}>
+          {/* <div>
+          <p className={styles.overlay_text_content}>
               Complete Build Solution
             </p>
             <p className={styles.overlay_text_content1}>
               End-to-End Execution{" "}
             </p>
+          </div> */}
+          {/* <Image src={Home_Layer} alt="none" /> */}
+          <Image src={about_image3} alt="none" className={styles.about_hover} />
+          <div className={styles.overlay_text}>
+           
           </div>
           <p className={styles.overlay_text_new}>
             From blueprint to reality—flawless transformations with a touch of
