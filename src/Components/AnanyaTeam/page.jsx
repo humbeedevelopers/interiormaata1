@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
@@ -8,6 +8,7 @@ import Image from "next/image";
 import Cover_image from "@/images/img43.jpg";
 import styles from "@/Components/AnanyaTeam/ananyaTeam.module.css";
 const Page = () => {
+  const [showMore, setShowMore] = useState(false);
   const text = useMemo(
     () =>
       // const text =
@@ -127,7 +128,7 @@ const Page = () => {
                   craftsmanship. Word spread, and what started as a quiet
                   initiative quickly grew into something bigger.
                 </p>
-                <p className={styles.aboutUs_banner_textOne}> A team formed,
+                <p className={`${styles.aboutUs_banner_textOne} ${showMore ? styles.show : styles.hide}`}> A team formed,
                   ideas flourished, and soon, Interior Maata was no longer just
                   a name—it was a movement. Today, the studio stands strong with
                   20+ designers and a vast network of experts, shaping homes
@@ -146,7 +147,14 @@ const Page = () => {
                   furniture. It is a reflection of the lives within it. And at
                   Interior Maata Studio, that belief is woven into every space
                   we create.</p>
+                  <div
+                  className={styles.viewMoreButton}
+                  onClick={() => setShowMore(!showMore)}
+                >
+                  {showMore ? "View Less" : "View More"}
+                </div>
               </motion.div>
+              
               {/* for better optimisation removed it */}
               {/* {text.split("").map((char, index) => (
                 <motion.span

@@ -112,12 +112,12 @@ const Page = () => {
                 // animate={inView ? "visible" : "hidden"}
               >
                 <p className={styles.aboutUs_banner_text}>
-                 <p style={{textAlign: "center"}}> A name that carries meaning in every syllable— </p>
-                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center"}}>
+                 <p style={{textAlign: "center", color: "#000"}}> A name that carries meaning in every syllable— </p>
+                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center", color: "#000"}}>
                   "Trad" for the
                   traditions that shape us,
                   </p>
-                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center"}}>
+                  <p className={styles.aboutUs_banner_textOne} style={{textAlign: "center", color: "#000"}}>
                    "Mo" for the effortless modernity we
                   embrace.
                   </p>

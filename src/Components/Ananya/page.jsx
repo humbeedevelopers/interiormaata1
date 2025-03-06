@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
@@ -8,6 +8,8 @@ import Image from "next/image";
 import Cover_image from "../../../public/image/AboutUs_Ananya_image1.jpg";
 import styles from "@/Components/Ananya/ananya.module.css";
 const Page = () => {
+   const [showMore, setShowMore] = useState(false);
+   
   const text = useMemo(
     () =>
       // const text =
@@ -132,7 +134,9 @@ const Page = () => {
                   picked up a camera, not to seek fame, but to share what she
                   knew—to guide, to inspire, to teach others how to create homes
                   filled with warmth and meaning. What started as a quiet
-                  passion soon grew into something greater. In 2018, YouTube
+                  passion soon grew into something greater. 
+                  <p className={`${styles.aboutUs_banner_textOneOuter} ${showMore ? styles.show : styles.hide}`}>
+                  In 2018, YouTube
                   India took notice, awarding her YouTube NextUp, and suddenly,
                   she wasn’t just designing spaces—she was shaping a movement.
                   Today, Ananya’s work is a fusion of heart and intellect. She
@@ -141,7 +145,14 @@ const Page = () => {
                   tell stories, where the simplicity of modern minimalism meets
                   the soul of traditional Indian craftsmanship. Every detail
                   speaks. Every corner hums with intention. Because a home, in
-                  the end, is not just a place. It is a feeling</p>
+                  the end, is not just a place. It is a feeling
+                  </p></p>
+                  <div
+                  className={styles.viewMoreButton}
+                  onClick={() => setShowMore(!showMore)}
+                >
+                  {showMore ? "View Less" : "View More"}
+                </div>
               </motion.div>
               {/* for better optimisation removed it */}
               {/* {text.split("").map((char, index) => (

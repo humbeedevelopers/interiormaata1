@@ -176,7 +176,7 @@ const TeamPage = () => {
               Your Heart, And Spirit. You Have To Tell Someone, Right Now, ‘you
               Must See This’. You Share It, And They Get It. They’re In It With
               You, And It’s In Them Too. You Shared The Wonder You Know Feeling?
-              That’s What We’re After, Every Time We Make A Film.{""}The
+              That’s What We’re After, Every Time We Make A Film.
             </p>
           </div>
         </div>

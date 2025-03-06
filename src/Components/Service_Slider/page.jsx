@@ -17,7 +17,7 @@ import Commercial_Interior_Design from "@/images/Commercial_Interior_Design.png"
 import Office_Interior_Design from "@/images/Office_Interior_Design.png";
 import Services_interior_svg from "@/svgs/Services_svg.svg";
 import arrow from "@/svgs/slider_arrow.svg";
-import styles from "@/Components/Service_Slider/slider.module.css";
+import styles from "@/Components/Service_SliderOne/slider.module.css";
 const Page = () => {
   const [ref1, inView1] = useInView({
     triggerOnce: false, // Only trigger once
