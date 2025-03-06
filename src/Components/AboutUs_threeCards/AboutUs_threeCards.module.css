@@ -96,7 +96,9 @@
 
 .overlay_text_content {
   color: #000;
-  font-family: var(--font-poppins);
+  
+  font-family: "Dream Avenue";
+  /* font-family: var(--font-poppins); */
   font-size: 27px;
   font-style: normal;
   font-weight: 300;
@@ -106,7 +108,7 @@
 
 .overlay_text_content1 {
   color: #7f7047;
-  font-family: "Dream Avenue";
+  font-family: var(--font-poppins);
   font-size: 27px;
   font-style: normal;
   font-weight: 400;

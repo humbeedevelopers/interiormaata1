@@ -151,7 +151,7 @@ const Page = () => {
                   className={styles.viewMoreButton}
                   onClick={() => setShowMore(!showMore)}
                 >
-                  {showMore ? "View Less" : "View More"}
+                  {showMore ? "Read Less" : "Read More"}
                 </div>
               </motion.div>
               
