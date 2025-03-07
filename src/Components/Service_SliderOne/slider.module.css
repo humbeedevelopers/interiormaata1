@@ -49,6 +49,7 @@
   font-size: 15.616px;
   font-style: normal;
   font-weight: 400;
+  width: 88%;
   line-height: normal;
 }
 .Services_Content_list_inner {
@@ -201,6 +202,11 @@
   }
   .Services_second_Content_inner {
    height: auto;
+  }
+}
+@media(max-width: 475px){
+  .Services_Content_residential_list_text{
+    width: 100%;
   }
 }
 @media (max-width: 320px) {
