@@ -105,7 +105,8 @@ const pathname = usePathname(); // Get the current route
                 e.preventDefault();
 
                  index === 3 && popupHandler();
-                if (title !== "About us" && title !== "PROJECTS") {
+                // if (title !== "About us" && title !== "PROJECTS") {
+                  if (title !== "PROJECTS") {
                   setNoExitAnimation(false); // Enable exit animation for other links 
                   handleNavLink();
                   router.push(href);
