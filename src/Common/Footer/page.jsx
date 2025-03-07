@@ -14,6 +14,7 @@ import styles from "@/Common/Footer/Footer.module.css";
 import "./Scroll_To_Top.css";
 import svg_icon from "@/svgs/arrow_thin.svg";
 import Popup from "@/Components/Popup/page";
+import WhatsAppButton from "@/Components/Whatsapp_Button/page";
 
 const Footer = () => {
   const [popup, setPopup] = useState(false);
@@ -143,7 +144,7 @@ const Footer = () => {
                 />{" "}
               </Link>
             </div>
-            <div className={styles.footer_youtube}>
+            {/* <div className={styles.footer_youtube}>
               <Link href="https://wa.me/8866508378 " target="_blank">
                 <Image
                   className={styles.footer_icons}
@@ -151,7 +152,7 @@ const Footer = () => {
                   alt="none"
                 />
               </Link>
-            </div>
+            </div> */}
             <div className={styles.footer_whatsapp}>
               <Link
                 href="https://www.youtube.com/c/interiormaata"
@@ -189,6 +190,9 @@ const Footer = () => {
             <HeadingTextAnimation heading={"interior माता"} />
           </motion.div>
         </div>
+      </div>
+      <div>
+        <WhatsAppButton />
       </div>
       <div>
         <ScrollToTop smooth />
