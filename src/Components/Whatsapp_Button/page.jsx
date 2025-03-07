@@ -27,7 +27,7 @@ const WhatsAppButton = () => {
 
   return (
     <a
-      href="https://wa.me/8866508378"
+      href="https://wa.me/08031406773"
       target="_blank"
       rel="noreferrer noopener"
       className={styles.whatsappButton}
@@ -37,7 +37,7 @@ const WhatsAppButton = () => {
       <div className={styles.iconContainer}>
         <div>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg"  
             width="24"
             height="24"
             viewBox="0 0 24 24"
