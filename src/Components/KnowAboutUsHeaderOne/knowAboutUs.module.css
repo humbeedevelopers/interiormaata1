@@ -255,6 +255,9 @@
     object-fit: cover;
     padding: 0 0px;
   }
+  .aboutUs_banner_text{
+    font-size: 15px;
+  }
 }
 @media screen and (max-width: 320px) {
   .aboutUsHeader {
