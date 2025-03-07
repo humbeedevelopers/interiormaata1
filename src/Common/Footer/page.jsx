@@ -14,6 +14,7 @@ import styles from "@/Common/Footer/Footer.module.css";
 import "./Scroll_To_Top.css";
 import svg_icon from "@/svgs/arrow_thin.svg";
 import Popup from "@/Components/Popup/page";
+import WhatsAppButton from "@/Components/Whatsapp_Button/page";
 
 const Footer = () => {
   const [popup, setPopup] = useState(false);
@@ -189,6 +190,9 @@ const Footer = () => {
             <HeadingTextAnimation heading={"interior माता"} />
           </motion.div>
         </div>
+      </div>
+      <div>
+        <WhatsAppButton />
       </div>
       <div>
         <ScrollToTop smooth />
