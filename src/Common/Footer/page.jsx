@@ -144,7 +144,7 @@ const Footer = () => {
                 />{" "}
               </Link>
             </div>
-            <div className={styles.footer_youtube}>
+            {/* <div className={styles.footer_youtube}>
               <Link href="https://wa.me/8866508378 " target="_blank">
                 <Image
                   className={styles.footer_icons}
@@ -152,7 +152,7 @@ const Footer = () => {
                   alt="none"
                 />
               </Link>
-            </div>
+            </div> */}
             <div className={styles.footer_whatsapp}>
               <Link
                 href="https://www.youtube.com/c/interiormaata"
