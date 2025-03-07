@@ -31,7 +31,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noreferrer noopener"
       className={styles.whatsappButton}
-      style={{ display: showButton ? 'flex' : 'none' }}  // Only display after scrolling
+      // style={{ display: showButton ? 'flex' : 'none' }}  // Only display after scrolling
     >
       <div className={styles.pingAnimation}></div>
       <div className={styles.iconContainer}>
