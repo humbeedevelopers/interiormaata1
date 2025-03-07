@@ -52,7 +52,7 @@ const Page = () => {
           tl.pause(); // Pause the animation
         });
         el.addEventListener("mouseleave", () => {
-          tl.play(); // Resume the animation
+          tl.pause(); // Resume the animation
         });
       });
 
