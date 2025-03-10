@@ -108,7 +108,7 @@ const Footer = () => {
         <div className={styles.footer_copyright}>
           <div className={styles.footerTagline}>
             <p>
-              Copyright &copy; 2024 Interior maata, All Right Reserved. Designed
+              Copyright &copy; 2025 Interior maata, All Right Reserved. Designed
               & Developed by{" "}
               <Link
                 className={styles.adds}
