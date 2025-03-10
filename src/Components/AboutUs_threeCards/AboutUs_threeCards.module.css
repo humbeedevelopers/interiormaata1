@@ -138,22 +138,93 @@
     flex-direction: column;
     gap: 3rem;
   }
+  .overlay_text{
+    position: unset;
+        top: 0%;
+    left: 0%;
+    width: 100%;
+   transform: translate(0);
+   text-align: center;
+  }
+  .Landing_image1:hover .about_hover {
+    opacity: 1;
+  }
+  .Landing_image1:not(:hover) .about_hover {
+    opacity: 1;
+  }
   .Landing_image1:hover .overlay_text{
-    transform: none;
+    transform: translate(0);
     cursor: pointer;
-    display: none;
+    
   }
   
+  
+  
+  
+  
+  
   .Landing_image2:hover .overlay_text{
-    transform: none;
+    transform: translate(0);
     cursor: pointer;
-    display: none;
   }
   
   .Landing_image3:hover .overlay_text{
-    transform: none;
+    transform: translate(0);
     cursor: pointer;
-    display: none;
+  }
+  
+  .Landing_image2:hover .about_hover {
+    opacity: 1;
+  }
+  
+  .Landing_image2:not(:hover) .about_hover {
+    opacity: 1;
+  }
+  
+  .Landing_image3:hover .about_hover {
+    opacity: 1;
+  }
+  
+  .Landing_image3:not(:hover) .about_hover {
+    opacity: 1;
+  }
+  .Landing_image1:hover .overlay_text{
+    /* transform: none;/ */
+    /* cursor: pointer; */
+    display: block;
+  }
+  .about_hover {
+    position: absolute;
+    top: 38.7%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    transition: opacity 0.7s ease-in-out;
+    overflow: hidden;
+  }
+  #about_hoverOne{
+    position: absolute;
+    top: 40.8%;
+    left: 48%;
+    transform: translate(-50%, -48%);
+    transition: opacity 0.7s ease-in-out;
+    overflow: hidden;
+  }
+  .overlay_text_content{
+    font-size: 20px;
+  }
+  .overlay_text_content1{
+    font-size: 20px;
+  }
+  .Landing_image2:hover .overlay_text{
+    /* transform: none; */
+    /* cursor: pointer; */
+    display: block;
+  }
+  
+  .Landing_image3:hover .overlay_text{
+    /* transform: none; */
+    /* cursor: pointer; */
+    display: block;
   }
   
 }

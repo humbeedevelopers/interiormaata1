@@ -63,7 +63,7 @@ function Landing_page() {
           className={styles.Landing_image3}
         >
           <Image src={Home_Layer} alt="none" />
-          <Image src={about_image3} alt="none" className={styles.about_hover} />
+          <Image src={about_image3} alt="none" className={styles.about_hover} id={styles.about_hoverOne}/>
           <div className={styles.overlay_text}>
             <p className={styles.overlay_text_content}>Complete Build Solution</p>
             <p className={styles.overlay_text_content1}>End-to-End Execution </p>
