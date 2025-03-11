@@ -30,7 +30,7 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.2 }}
           className={styles.Landing_image1}
         >
-          <Image src={Home_Layer} alt="none" />
+          <Image src={Home_Layer} alt="none" className={styles.ImageHidden} />
           <Image src={about_image1} alt="none" className={styles.about_hover} />
           <div className={styles.overlay_text}>
             <p className={styles.overlay_text_content}>Interior <br />Consultancy</p>
@@ -46,7 +46,7 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.3 }}
           className={styles.Landing_image2}
         >
-          <Image src={Home_Layer} alt="none" />
+          <Image src={Home_Layer} alt="none"  className={styles.ImageHidden}/>
           <Image src={about_image2} alt="none" className={styles.about_hover} />
           <div className={styles.overlay_text}>
           <p className={styles.overlay_text_content}>architectural <br />Consultancy</p>
@@ -62,7 +62,7 @@ function Landing_page() {
           transition={{ duration: 0.45, delay: 0.4 }}
           className={styles.Landing_image3}
         >
-          <Image src={Home_Layer} alt="none" />
+          <Image src={Home_Layer} alt="none"  className={styles.ImageHidden}/>
           <Image src={about_image3} alt="none" className={styles.about_hover} id={styles.about_hoverOne}/>
           <div className={styles.overlay_text}>
             <p className={styles.overlay_text_content}>Complete Build Solution</p>

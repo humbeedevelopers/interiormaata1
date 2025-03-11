@@ -61,7 +61,13 @@
     padding: 20px 0 30px 20px;
   }
 }
-
+@media (max-width: 475px) {
+  .productSlider .wrapper .productSliderCardItem .card1 {
+    width: 100%;
+    /* padding: 0!important; */
+    padding: 20px 20px 30px 20px;
+  }
+}
 @media (max-width: 767px) {
   .productSlider .wrapper .productSliderCardItem .card1 .homePageCommonHeading {
     display: none;

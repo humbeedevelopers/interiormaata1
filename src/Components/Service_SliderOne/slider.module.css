@@ -36,7 +36,7 @@
   color: #000;
   width: 85%;
   font-family: var(--font-poppins);
-  font-size: 20.616px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -75,7 +75,7 @@
     color: #000;
     width: 100%;
     font-family: var(--font-poppins);
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -96,7 +96,7 @@
 }
 @media (min-width: 1921px) and (max-width: 2600px) {
   .Services_Content_residential_desc {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .Services_Content_residential_list_text {
@@ -207,6 +207,7 @@
 @media(max-width: 475px){
   .Services_Content_residential_list_text{
     width: 100%;
+    font-size: 14px;
   }
 }
 @media (max-width: 320px) {

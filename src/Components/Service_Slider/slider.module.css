@@ -186,6 +186,7 @@
   .Services_Content_residential,
   .Services_Content_residential_desc {
     width: 100%;
+    font-size: 14px;
   }
 
   .Services_Content_residential {
@@ -207,6 +208,7 @@
   .Services_Content_residential,
   .Services_Content_residential_desc {
     width: 100%;
+    font-size: 14px;
   }
   .Services_Content_residential {
     font-size: 7.5vw;
