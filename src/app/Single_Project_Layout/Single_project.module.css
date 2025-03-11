@@ -231,7 +231,7 @@
 .modalContent {
   position: relative;
   width: 80%;
-  max-width: 350px;
+  /* max-width: 350px; */
 }
 
 .close {
@@ -266,7 +266,7 @@
 @media (min-width: 1600px) and (max-width: 1920px) {
   .modalContent {
     width: 80%;
-    max-width: 500px;
+    /* max-width: 500px; */
   }
 
   .first_project_text_header {
