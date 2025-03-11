@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
@@ -24,10 +24,24 @@ export default function Body({
 }) {
   const router = useRouter();
   const [isPopupHovered, setIsPopupHovered] = useState(false);
-  const [isLinkHovered, setIsLinkHovered] = useState(false); // State to track if the link is hovered
-  const [noExitAnimation, setNoExitAnimation] = useState(false); // State to skip exit animation
-  const popupHideTimeout = useRef(null); // Ref to store the timeout ID
-const pathname = usePathname(); // Get the current route
+  const [isLinkHovered, setIsLinkHovered] = useState(false);
+  const [noExitAnimation, setNoExitAnimation] = useState(false);
+  const popupHideTimeout = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
+
+  // Detect window size for mobile view (less than 768px)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const getChars = (word) => {
     let chars = [];
     word.split("").forEach((char, i) => {
@@ -37,7 +51,7 @@ const pathname = usePathname(); // Get the current route
           variants={translate}
           initial="initial"
           animate="enter"
-          exit={noExitAnimation ? "" : "exit"} // Conditionally skip exit animation
+          exit={noExitAnimation ? "" : "exit"}
           key={char + i}
         >
           {char}
@@ -49,7 +63,6 @@ const pathname = usePathname(); // Get the current route
 
   const handleMouseLeave = () => {
     if (!isPopupHovered && !isLinkHovered) {
-      // Set a timeout to hide the popup after a delay (e.g., 300ms)
       popupHideTimeout.current = setTimeout(() => {
         setSelectedLink({ isActive: false, index: null });
         setHoverPopup(false);
@@ -59,17 +72,16 @@ const pathname = usePathname(); // Get the current route
 
   const handleMouseEnterLink = (index) => {
     setSelectedLink({ isActive: true, index });
-    setIsLinkHovered(true); // Set link hover state to true
-    clearTimeout(popupHideTimeout.current); // Clear any existing timeout
+    setIsLinkHovered(true);
+    clearTimeout(popupHideTimeout.current);
   };
 
   const handleMouseLeaveLink = () => {
-    setIsLinkHovered(false); // Set link hover state to false
+    setIsLinkHovered(false);
     handleMouseLeave();
   };
 
   const handleMouseEnterPopup = () => {
-    // If the mouse enters the popup during the delay, cancel the timeout
     if (popupHideTimeout.current) {
       clearTimeout(popupHideTimeout.current);
     }
@@ -81,12 +93,28 @@ const pathname = usePathname(); // Get the current route
     handleMouseLeave();
   };
 
+  // Mobile click handler for About Us
+  // const handleMobileAboutUsClick = () => {
+  //   setHoverPopup(true); // Show the popup
+  //   hoverPopupHandler("About us"); // Trigger the hoverPopupHandler for "About us"
+  // };
+
+  // Mobile click handler for About Us (open and close the popup)
+  const handleMobileAboutUsClick = () => {
+    // Check if popup is already open, then close it
+    if (hoverPopup) {
+      setHoverPopup(false);  // Close the popup
+    } else {
+      setHoverPopup(true);   // Open the popup
+      hoverPopupHandler("About us"); // Trigger the hoverPopupHandler for "About us"
+    }
+  };
   return (
     <>
       <div className="nav_body">
-        <div className={`navOpenLogo`} 
-        // onClick={() => router.push("/")}
-        onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
+        <div
+          className={`navOpenLogo`}
+          onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
         >
           <Image
             src={nav_logo}
@@ -96,6 +124,7 @@ const pathname = usePathname(); // Get the current route
         </div>
         {links.map((link, index) => {
           const { title, href } = link;
+          const isAboutUs = title === "About us";
 
           return (
             <Link
@@ -103,26 +132,28 @@ const pathname = usePathname(); // Get the current route
               href={href}
               onClick={(e) => {
                 e.preventDefault();
+                if (index === 3 && popupHandler) {
+                  popupHandler();
+                }
 
-                 index === 3 && popupHandler();
-                if (title !== "About us" && title !== "PROJECTS") {
-                  // if (title !== "PROJECTS") {
-                  setNoExitAnimation(false); // Enable exit animation for other links 
+                if (title !== "PROJECTS") {
+                  setNoExitAnimation(false);
                   handleNavLink();
                   router.push(href);
-                  popupHandler;
                 } else {
-                  setNoExitAnimation(true); // Disable exit animation for "About us" and "PROJECTS"
+                  setNoExitAnimation(true);
                   setHoverPopup(true);
                   hoverPopupHandler(title);
                 }
-              
               }}
             >
               <motion.p
                 onMouseOver={() => {
                   handleMouseEnterLink(index);
-                  if (title === "About us" || title === "PROJECTS") {
+                  if (
+                    !isMobile &&
+                    (title === "About us" || title === "PROJECTS")
+                  ) {
                     setHoverPopup(true);
                     hoverPopupHandler(title);
                   }
@@ -143,7 +174,36 @@ const pathname = usePathname(); // Get the current route
             </Link>
           );
         })}
+        {/* If mobile, display the SVG for About Us */}
+        {isMobile &&
+          selectedLink.index ===
+            links.findIndex((link) => link.title === "About us") && (
+            <div
+              className="about-us-mobile-popup"
+              onClick={handleMobileAboutUsClick}
+            >
+              <svg
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                stroke-linejoin="round"
+                stroke-miterlimit="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="MobileSvg"
+              >
+                <path d="m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z" />
+              </svg>
+              {/* <Image
+                src={nav_logo} // You can replace this with your actual About Us SVG path
+                alt="About Us"
+                width={10} // Adjust width
+                height={10} // Adjust height
+                style={{ maxWidth: "100%", height: "auto" }}
+              /> */}
+            </div>
+          )}
       </div>
+
       {hoverPopup && (
         <div
           onMouseOver={handleMouseEnterPopup}

@@ -12,7 +12,22 @@
   /* width: fit-content; */
   text-transform: uppercase;
 }
-
+.MobileSvg{
+  width: 40px !important;
+  height: 40px;
+  fill: #fff !important;
+}
+.about-us-mobile-popup{
+  cursor: pointer;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* padding: 10px; */
+  position: absolute;
+  /* top: 22%;
+  left: 38%; */
+  transform: translate(515%, 15%);
+}
 
 .coming-soon {
   font-size: 12px;
