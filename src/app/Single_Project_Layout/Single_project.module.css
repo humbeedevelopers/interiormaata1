@@ -78,6 +78,7 @@
   object-fit: cover;
   height: auto;
   transition: 0.4s;
+  filter: brightness(0.5);
 }
 .interior_material_text {
   position: relative;
