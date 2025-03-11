@@ -107,279 +107,271 @@ const Project_Header = () => {
     },
   };
 
-  // Helper function to filter out images that are not available
-  const filterImages = (...images) => images.filter((image) => image);
-
   return (
     <Stairs>
-      {singleProject?.map((item, index) => (
-        <div className={styles.First_project_layout_header} key={index}>
-          <div className={styles.first_project_layout_outer}>
-            <div className={styles.first_project_layout_content}>
-              <div className={styles.first_project_text_header}>
+      {singleProject?.map((item, index) => {
+        // Check if at least one material image exists
+        const hasMaterialImages = [
+          item.acf.material_image1,
+          item.acf.material_image2,
+          item.acf.material_image3,
+          item.acf.material_image4,
+          item.acf.material_image5,
+          item.acf.material_image6,
+        ].some(img => img); // This will return true if any image is available
+
+        return (
+          <div className={styles.First_project_layout_header} key={index}>
+            <div className={styles.first_project_layout_outer}>
+              <div className={styles.first_project_layout_content}>
+                <div className={styles.first_project_text_header}>
+                  <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    transition={{ duration: 0.9 }}
+                  >
+                    <HeadingTextAnimation
+                      heading={item?.acf?.project_name}
+                      justifyContent={"center"}
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.First_project_layout_image}>
+              {item.acf.heading_image && (
+                <div className={styles.First_project_layout_image2_innerX}>
+                  <Image
+                    src={item.acf.heading_image}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={600}
+                    onClick={() => handleImageClick(item.acf.heading_image)} // ✅ Click to open modal
+                  />
+                  <Image
+                    src={item.acf.image2}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={400}
+                    onClick={() => handleImageClick(item.acf.image2)} // ✅ Click to open modal
+                  />
+                </div>
+              )}
+
+              {item.acf.image4 && (
+                <div className={styles.First_project_layout_image2_innerX}>
+                  <Image
+                    src={item.acf.image3}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={400}
+                    onClick={() => handleImageClick(item.acf.image3)} // ✅ Click to open modal
+                  />
+                  <Image
+                    src={item.acf.image4}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={600}
+                    onClick={() => handleImageClick(item.acf.image4)} // ✅ Click to open modal
+                  />
+                </div>
+              )}
+
+              {item.acf.image5 && item.acf.image6 && (
+                <div className={styles.First_project_layout_image2}>
+                  <div
+                    className={styles.First_project_layout_image2_inner}
+                    onClick={() => handleImageClick(item.acf.image5)}
+                  >
+                    <Image
+                      src={item.acf.image5}
+                      alt="none"
+                      className={styles.Single_project_image1}
+                      width={1000}
+                      height={500}
+                    />
+                  </div>
+                  <div
+                    className={styles.First_project_layout_image2_inner}
+                    onClick={() => handleImageClick(item.acf.image6)}
+                  >
+                    <Image
+                      src={item.acf.image6}
+                      alt="none"
+                      className={styles.Single_project_image1}
+                      width={1000}
+                      height={500}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {item.acf.image7 && (
+                <div className={styles.First_project_layout_image2_innerX}>
+                  <Image
+                    src={item.acf.image7}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={700}
+                    onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
+                  />
+                  <Image
+                    src={item.acf.image8}
+                    alt="none"
+                    className={styles.Single_project_image1}
+                    width={1000}
+                    height={300}
+                    onClick={() => handleImageClick(item.acf.image8)} // ✅ Click to open modal
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className={styles.interior_material_outer}>
+              {/* Render the heading only if there's at least one material image */}
+              {hasMaterialImages && (
+                <div className={styles.first_project_text_header}>
+                  <motion.div
+                    ref={ref}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    transition={{ duration: 0.9 }}
+                  >
+                    <HeadingTextAnimation
+                      heading={"Material"}
+                      justifyContent={"center"}
+                    />
+                  </motion.div>
+                </div>
+              )}
+
+              <div className={styles.interior_material_content}>
+                {[
+                  {
+                    img: item.acf.material_image1,
+                    name: item.acf.material_name1,
+                  },
+                  {
+                    img: item.acf.material_image2,
+                    name: item.acf.material_name2,
+                  },
+                  {
+                    img: item.acf.material_image3,
+                    name: item.acf.material_name3,
+                  },
+                  {
+                    img: item.acf.material_image4,
+                    name: item.acf.material_name4,
+                  },
+                  {
+                    img: item.acf.material_image5,
+                    name: item.acf.material_name5,
+                  },
+                  {
+                    img: item.acf.material_image6,
+                    name: item.acf.material_name6,
+                  },
+                ]
+                  .filter((imgObj) => imgObj.img) // Filter out objects without an image
+                  .map((imgObj, index) => (
+                    <div
+                      className={styles.interior_material_text}
+                      onClick={() => handleImageClick(imgObj.img)}
+                      key={index}
+                    >
+                      <Image
+                        src={imgObj.img}
+                        alt="Interior Material"
+                        className={styles.interior_material_img}
+                        width={1000}
+                        height={600}
+                      />
+                      <div className={styles.interior_material_overlay}>
+                        <p className={styles.interior_material_overlay_text}>
+                          {imgObj.name}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+
+              {isModalOpen && (
+                <div className={styles.modal} onClick={handleModalClick}>
+                  <div
+                    className={styles.modalContent}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span className={styles.close} onClick={handleCloseModal}>
+                      <Image src={wrong_logo} alt="Close" />
+                    </span>
+                    <Image
+                      src={currentImage}
+                      alt="Interior Material"
+                      className={styles.modalImage}
+                      width={1000}
+                      height={600}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.Interior_second_text_content}>
+              <div className={styles.Interior_second_text_content_first}>
                 <motion.div
-                  ref={ref}
+                  ref={ref1}
                   initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
+                  animate={inView1 ? "visible" : "hidden"}
                   transition={{ duration: 0.9 }}
                 >
                   <HeadingTextAnimation
-                    heading={item?.acf?.project_name}
+                    heading={"interior maata: an estate agency"}
+                    justifyContent={"center"}
+                  />
+                  <HeadingTextAnimation
+                    heading={"with a conscience, selling beautiful"}
+                    justifyContent={"center"}
+                  />
+                  <HeadingTextAnimation
+                    heading={"homes across vadodara & beyond..."}
                     justifyContent={"center"}
                   />
                 </motion.div>
               </div>
             </div>
-          </div>
 
-          <div className={styles.First_project_layout_image}>
-            {item.acf.heading_image && (
-              <div className={styles.First_project_layout_image2_innerX}>
-                <Image
-                  src={item.acf.heading_image}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={600}
-                  onClick={() => handleImageClick(item.acf.heading_image)} // ✅ Click to open modal
-                />
-                <Image
-                  src={item.acf.image2}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={400}
-                  onClick={() => handleImageClick(item.acf.image2)} // ✅ Click to open modal
-                />
-              </div>
-            )}
-
-            {/* {filterImages(item.acf.image2, item.acf.image3).length > 0 && (
-              <div className={styles.First_project_layout_image2}>
-                {filterImages(item.acf.image2, item.acf.image3).map(
-                  (imgSrc, imgIndex) => (
-                    <div
-                      className={styles.First_project_layout_image2_inner}
-                      key={imgIndex}
-                    >
-                      <Image
-                        src={imgSrc}
-                        alt="none"
-                        className={styles.Single_project_image1}
-                        width={1000}
-                        height={400}
-                      />
-                    </div>
-                  )
-                )}
-              </div>
-            )} */}
-
-            {item.acf.image4 && (
-              <div className={styles.First_project_layout_image2_innerX}>
-                <Image
-                  src={item.acf.image3}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={400}
-                  onClick={() => handleImageClick(item.acf.image3)} // ✅ Click to open modal
-                />
-                <Image
-                  src={item.acf.image4}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={600}
-                  onClick={() => handleImageClick(item.acf.image4)} // ✅ Click to open modal
-                />
-                {/* <Image
-                  src={item.acf.image4}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={600}
-                /> */}
-              </div>
-            )}
-
-            {filterImages(item.acf.image5, item.acf.image6).length > 0 && (
-              <div className={styles.First_project_layout_image2}>
-                {filterImages(item.acf.image5, item.acf.image6).map(
-                  (imgSrc, imgIndex) => (
-                    <div
-                      className={styles.First_project_layout_image2_inner}
-                      key={imgIndex}
-                      onClick={() => handleImageClick(imgSrc)} // ✅ Click to open modal
-                    >
-                      <Image
-                        src={imgSrc}
-                        alt="none"
-                        className={styles.Single_project_image1}
-                        width={1000}
-                        height={500}
-                      />
-                    </div>
-                  )
-                )}
-              </div>
-            )}
-
-            {item.acf.image7 && (
-              <div className={styles.First_project_layout_image2_innerX}>
-                <Image
-                  src={item.acf.image7}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={700}
-                  onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
-                />
-                <Image     
-                  src={item.acf.image8}
-                  alt="none"
-                  className={styles.Single_project_image1}
-                  width={1000}
-                  height={300}
-                  onClick={() => handleImageClick(item.acf.image8)} // ✅ Click to open modal
-                />
-              </div>
-            )}
-          </div>
-
-          <div className={styles.interior_material_outer}>
-          <div className={styles.first_project_text_header}>
-            <motion.div
-              ref={ref}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              transition={{ duration: 0.9 }}
-            >
-              <HeadingTextAnimation
-                heading={"Material"}
-                justifyContent={"center"}
-              />
-            </motion.div>
-            </div>
-            <div className={styles.interior_material_content}>
-              {[
-                {
-                  img: item.acf.material_image1,
-                  name: item.acf.material_name1,
-                },
-                {
-                  img: item.acf.material_image2,
-                  name: item.acf.material_name2,
-                },
-                {
-                  img: item.acf.material_image3,
-                  name: item.acf.material_name3,
-                },
-                {
-                  img: item.acf.material_image4,
-                  name: item.acf.material_name4,
-                },
-                {
-                  img: item.acf.material_image5,
-                  name: item.acf.material_name5,
-                },
-                {
-                  img: item.acf.material_image6,
-                  name: item.acf.material_name6,
-                },
-              ]
-                .filter((imgObj) => imgObj.img) // Filter out objects without an image
-                .map((imgObj, index) => (
-                  <div
-                    className={styles.interior_material_text}
-                    onClick={() => handleImageClick(imgObj.img)}
-                    key={index}
-                  >
-                    <Image
-                      src={imgObj.img}
-                      alt="Interior Material"
-                      className={styles.interior_material_img}
-                      width={1000}
-                      height={600}
-                    />
-                    <div className={styles.interior_material_overlay}>
-                      <p className={styles.interior_material_overlay_text}>
-                        {imgObj.name}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-
-            {isModalOpen && (
-              <div className={styles.modal} onClick={handleModalClick}>
-                <div
-                  className={styles.modalContent}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span className={styles.close} onClick={handleCloseModal}>
-                    <Image src={wrong_logo} alt="Close" />
-                  </span>
+            <div className={styles.interior_last_room_Section}>
+              {item.acf.thumbnail && item.acf.video && (
+                <Link href={item.acf.video} target="_blank">
                   <Image
-                    src={currentImage}
-                    alt="Interior Material"
-                    className={styles.modalImage}
+                    src={item.acf.thumbnail}
+                    alt="none"
+                    className={styles.interior_last_room_img}
                     width={1000}
-                    height={600}
+                    height={700}
                   />
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className={styles.Interior_second_text_content}>
-            <div className={styles.Interior_second_text_content_first}>
-              <motion.div
-                ref={ref1}
-                initial="hidden"
-                animate={inView1 ? "visible" : "hidden"}
-                transition={{ duration: 0.9 }}
-              >
-                <HeadingTextAnimation
-                  heading={"interior maata: an estate agency"}
-                  justifyContent={"center"}
-                />
-                <HeadingTextAnimation
-                  heading={"with a conscience, selling beautiful"}
-                  justifyContent={"center"}
-                />
-                <HeadingTextAnimation
-                  heading={"homes across vadodara & beyond..."}
-                  justifyContent={"center"}
-                />
-              </motion.div>
+                  <div className={styles.interior_last_room_overlay}>
+                    <div className={styles.interior_last_room_overlay_svgs}>
+                      <Image
+                        src={Interior_last_room_Svg}
+                        className={styles.inetrior_lastroom_img}
+                        alt="none"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
-
-          <div className={styles.interior_last_room_Section}>
-            {item.acf.thumbnail && item.acf.video && (
-              <Link href={item.acf.video} target="_blank">
-                <Image
-                  src={item.acf.thumbnail}
-                  alt="none"
-                  className={styles.interior_last_room_img}
-                  width={1000}
-                  height={700}
-                />
-                <div className={styles.interior_last_room_overlay}>
-                  <div className={styles.interior_last_room_overlay_svgs}>
-                    <Image
-                      src={Interior_last_room_Svg}
-                      className={styles.inetrior_lastroom_img}
-                      alt="none"
-                    />
-                  </div>
-                </div>
-              </Link>
-            )}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </Stairs>
   );
 };
