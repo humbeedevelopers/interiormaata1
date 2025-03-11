@@ -16,6 +16,7 @@ const Project_Header = () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [singleProject, setSingleProject] = useState([]);
   const [tabUrl, setTabUrl] = useState("");
+  const [loading, setLoading] = useState(true); // Track image loading state
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
@@ -52,6 +53,9 @@ const Project_Header = () => {
     if (e.target === e.currentTarget) {
       handleCloseModal();
     }
+  };
+  const handleImageLoad = () => {
+    setLoading(false); // Set loading to false once image is fully loaded
   };
 
   useEffect(() => {
@@ -139,7 +143,12 @@ const Project_Header = () => {
                 </div>
               </div>
             </div>
-
+            {loading && (
+              <div className={styles.loader}>
+                <div className={styles.loaderSpinner}></div>
+                <p>Loading images...</p>
+              </div>
+            )}
             <div className={styles.First_project_layout_image}>
               {item.acf.heading_image && (
                 <div className={styles.First_project_layout_image2_innerX}>
@@ -149,6 +158,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={600}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.heading_image)} // ✅ Click to open modal
                   />
                   <Image
@@ -157,6 +167,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={400}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.image2)} // ✅ Click to open modal
                   />
                 </div>
@@ -170,6 +181,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={400}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.image3)} // ✅ Click to open modal
                   />
                   <Image
@@ -178,6 +190,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={600}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.image4)} // ✅ Click to open modal
                   />
                 </div>
@@ -195,6 +208,7 @@ const Project_Header = () => {
                       className={styles.Single_project_image1}
                       width={1000}
                       height={500}
+                      onLoadingComplete={handleImageLoad}
                     />
                   </div>
                   <div
@@ -207,6 +221,7 @@ const Project_Header = () => {
                       className={styles.Single_project_image1}
                       width={1000}
                       height={500}
+                      onLoadingComplete={handleImageLoad}
                     />
                   </div>
                 </div>
@@ -220,6 +235,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={700}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
                   />
                   <Image
@@ -228,6 +244,7 @@ const Project_Header = () => {
                     className={styles.Single_project_image1}
                     width={1000}
                     height={300}
+                    onLoadingComplete={handleImageLoad}
                     onClick={() => handleImageClick(item.acf.image8)} // ✅ Click to open modal
                   />
                 </div>
@@ -292,6 +309,7 @@ const Project_Header = () => {
                         className={styles.interior_material_img}
                         width={1000}
                         height={600}
+                        onLoadingComplete={handleImageLoad}
                       />
                       <div className={styles.interior_material_overlay}>
                         <p className={styles.interior_material_overlay_text}>
@@ -317,6 +335,7 @@ const Project_Header = () => {
                       className={styles.modalImage}
                       width={1000}
                       height={600}
+                      
                     />
                   </div>
                 </div>
