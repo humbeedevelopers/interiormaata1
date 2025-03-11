@@ -9,6 +9,7 @@ import wrong_logo from "@/images/wrong_logo.png";
 import Interior_last_room_Svg from "@/svgs/Interior_Lastroom.svg";
 import styles from "@/app/Single_Project_Layout/Single_project.module.css";
 import { usePathname, useSearchParams } from "next/navigation";
+import fallbackImage from "@/images/consultancyProjectImage1.png"; // Add your fallback image
 import Link from "next/link";
 
 const Project_Header = () => {
@@ -56,6 +57,9 @@ const Project_Header = () => {
   };
   const handleImageLoad = () => {
     setLoading(false); // Set loading to false once image is fully loaded
+  };
+  const handleImageError = (e) => {
+    e.target.src = fallbackImage; // Replace with fallback image if error occurs
   };
 
   useEffect(() => {
@@ -159,6 +163,7 @@ const Project_Header = () => {
                     width={1000}
                     height={600}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.heading_image)} // ✅ Click to open modal
                   />
                   <Image
@@ -168,6 +173,7 @@ const Project_Header = () => {
                     width={1000}
                     height={400}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.image2)} // ✅ Click to open modal
                   />
                 </div>
@@ -182,6 +188,7 @@ const Project_Header = () => {
                     width={1000}
                     height={400}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.image3)} // ✅ Click to open modal
                   />
                   <Image
@@ -191,6 +198,7 @@ const Project_Header = () => {
                     width={1000}
                     height={600}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.image4)} // ✅ Click to open modal
                   />
                 </div>
@@ -209,6 +217,7 @@ const Project_Header = () => {
                       width={1000}
                       height={500}
                       onLoadingComplete={handleImageLoad}
+                      onError={handleImageError} // Handle error and use fallback image
                     />
                   </div>
                   <div
@@ -222,6 +231,7 @@ const Project_Header = () => {
                       width={1000}
                       height={500}
                       onLoadingComplete={handleImageLoad}
+                      onError={handleImageError} // Handle error and use fallback image
                     />
                   </div>
                 </div>
@@ -236,6 +246,7 @@ const Project_Header = () => {
                     width={1000}
                     height={700}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.image7)} // ✅ Click to open modal
                   />
                   <Image
@@ -245,6 +256,7 @@ const Project_Header = () => {
                     width={1000}
                     height={300}
                     onLoadingComplete={handleImageLoad}
+                    onError={handleImageError} // Handle error and use fallback image
                     onClick={() => handleImageClick(item.acf.image8)} // ✅ Click to open modal
                   />
                 </div>
@@ -309,6 +321,7 @@ const Project_Header = () => {
                         className={styles.interior_material_img}
                         width={1000}
                         height={600}
+                        onError={handleImageError} // Handle error and use fallback image
                         onLoadingComplete={handleImageLoad}
                       />
                       <div className={styles.interior_material_overlay}>
