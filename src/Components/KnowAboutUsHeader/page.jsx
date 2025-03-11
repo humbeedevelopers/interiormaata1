@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Button6 from "@/Common/Buttons/button6";
 import Image from "next/image";
 import { FreeMode, Thumbs, Pagination, Autoplay } from "swiper/modules";
-import project1 from "@/images/project3.jpg";
+import project1 from "@/images/image77.png";
 // import project2 from "@/images/newimg1.jpg";
 // import project3 from "@/images/project3.jpg";
 // import project4 from "@/images/project4.jpg";
@@ -102,7 +102,7 @@ const Page = () => {
                 <Image
                   src={project1}
                   alt="none"
-                  className={styles.aboutUs_banner_image}
+                  className={styles.ImageProject}
                 />
               </div>
               <motion.div
