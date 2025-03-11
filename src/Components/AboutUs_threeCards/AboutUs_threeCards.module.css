@@ -138,6 +138,9 @@
     flex-direction: column;
     gap: 3rem;
   }
+  .ImageHidden{
+    opacity: 0;
+  }
   .overlay_text{
     position: unset;
         top: 0%;
@@ -145,6 +148,7 @@
     width: 100%;
    transform: translate(0);
    text-align: center;
+   padding-top: 1rem;
   }
   .Landing_image1:hover .about_hover {
     opacity: 1;

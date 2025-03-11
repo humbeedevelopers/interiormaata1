@@ -22,9 +22,9 @@
 }
 
 .seventh_Section_content_text1 {
-  color: #000;
+  color: #cc7d45;
    font-family: var(--font-poppins);
-  font-size: 15px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -88,7 +88,7 @@
 .table_content_emphasis {
   color: #000000;
    font-family: var(--font-poppins);
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -202,7 +202,7 @@
   }
 
   .seventh_Section_content_text1 {
-    font-size: 14px;
+    font-size: 16px;
   }
   
 }
@@ -255,7 +255,7 @@
     width: 90%;
   }
   .seventh_Section_content_text1 {
-    font-size: 14px;
+    font-size: 15px;
     text-align: left;
   }
   .ourDesign_outer {
