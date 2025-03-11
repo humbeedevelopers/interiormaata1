@@ -19,6 +19,8 @@ const Project_Header = () => {
   const [tabUrl, setTabUrl] = useState("");
   const [loading, setLoading] = useState(true); // Track image loading state
   const searchParams = useSearchParams();
+  const [headingLoading, setHeadingLoading] = useState(false); // Track heading loading state
+  const [heading, setHeading] = useState(null); // Store heading name
   const pathname = usePathname();
 
   useEffect(() => {
@@ -35,6 +37,10 @@ const Project_Header = () => {
       );
       const data = await response.json();
       setSingleProject([data]);
+      // If heading is not already available, set it to the fetched one
+      if (data?.acf?.project_name) {
+        setHeading(data.acf.project_name);
+      }
     } catch (error) {
       console.error("Error fetching project data:", error);
     }
@@ -59,7 +65,11 @@ const Project_Header = () => {
     setLoading(false); // Set loading to false once image is fully loaded
   };
   const handleImageError = (e) => {
-    e.target.src = fallbackImage; // Replace with fallback image if error occurs
+    e.target.src =
+      "https://interiormaataassets.humbeestudio.xyz/images/img7.jpg";
+    // Set the width and height of the image element directly
+    // e.target.style.width = "500px"; // Set your desired width
+    // e.target.style.height = "300px"; // Set your desired height
   };
 
   useEffect(() => {
@@ -115,6 +125,21 @@ const Project_Header = () => {
     },
   };
 
+  const handleHeadingClick = async () => {
+    if (!heading) {
+      setHeadingLoading(true); // Start loading when clicked
+
+      const hashUrl = tabUrl; // Assuming the `tabUrl` is the correct identifier for the project
+      const response = await fetch(
+        `https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts/${hashUrl}/`
+      );
+      const data = await response.json();
+
+      setHeadingLoading(false); // Stop loading after fetch is complete
+      setHeading(data?.acf?.project_name || "Default Project Name"); // Update heading
+    }
+  };
+
   return (
     <Stairs>
       {singleProject?.map((item, index) => {
@@ -126,7 +151,7 @@ const Project_Header = () => {
           item.acf.material_image4,
           item.acf.material_image5,
           item.acf.material_image6,
-        ].some(img => img); // This will return true if any image is available
+        ].some((img) => img); // This will return true if any image is available
 
         return (
           <div className={styles.First_project_layout_header} key={index}>
@@ -140,9 +165,15 @@ const Project_Header = () => {
                     transition={{ duration: 0.9 }}
                   >
                     <HeadingTextAnimation
-                      heading={item?.acf?.project_name}
+                      // heading={item?.acf?.project_name}
+                      // justifyContent={"center"}
+                      heading={
+                        heading || item?.acf?.project_name || "Loading..."
+                      }
                       justifyContent={"center"}
+                      onClick={handleHeadingClick} // Trigger API fetch on click
                     />
+                    {headingLoading && <p>Loading...</p>}
                   </motion.div>
                 </div>
               </div>
@@ -348,7 +379,6 @@ const Project_Header = () => {
                       className={styles.modalImage}
                       width={1000}
                       height={600}
-                      
                     />
                   </div>
                 </div>
