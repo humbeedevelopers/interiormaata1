@@ -197,7 +197,7 @@
     padding-right: 1.5rem;
   }
   .ImageProject{
-    height: 50vh;
+    height: auto;
   }
 
   .aboutUsHeader {
@@ -225,7 +225,7 @@
     padding-bottom: 0rem;
   }
   .ImageProject{
-    height: 30vh;
+    height: auto;
   }
   .aboutUs_banner_text_outer {
     font-size: 14px;
