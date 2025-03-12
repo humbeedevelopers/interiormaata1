@@ -53,6 +53,10 @@
   padding-bottom: 1rem;
   display: block;
   /* overflow: hidden; */
+}.modalContent {
+  position: relative;
+  width: 80%;
+  /* max-width: 350px; */
 }
 .Single_project_image1:hover {
   transform: scale(1.05);
@@ -234,6 +238,11 @@
   /* max-width: 350px; */
 }
 
+.modalContentOne {
+  position: relative;
+  width: 80%;
+  max-width: 350px;
+}
 .close {
   position: absolute;
   top: -4px;
@@ -267,6 +276,11 @@
   .modalContent {
     width: 80%;
     /* max-width: 500px; */
+  }
+
+ .modalContentOne {
+    width: 80%;
+    max-width: 500px;
   }
 
   .first_project_text_header {
