@@ -347,18 +347,18 @@
 }
 @media(max-height: 650px){
   .text1 {
-    bottom: 29rem;
+    bottom: 20rem;
   }
   .interiormaata {
-    bottom: 27rem;
+    bottom: 15rem;
   }
 }
 @media(max-height: 600px){
   .text1 {
-    bottom: 25rem;
+    bottom: 18rem;
   }
   .interiormaata {
-    bottom: 23rem;
+    bottom: 14rem;
   }
 }
 
