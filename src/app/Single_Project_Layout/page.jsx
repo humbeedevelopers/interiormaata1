@@ -14,6 +14,8 @@ import Link from "next/link";
 
 const Project_Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMaterialModal, setIsMaterialModal] = useState(false);
+
   const [currentImage, setCurrentImage] = useState(null);
   const [singleProject, setSingleProject] = useState([]);
   const [tabUrl, setTabUrl] = useState("");
@@ -46,9 +48,15 @@ const Project_Header = () => {
     }
   };
 
-  const handleImageClick = (imageSrc) => {
+  // const handleImageClick = (imageSrc) => {
+  //   setCurrentImage(imageSrc);
+  //   setIsModalOpen(true);
+  // };
+
+  const handleImageClick = (imageSrc, isMaterial = false) => {
     setCurrentImage(imageSrc);
     setIsModalOpen(true);
+    setIsMaterialModal(isMaterial); // Set this flag to distinguish modal type
   };
 
   const handleCloseModal = () => {
@@ -343,7 +351,8 @@ const Project_Header = () => {
                   .map((imgObj, index) => (
                     <div
                       className={styles.interior_material_text}
-                      onClick={() => handleImageClick(imgObj.img)}
+                      onClick={() => handleImageClick(imgObj.img, true)} // Pass `true` for material images
+                      // onClick={() => handleImageClick(imgObj.img)}
                       key={index}
                     >
                       <Image
@@ -367,7 +376,8 @@ const Project_Header = () => {
               {isModalOpen && (
                 <div className={styles.modal} onClick={handleModalClick}>
                   <div
-                    className={styles.modalContent}
+                  className={isMaterialModal ? styles.modalContentOne : styles.modalContent}
+                    // className={styles.modalContent}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className={styles.close} onClick={handleCloseModal}>
