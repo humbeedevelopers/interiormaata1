@@ -12,6 +12,15 @@
   /* width: fit-content; */
   text-transform: uppercase;
 }
+.nav_body.blurred {
+  filter: blur(4px);
+  transition: filter 0.3s ease-in-out;
+}
+
+.about-us-mobile-popup.no-blur {
+  filter: none; /* Ensures the SVG remains unaffected by the blur */
+}
+
 .MobileSvg{
   width: 40px !important;
   height: 40px;
