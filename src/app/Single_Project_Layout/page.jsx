@@ -24,7 +24,18 @@ const Project_Header = () => {
   const [headingLoading, setHeadingLoading] = useState(false); // Track heading loading state
   const [heading, setHeading] = useState(null); // Store heading name
   const pathname = usePathname();
-
+  // useEffect(() => {
+  //   // Check if the hash is in the URL and scroll to the corresponding element
+  //   if (window.location.hash) {
+  //     const element = document.getElementById(window.location.hash.substring(1));
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   } else {
+  //     // If no hash, just scroll to the top
+  //     window.scrollTo(0, 0);
+  //   }
+  // }, []);
   useEffect(() => {
     const hash = typeof window !== "undefined" ? window.location.hash : "";
     let hashUrl = hash.slice(1);
@@ -91,6 +102,10 @@ const Project_Header = () => {
     triggerOnce: true,
   });
 
+  const [ref2, inView2] = useInView({
+    triggerOnce: true,
+  });
+
   const [ref1, inView1] = useInView({
     triggerOnce: true,
   });
@@ -101,7 +116,7 @@ const Project_Header = () => {
 
   const controls = useAnimation();
   const controlsX = useAnimation();
-
+  const controls2 = useAnimation();
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -113,6 +128,11 @@ const Project_Header = () => {
       controlsX.start("visible");
     }
   }, [controlsX, inViewX]);
+  useEffect(() => {
+    if (inView2) {
+      controlsX.start("visible");
+    }
+  }, [controls2, inView2]);
 
   const sentence = {
     hidden: { opacity: 0 },
@@ -167,9 +187,9 @@ const Project_Header = () => {
               <div className={styles.first_project_layout_content}>
                 <div className={styles.first_project_text_header}>
                   <motion.div
-                    ref={ref}
+                    ref={ref2}
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    animate={inView2 ? "visible" : "hidden"}
                     transition={{ duration: 0.9 }}
                   >
                     <HeadingTextAnimation
