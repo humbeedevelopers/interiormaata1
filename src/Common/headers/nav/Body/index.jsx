@@ -132,7 +132,7 @@ export default function Body({
   return (
     <>
       <div className={`nav_body ${isSvgClicked ? "blurred" : ""}`}>
-        <div
+        {/* <div
           className={`navOpenLogo`}
           // onClick={handleLogoClick} // Update the click handler for the logo
           onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
@@ -142,7 +142,7 @@ export default function Body({
             alt="Description of the image"
             className="navOpenLogo_img"
           />
-        </div>
+        </div> */}
         {links.map((link, index) => {
           const { title, href } = link;
           const isAboutUs = title === "About us";
