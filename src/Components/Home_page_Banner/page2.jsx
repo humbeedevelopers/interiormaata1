@@ -27,27 +27,27 @@ const Animation = ({ loadImage, counter }) => {
   console.log(loadingCounter);
 
   // Lenis smooth scroll setup
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1, // Smoother scroll effect
-      smooth: true,
-      direction: "vertical",
-      gestureDirection: "vertical",
-      mouseMultiplier: 1,
-      smoothTouch: true,
-      touchMultiplier: 2,
-    });
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     lerp: 0.1, // Smoother scroll effect
+  //     smooth: true,
+  //     direction: "vertical",
+  //     gestureDirection: "vertical",
+  //     mouseMultiplier: 1,
+  //     smoothTouch: true,
+  //     touchMultiplier: 2,
+  //   });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  //   requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
