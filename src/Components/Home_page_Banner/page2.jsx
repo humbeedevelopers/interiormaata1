@@ -83,6 +83,14 @@ const Animation = ({ loadImage, counter }) => {
       )
         .toString()
         .padStart(4, "0")}.webp`;
+        
+    let imgL = [];
+    for (let i = 0; i < frameCount; i++) {
+      let img = new Image();
+      img.src = currentFrame(i);
+      imagesRef.current.push(img);
+      imgL.push(img.src);
+    }
 
     // let imgL = [];
     // for (let i = 0; i < frameCount; i++) {
@@ -147,28 +155,29 @@ const Animation = ({ loadImage, counter }) => {
     };
 
     loadImages();
+    console.log(imgL);
     // console.log(imgL);
     console.log("Counter", loadingCounter);
     // Ensure the first frame is available
-    const checkFirstFrame = () => {
-      if (imagesRef.current[0]) {
-        render(); // Render first frame immediately
-      }
-    };
+    // const checkFirstFrame = () => {
+    //   if (imagesRef.current[0]) {
+    //     render(); // Render first frame immediately
+    //   }
+    // };
 
     // Update canvas with the current frame
-    const render = () => {
-      if (imagesRef.current[airpodsRef.current.frame]) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(
-          imagesRef.current[airpodsRef.current.frame],
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-      }
-    };
+    // const render = () => {
+    //   if (imagesRef.current[airpodsRef.current.frame]) {
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
+    //     context.drawImage(
+    //       imagesRef.current[airpodsRef.current.frame],
+    //       0,
+    //       0,
+    //       canvas.width,
+    //       canvas.height
+    //     );
+    //   }
+    // };
 
     const animationTimeline = gsap.timeline({
       onUpdate: () => {
@@ -190,12 +199,25 @@ const Animation = ({ loadImage, counter }) => {
         onUpdate: (self) => {
           const progress = self.progress;
           airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
+          console.log(
+            `Scroll Progress: ${progress}, Frame: ${airpodsRef.current.frame}`
+          );
           render();
         },
       },
     });
-
-    checkFirstFrame();
+    imagesRef.current[0].onload = render;
+    function render() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(
+        imagesRef.current[airpodsRef.current.frame],
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+    }
+    // checkFirstFrame();
     // animationTimeline.to(airpodsRef.current, {
     //   frame: frameCount - 1,
     //   snap: "frame",
