@@ -91,6 +91,7 @@ const Animation = ({ loadImage, counter }) => {
       imagesRef.current.push(img);
       imgL.push(img.src);
     }
+    const images = []; // Define images array here
 
     // let imgL = [];
     // for (let i = 0; i < frameCount; i++) {
@@ -186,14 +187,16 @@ const Animation = ({ loadImage, counter }) => {
     const render = () => {
       cancelAnimationFrame(frameRequest);
       frameRequest = requestAnimationFrame(() => {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(
-          images[airpodsRef.current.frame],
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
+        if (images[airpodsRef.current.frame]) {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(
+            images[airpodsRef.current.frame],
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
+        }
       });
     };
 
@@ -213,7 +216,7 @@ const Animation = ({ loadImage, counter }) => {
   //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
   // effects: true, // looks for data-speed and data-lag attributes on elements
   // smoothTouch: 100,
-        end: "+=1400%",
+        end: "+=1200%",
         onUpdate: (self) => {
           const progress = self.progress;
           airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
@@ -225,7 +228,7 @@ const Animation = ({ loadImage, counter }) => {
       },
     });
         // Preload the first few frames
-        images[0].onload = render;
+        images[0]?.onload = render;
     // imagesRef.current[0].onload = render;
     // function render() {
     //   context.clearRect(0, 0, canvas.width, canvas.height);
