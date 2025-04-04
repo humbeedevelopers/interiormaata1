@@ -207,10 +207,11 @@ const Project_Header = () => {
               </div>
             </div>
             {loading && (
-              <div className={styles.loader}>
-                <div className={styles.loaderSpinner}></div>
-                <p>Loading images...</p>
-              </div>
+              <div></div>
+              // <div className={styles.loader}>
+              //   <div className={styles.loaderSpinner}></div>
+              //   <p>Loading images...</p>
+              // </div>
             )}
             <div className={styles.First_project_layout_image}>
               {item.acf.heading_image && (
