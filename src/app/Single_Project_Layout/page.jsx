@@ -15,7 +15,6 @@ import Link from "next/link";
 const Project_Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMaterialModal, setIsMaterialModal] = useState(false);
-
   const [currentImage, setCurrentImage] = useState(null);
   const [singleProject, setSingleProject] = useState([]);
   const [tabUrl, setTabUrl] = useState("");
@@ -24,6 +23,7 @@ const Project_Header = () => {
   const [headingLoading, setHeadingLoading] = useState(false); // Track heading loading state
   const [heading, setHeading] = useState(null); // Store heading name
   const pathname = usePathname();
+  
   // useEffect(() => {
   //   // Check if the hash is in the URL and scroll to the corresponding element
   //   if (window.location.hash) {
@@ -37,11 +37,23 @@ const Project_Header = () => {
   //   }
   // }, []);
   useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== "undefined") {
+        window.scrollTo(0, 0);  // Ensure scroll position is reset
+      }
+    }, 100);  // Delay to ensure content is loaded
+
+    return () => clearTimeout(timer);  // Clean up the timer
+  }, []);  
+  useEffect(() => {
+    // Scroll to top of the page when it is loaded
+    window.scrollTo(0, 0);
     const hash = typeof window !== "undefined" ? window.location.hash : "";
     let hashUrl = hash.slice(1);
     setTabUrl(hashUrl);
     handleSingleProject(hashUrl);
   }, [pathname, searchParams]);
+
 
   const handleSingleProject = async (hashUrl) => {
     try {

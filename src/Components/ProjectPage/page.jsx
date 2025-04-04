@@ -8,8 +8,6 @@ import StarSvg from "@/svgs/Star.svg";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
-
-
 const Projects = () => {
   const itemsPerPage = 4;
   const [projectName, setProjectName] = useState(0);
@@ -21,11 +19,10 @@ const Projects = () => {
   const [tabUrl, setTabUrl] = useState("");
   const [projectsData, setProjectsData] = useState([]);
   const router = useRouter();
-
   useEffect(() => {
     fetch("https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts/?per_page=20")
     // fetch("https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts") by default it will only show 10 projects
-    // fetch("https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts/?per_page=X") for showing 1 project 
+    // fetch("https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts/?per_page=X") for showing 1 project
       .then((res) => res.json())
       // .then((data) => setProjectsData(data));
       .then((data) => {
@@ -34,17 +31,15 @@ const Projects = () => {
         setProjectsData(sortedData);
       });
   }, []);
-
   const handlePageChange = (event, value) => {
     setPageNumber(value);
+    // window.scrollTo(0, 0); // Scroll to top after navigating
     projectsRef.current.scrollIntoView({
       behavior: "smooth",
     });
   };
-
   useEffect(() => {
     const hash = typeof window !== "undefined" ? window.location.hash : "";
-
     if (pathname + hash === "/Projects#residential") {
       setCurrentData(projectsData.filter((data) => data.acf.select_category === "residential"));
     } else if (pathname + hash === "/Projects#architecture") {
@@ -52,15 +47,45 @@ const Projects = () => {
     } else {
       setCurrentData(projectsData.filter((data) => data.acf.select_category === "commercial"));
     }
-
     setTabUrl(pathname + hash);
     setPageNumber(1);
   }, [pathname, searchParams, projectsData]);
-
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0); // Scroll to top on page load
+    }
+  }, [pathname]);
   const lastIndex = pageNumber * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
   const displayedData = currentData.slice(firstIndex, lastIndex);
-
+  useEffect(() => {
+    // Scroll to the top of the page whenever the page is loaded or the pathname changes
+    if (typeof window !== "undefined") {
+      // Delay to allow page navigation and hash to settle
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100); // Adding a small delay
+    }
+  }, [pathname]);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     // Delay to allow page navigation and hash to settle
+  //     setTimeout(() => {
+  //       // Use scrollIntoView for smooth scrolling to the top
+  //       document.documentElement.scrollIntoView({
+  //         behavior: "smooth", // Smooth scrolling
+  //         block: "start", // Align to the top
+  //       });
+  //     }, 100); // Adding a small delay to ensure everything is settled
+  //   }
+  // }, [pathname]);
+  
+  const handleProjectClick = (data) => {
+    // Navigate to the single project layout without hash
+    router.push(`/Single_Project_Layout#${data.id}`);
+    // Scroll to the top after navigating
+    window.scrollTo(0, 0);
+  };
   return (
     <div ref={projectsRef} className={styles.projectPageOuter}>
       <div className={styles.ProjectSection_header}>
@@ -88,7 +113,6 @@ const Projects = () => {
           </div>
         </div>
       </div>
-
       <div className={styles.ProjectSection_Content}>
         {displayedData.map((data, index) => (
           <div key={index}>
@@ -97,12 +121,14 @@ const Projects = () => {
                 className={styles.ProjectSection_image}
                 alt="image"
                 src={data.acf.heading_image}
-                onClick={() => router.push(`/Single_Project_Layout#${data.id}`)}
+                // onClick={() => router.push(`/Single_Project_Layout#${data.id}`)}
+                onClick={() => handleProjectClick(data)}
                 width={1000}
                 height={200}
               />
               <div
-                onClick={() => router.push(`/Single_Project_Layout#${data.id}`)}
+               onClick={() => handleProjectClick(data)}
+                // onClick={() => router.push(`/Single_Project_Layout#${data.id}`)}
                 className={styles.overlay}
               ></div>
             </div>
@@ -129,20 +155,17 @@ const Projects = () => {
                 </div>
                  )}
               </div>
-
               <div className={styles.section_2}>
                 <div>
                   <span>LOCATION | </span>
                   {data.acf.location}
                 </div>
               </div>
-
               <div className={styles.section_3}></div>
             </div>
           </div>
         ))}
       </div>
-
       {currentData.length > 0 && (
         <div className={styles.projects_pagination}>
           <Stack spacing={2} justifyContent="center">
@@ -166,19 +189,16 @@ const Projects = () => {
                   fontSize: "20px",
                   borderRadius: "0px",
                   transition: "background-color 0.3s, color 0.3s",
-
                   "@media (max-width: 768px)": {
                     margin: "0 9px",
                     padding: "12px 8px  ",
                     fontSize: "15px",
                   },
-
                   "@media (max-width: 425px)": {
                     margin: "0 8px",
                     padding: "12px 8px  ",
                     fontSize: "12px",
                   },
-
                   "&.Mui-selected": {
                     backgroundColor: "#D9D9D9",
                     margin: "0 10px",
@@ -186,22 +206,19 @@ const Projects = () => {
                     fontSize: "20px",
                     color: "black",
                     border: "none",
-
                     "@media (max-width: 768px)": {
                       margin: "0 9px",
                       padding: "12px 10px  ",
                       fontSize: "15px",
                     },
-
                     "@media (max-width: 425px)": {
                       margin: "0 8px",
                       padding: "12px 10px  ",
                       fontSize: "12px",
                     },
                   },
-
                   "&.Mui-selected:hover": {
-                    backgroundColor: "#c1c0c0",
+                    backgroundColor: "#C1C0C0",
                     color: "black",
                     border: "none",
                   },
@@ -214,5 +231,4 @@ const Projects = () => {
     </div>
   );
 };
-
 export default Projects;
