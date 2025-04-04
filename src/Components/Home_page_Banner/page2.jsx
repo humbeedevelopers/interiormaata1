@@ -137,7 +137,7 @@ const Animation = ({ loadImage, counter }) => {
             const img = new Image();
             img.src = currentFrame(i);
             img.onload = () => {
-              imagesRef.current[i] = img;
+              images[i] = img;
               resolve();
             };
           }));
@@ -179,6 +179,24 @@ const Animation = ({ loadImage, counter }) => {
     //   }
     // };
 
+
+    
+    // Throttle or debounce rendering to prevent overloading during slow scroll
+    let frameRequest = null;
+    const render = () => {
+      cancelAnimationFrame(frameRequest);
+      frameRequest = requestAnimationFrame(() => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(
+          images[airpodsRef.current.frame],
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      });
+    };
+
     const animationTimeline = gsap.timeline({
       onUpdate: () => {
         render();
@@ -191,11 +209,11 @@ const Animation = ({ loadImage, counter }) => {
       scrollTrigger: {
         trigger: section,
         pin: true,
-        scrub: true, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
+        scrub: 1, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
   //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
   // effects: true, // looks for data-speed and data-lag attributes on elements
   // smoothTouch: 100,
-        end: "+=1200%",
+        end: "+=1400%",
         onUpdate: (self) => {
           const progress = self.progress;
           airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
@@ -206,7 +224,9 @@ const Animation = ({ loadImage, counter }) => {
         },
       },
     });
-    imagesRef.current[0].onload = render;
+        // Preload the first few frames
+        images[0].onload = render;
+    // imagesRef.current[0].onload = render;
     function render() {
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.drawImage(
@@ -248,6 +268,7 @@ const Animation = ({ loadImage, counter }) => {
     return () => {
       window.removeEventListener("resize", setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      cancelAnimationFrame(frameRequest);
     };
   }, []);
   //   function render() {
