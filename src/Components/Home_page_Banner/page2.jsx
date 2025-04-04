@@ -227,16 +227,16 @@ const Animation = ({ loadImage, counter }) => {
         // Preload the first few frames
         images[0].onload = render;
     // imagesRef.current[0].onload = render;
-    function render() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(
-        imagesRef.current[airpodsRef.current.frame],
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-    }
+    // function render() {
+    //   context.clearRect(0, 0, canvas.width, canvas.height);
+    //   context.drawImage(
+    //     imagesRef.current[airpodsRef.current.frame],
+    //     0,
+    //     0,
+    //     canvas.width,
+    //     canvas.height
+    //   );
+    // }
     // checkFirstFrame();
     // animationTimeline.to(airpodsRef.current, {
     //   frame: frameCount - 1,
