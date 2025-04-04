@@ -27,27 +27,27 @@ const Animation = ({ loadImage, counter }) => {
   console.log(loadingCounter);
 
   // Lenis smooth scroll setup
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     lerp: 0.1, // Smoother scroll effect
-  //     smooth: true,
-  //     direction: "vertical",
-  //     gestureDirection: "vertical",
-  //     mouseMultiplier: 1,
-  //     smoothTouch: true,
-  //     touchMultiplier: 2,
-  //   });
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.1, // Smoother scroll effect
+      smooth: true,
+      direction: "vertical",
+      gestureDirection: "vertical",
+      mouseMultiplier: 1,
+      smoothTouch: true,
+      touchMultiplier: 2,
+    });
 
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-  //   requestAnimationFrame(raf);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, []);
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -83,15 +83,6 @@ const Animation = ({ loadImage, counter }) => {
       )
         .toString()
         .padStart(4, "0")}.webp`;
-        
-    let imgL = [];
-    for (let i = 0; i < frameCount; i++) {
-      let img = new Image();
-      img.src = currentFrame(i);
-      imagesRef.current.push(img);
-      imgL.push(img.src);
-    }
-    const images = []; // Define images array here
 
     // let imgL = [];
     // for (let i = 0; i < frameCount; i++) {
@@ -138,7 +129,7 @@ const Animation = ({ loadImage, counter }) => {
             const img = new Image();
             img.src = currentFrame(i);
             img.onload = () => {
-              images[i] = img;
+              imagesRef.current[i] = img;
               resolve();
             };
           }));
@@ -156,48 +147,27 @@ const Animation = ({ loadImage, counter }) => {
     };
 
     loadImages();
-    console.log(imgL);
     // console.log(imgL);
     console.log("Counter", loadingCounter);
     // Ensure the first frame is available
-    // const checkFirstFrame = () => {
-    //   if (imagesRef.current[0]) {
-    //     render(); // Render first frame immediately
-    //   }
-    // };
+    const checkFirstFrame = () => {
+      if (imagesRef.current[0]) {
+        render(); // Render first frame immediately
+      }
+    };
 
     // Update canvas with the current frame
-    // const render = () => {
-    //   if (imagesRef.current[airpodsRef.current.frame]) {
-    //     context.clearRect(0, 0, canvas.width, canvas.height);
-    //     context.drawImage(
-    //       imagesRef.current[airpodsRef.current.frame],
-    //       0,
-    //       0,
-    //       canvas.width,
-    //       canvas.height
-    //     );
-    //   }
-    // };
-
-
-    
-    // Throttle or debounce rendering to prevent overloading during slow scroll
-    let frameRequest = null;
     const render = () => {
-      cancelAnimationFrame(frameRequest);
-      frameRequest = requestAnimationFrame(() => {
-        if (images[airpodsRef.current.frame]) {
-          context.clearRect(0, 0, canvas.width, canvas.height);
-          context.drawImage(
-            images[airpodsRef.current.frame],
-            0,
-            0,
-            canvas.width,
-            canvas.height
-          );
-        }
-      });
+      if (imagesRef.current[airpodsRef.current.frame]) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(
+          imagesRef.current[airpodsRef.current.frame],
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      }
     };
 
     const animationTimeline = gsap.timeline({
@@ -212,7 +182,7 @@ const Animation = ({ loadImage, counter }) => {
       scrollTrigger: {
         trigger: section,
         pin: true,
-        scrub: 1, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
+        scrub: true, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
   //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
   // effects: true, // looks for data-speed and data-lag attributes on elements
   // smoothTouch: 100,
@@ -220,27 +190,12 @@ const Animation = ({ loadImage, counter }) => {
         onUpdate: (self) => {
           const progress = self.progress;
           airpodsRef.current.frame = Math.floor(progress * (frameCount - 1));
-          console.log(
-            `Scroll Progress: ${progress}, Frame: ${airpodsRef.current.frame}`
-          );
           render();
         },
       },
     });
-        // Preload the first few frames
-        // images[0].onload = render;
-    // imagesRef.current[0].onload = render;
-    // function render() {
-    //   context.clearRect(0, 0, canvas.width, canvas.height);
-    //   context.drawImage(
-    //     imagesRef.current[airpodsRef.current.frame],
-    //     0,
-    //     0,
-    //     canvas.width,
-    //     canvas.height
-    //   );
-    // }
-    // checkFirstFrame();
+
+    checkFirstFrame();
     // animationTimeline.to(airpodsRef.current, {
     //   frame: frameCount - 1,
     //   snap: "frame",
@@ -271,7 +226,6 @@ const Animation = ({ loadImage, counter }) => {
     return () => {
       window.removeEventListener("resize", setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      cancelAnimationFrame(frameRequest);
     };
   }, []);
   //   function render() {
