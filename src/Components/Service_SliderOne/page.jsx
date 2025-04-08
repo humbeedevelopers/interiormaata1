@@ -14,7 +14,7 @@ import "swiper/css/scrollbar";
 import "./SliderOne.css";
 import Residential_Interior_Design from "@/images/Rectangle-261.png";
 import Commercial_Interior_Design from "@/images/Rectangle-350.png";
-import Office_Interior_Design from "@/images/officeInerior.jpg";
+import Office_Interior_Design from "@/images/Office_image.png";
 import Button11 from "@/Common/Buttons/button11"
 import Services_interior_svg from "@/svgs/Services_svg.svg";
 import arrow from "@/svgs/slider_arrow.svg";
