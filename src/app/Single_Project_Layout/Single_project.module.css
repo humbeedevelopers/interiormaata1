@@ -251,6 +251,27 @@
   cursor: pointer;
 }
 
+/* @media (max-width: 1440px) {
+  .close {
+  position: absolute;
+  top: -4px;
+  right: 241px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+}
+
+@media (max-width: 320px) {
+  .close {
+  position: absolute;
+  top: 190px;
+  right: -20px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  } */
+
+
 .close:hover,
 .close:focus {
   color: #000;
@@ -260,7 +281,7 @@
 
 .modalImage {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (min-width: 1500px) {
