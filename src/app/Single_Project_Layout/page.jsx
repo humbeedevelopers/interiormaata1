@@ -414,7 +414,7 @@ const Project_Header = () => {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className={styles.close} onClick={handleCloseModal}>
-                      <Image src={wrong_logo} alt="Close" />
+                      <Image className={styles.image} src={wrong_logo} alt="Close" />
                     </span>
                     <Image
                       src={currentImage}
