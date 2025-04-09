@@ -131,6 +131,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  text-wrap: auto;
 }
 .interior_material_overlay_text {
   color: #ffffff;
@@ -141,6 +142,31 @@
   line-height: normal;
   text-transform: capitalize;
 }
+
+@media (max-width: 320px) {
+  .interior_material_overlay_text {
+    font-size: 12px;
+}
+}
+
+@media (max-width: 375px) {
+  .interior_material_overlay_text {
+    font-size: 14px;
+}
+}
+@media (max-width: 425px) {
+  .interior_material_overlay_text {
+    font-size: 16px;
+}
+}
+@media (max-width: 768px) {
+  .interior_material_overlay_text {
+    font-size: 18px;
+}
+}
+
+
+
 .interior_material_specs_content {
   padding-left: 4rem;
   padding-right: 0rem;
