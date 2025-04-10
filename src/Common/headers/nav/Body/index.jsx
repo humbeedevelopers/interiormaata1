@@ -28,6 +28,7 @@ export default function Body({
   const [noExitAnimation, setNoExitAnimation] = useState(false);
   // const [isMenuOpenone, setIsMenuOpenone] = useState(true); // Track if menu is open
   const popupHideTimeout = useRef(null);
+  const [isMenuOpenone, setIsMenuOpenone] = useState(true); // or false by default if closed
   const [isMobile, setIsMobile] = useState(false);
   const [isSvgClicked, setIsSvgClicked] = useState(false); // Track SVG click state
   const pathname = usePathname();
@@ -115,34 +116,34 @@ export default function Body({
 
 
    // Handling click on the logo to close the menu and redirect
-  //  const handleLogoClick = () => {
-  //   // Close the menu
-  //   setIsMenuOpenone(false);
+   const handleLogoClick = () => {
+    // Close the menu
+    setIsMenuOpenone(false);
 
-  //   // Call navLinkHandler and popupHandler before redirect
-  //   handleNavLink();
-  //   // popupHandler();
+    // Call navLinkHandler and popupHandler before redirect
+    handleNavLink();
+    // popupHandler();
 
-  //   // Redirect after closing the menu
-  //   setTimeout(() => {
-  //     router.push(pathname === "/" ? "/" : "/Homepage");
-  //   }, 300); // Timeout for animation (adjust as needed)
-  // };
+    // Redirect after closing the menu
+    setTimeout(() => {
+      router.push(pathname === "/" ? "/" : "/Homepage");
+    }, 300); // Timeout for animation (adjust as needed)
+  };
 
   return (
     <>
       <div className={`nav_body ${isSvgClicked ? "blurred" : ""}`}>
-        {/* <div
-          className={`navOpenLogo`}
-          // onClick={handleLogoClick} // Update the click handler for the logo
-          onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
+        <div
+          className={`navOpenLogo ${isMenuOpenone ? "menu-open" : "menu-closed"}`}
+          onClick={handleLogoClick} // Update the click handler for the logo
+          // onClick={() => router.push(pathname === "/" ? "/" : "/Homepage")}
         >
           <Image
             src={nav_logo}
             alt="Description of the image"
             className="navOpenLogo_img"
           />
-        </div> */}
+        </div>
         {links.map((link, index) => {
           const { title, href } = link;
           const isAboutUs = title === "About us";
