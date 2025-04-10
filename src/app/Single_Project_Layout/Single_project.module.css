@@ -131,6 +131,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  text-wrap: auto;
 }
 .interior_material_overlay_text {
   color: #ffffff;
@@ -141,6 +142,31 @@
   line-height: normal;
   text-transform: capitalize;
 }
+
+@media (max-width: 320px) {
+  .interior_material_overlay_text {
+    font-size: 12px;
+}
+}
+
+@media (max-width: 375px) {
+  .interior_material_overlay_text {
+    font-size: 14px;
+}
+}
+@media (max-width: 425px) {
+  .interior_material_overlay_text {
+    font-size: 16px;
+}
+}
+@media (max-width: 768px) {
+  .interior_material_overlay_text {
+    font-size: 18px;
+}
+}
+
+
+
 .interior_material_specs_content {
   padding-left: 4rem;
   padding-right: 0rem;
@@ -245,11 +271,74 @@
 }
 .close {
   position: absolute;
-  top: -4px;
-  right: -32px;
+  top: -65px;
+  right: -22px;
   font-weight: bold;
   cursor: pointer;
 }
+
+.image{
+  height: 6vh;
+  width: 6vh;
+}
+
+/* @media (max-width: 1440px) {
+  .close {
+  position: absolute;
+  top: -4px;
+  right: 241px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+} */
+
+@media (max-width: 768px) {
+  .close {
+  position: absolute;
+  top: -45px;
+  right: -20px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  } 
+
+  @media (max-width: 425px) {
+    .close {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    font-weight: bold;
+    cursor: pointer;
+    }
+    } 
+
+    @media (max-width: 375px) {
+      .close {
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      font-weight: bold;
+      cursor: pointer;
+      }
+      } 
+  
+
+
+@media (max-width: 320px) {
+  .close {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  } 
+
+  
+
+ 
+  
+
 
 .close:hover,
 .close:focus {
@@ -260,7 +349,7 @@
 
 .modalImage {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (min-width: 1500px) {

@@ -1,0 +1,11 @@
+.swiper-button-prev, .swiper-button-next{
+    color: white;
+}
+@media(max-width: 575px){
+    /* .swiper-button-prev, .swiper-button-next{
+        font-size: 22px ;
+    } */
+    .swiper-button-prev:after, .swiper-button-next:after{
+        font-size: 22px;
+    }
+}

@@ -5,6 +5,11 @@ import HeadingTextAnimation from "@/Common/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Stairs from "@/Animations/Stairs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "./swiperslide.css";
+import { Navigation } from "swiper/modules";
 import wrong_logo from "@/images/wrong_logo.png";
 import Interior_last_room_Svg from "@/svgs/Interior_Lastroom.svg";
 import styles from "@/app/Single_Project_Layout/Single_project.module.css";
@@ -23,7 +28,8 @@ const Project_Header = () => {
   const [headingLoading, setHeadingLoading] = useState(false); // Track heading loading state
   const [heading, setHeading] = useState(null); // Store heading name
   const pathname = usePathname();
-  
+  const [allProjectImages, setAllProjectImages] = useState([]);
+
   // useEffect(() => {
   //   // Check if the hash is in the URL and scroll to the corresponding element
   //   if (window.location.hash) {
@@ -39,12 +45,12 @@ const Project_Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (typeof window !== "undefined") {
-        window.scrollTo(0, 0);  // Ensure scroll position is reset
+        window.scrollTo(0, 0); // Ensure scroll position is reset
       }
-    }, 100);  // Delay to ensure content is loaded
+    }, 100); // Delay to ensure content is loaded
 
-    return () => clearTimeout(timer);  // Clean up the timer
-  }, []);  
+    return () => clearTimeout(timer); // Clean up the timer
+  }, []);
   useEffect(() => {
     // Scroll to top of the page when it is loaded
     window.scrollTo(0, 0);
@@ -54,18 +60,38 @@ const Project_Header = () => {
     handleSingleProject(hashUrl);
   }, [pathname, searchParams]);
 
-
   const handleSingleProject = async (hashUrl) => {
     try {
       const response = await fetch(
         `https://interiormaataassets.humbeestudio.xyz/wp-json/acf/v3/posts/${hashUrl}/`
       );
       const data = await response.json();
+
       setSingleProject([data]);
-      // If heading is not already available, set it to the fetched one
+
       if (data?.acf?.project_name) {
         setHeading(data.acf.project_name);
       }
+
+      // ✅ Collect all project images here (inside the function)
+      const allImages = [
+        data.acf.heading_image,
+        data.acf.image2,
+        data.acf.image3,
+        data.acf.image4,
+        data.acf.image5,
+        data.acf.image6,
+        data.acf.image7,
+        data.acf.image8,
+        data.acf.material_image1,
+        data.acf.material_image2,
+        data.acf.material_image3,
+        data.acf.material_image4,
+        data.acf.material_image5,
+        data.acf.material_image6,
+      ].filter(Boolean); // filter out undefined or empty ones
+
+      setAllProjectImages(allImages); // ✅ Store them in state
     } catch (error) {
       console.error("Error fetching project data:", error);
     }
@@ -409,20 +435,48 @@ const Project_Header = () => {
               {isModalOpen && (
                 <div className={styles.modal} onClick={handleModalClick}>
                   <div
-                  className={isMaterialModal ? styles.modalContentOne : styles.modalContent}
-                    // className={styles.modalContent}
+                    className={
+                      isMaterialModal
+                        ? styles.modalContentOne
+                        : styles.modalContent
+                    }
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className={styles.close} onClick={handleCloseModal}>
-                      <Image src={wrong_logo} alt="Close" />
+                      <Image
+                        className={styles.image}
+                        src={wrong_logo}
+                        alt="Close"
+                      />
                     </span>
-                    <Image
-                      src={currentImage}
-                      alt="Interior Material"
-                      className={styles.modalImage}
-                      width={1000}
-                      height={600}
-                    />
+
+                    <Swiper
+                      modules={[Navigation]}
+                      // navigation={{
+                      //   nextEl: '.swiper-button-next',
+                      //   prevEl: '.swiper-button-prev',
+                      // }}
+                      navigation
+                      spaceBetween={10}
+                      slidesPerView={1}
+                      initialSlide={allProjectImages.findIndex(
+                        (img) => img === currentImage
+                      )} // Start from clicked image
+                    >
+                      {allProjectImages.map((img, idx) => (
+                        <SwiperSlide key={idx}>
+                          <Image
+                            src={img}
+                            alt={`Slide ${idx}`}
+                            width={1000}
+                            height={600}
+                            className={styles.modalImage}
+                            onError={handleImageError}
+                            onLoadingComplete={handleImageLoad}
+                          />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
                   </div>
                 </div>
               )}

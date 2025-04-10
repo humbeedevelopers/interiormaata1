@@ -16,6 +16,12 @@
   filter: blur(4px);
   transition: filter 0.3s ease-in-out;
 }
+.menu-closed {
+  display: none; /* or opacity: 0 / transform: scale(0) etc */
+}
+.menu-open {
+  display: flex;
+}
 
 .about-us-mobile-popup.no-blur {
   filter: none; /* Ensures the SVG remains unaffected by the blur */
