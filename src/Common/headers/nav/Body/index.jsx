@@ -132,7 +132,8 @@ export default function Body({
 
   return (
     <>
-      <div className={`nav_body ${isSvgClicked ? "blurred" : ""}${isMenuOpenone ? "menu-open" : "menu-closed"}`}>
+      <div className={`nav_body ${isSvgClicked ? "blurred" : ""} ${isMenuOpenone ? "menu-open" : "menu-closed"}`}>
+        {/* <div className={`nav_body ${isSvgClicked ? "blurred" : ""}`}> */}
         <div
           className={`navOpenLogo`}
           onClick={handleLogoClick} // Update the click handler for the logo
@@ -216,6 +217,7 @@ export default function Body({
               </svg>
             </div>
           )}
+          {/* </div> */}
       </div>
 
       {hoverPopup && (
