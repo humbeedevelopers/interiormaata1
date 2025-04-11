@@ -312,9 +312,9 @@
 
 @media (max-width: 320px) {
   .close {
-  position: absolute;
-  top: 38px;
-  right: -28px;
+  position: fixed;
+  top: 130px;
+  right: 23px;
   font-weight: bold;
   cursor: pointer;
   }
