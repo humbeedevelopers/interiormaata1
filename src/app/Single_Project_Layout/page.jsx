@@ -206,6 +206,20 @@ const Project_Header = () => {
     }
   };
 
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto"; // Reset on unmount
+    };
+  }, [isModalOpen]);
+  
+
   return (
     <Stairs>
       {singleProject?.map((item, index) => {
