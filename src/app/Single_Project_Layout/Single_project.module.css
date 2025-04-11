@@ -323,20 +323,20 @@
   
 
 .image{
-  height: 6vh;
-  width: 6vh;
+  height: 5vh;
+  width: 5vh;
 }
 
 @media (max-width: 376px) {
   .image {
-    height: 5vh;
-    width: 5vh;
+    height: 4.5vh;
+    width: 4.5vh;
   }
   } 
 @media (max-width: 320px) {
     .image {
-      height: 4.5vh;
-      width: 4.5vh;
+      height: 4vh;
+      width: 4vh;
     }
     } 
 
