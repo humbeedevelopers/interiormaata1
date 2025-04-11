@@ -290,9 +290,9 @@
 
 @media (max-width: 425px) {
     .close {
-    position: absolute;
-    top: -46px;
-    right: -28px;
+    position: fixed;
+    top: 75px;
+    right: 36px;
     font-weight: bold;
     cursor: pointer;
     }
@@ -300,9 +300,9 @@
 
 @media (max-width: 375px) {
       .close {
-      position: absolute;
-      top: -11px;
-      right: -20px;
+      position: fixed;
+      top: 130px;
+      right: 30px;
       font-weight: bold;
       cursor: pointer;
       }
