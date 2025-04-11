@@ -522,6 +522,8 @@
 }
 .footer_address{
   font-size: 25px;
+  align-items: start;
+  flex-direction: column;
 }
 .Footer_Content{
   padding-top: 0rem;
