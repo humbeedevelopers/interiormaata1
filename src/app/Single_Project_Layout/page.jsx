@@ -91,6 +91,37 @@ const Project_Header = () => {
         data.acf.material_image6,
       ].filter(Boolean); // filter out undefined or empty ones
 
+      //       // ✅ Collect only rendered images
+      // const imagesToRender = [];
+
+      // if (data.acf.heading_image) imagesToRender.push(data.acf.heading_image);
+      // if (data.acf.image2) imagesToRender.push(data.acf.image2);
+
+      // if (data.acf.image3 && data.acf.image4) {
+      //   imagesToRender.push(data.acf.image3, data.acf.image4);
+      // }
+
+      // if (data.acf.image5 && data.acf.image6) {
+      //   imagesToRender.push(data.acf.image5, data.acf.image6);
+      // }
+
+      // if (data.acf.image7) imagesToRender.push(data.acf.image7);
+      // if (data.acf.image8) imagesToRender.push(data.acf.image8);
+
+      // // Add material images conditionally
+      // [
+      //   data.acf.material_image1,
+      //   data.acf.material_image2,
+      //   data.acf.material_image3,
+      //   data.acf.material_image4,
+      //   data.acf.material_image5,
+      //   data.acf.material_image6,
+      // ].forEach((img) => {
+      //   if (img) imagesToRender.push(img);
+      // });
+
+      // setAllProjectImages(imagesToRender);
+
       setAllProjectImages(allImages); // ✅ Store them in state
     } catch (error) {
       console.error("Error fetching project data:", error);
@@ -206,19 +237,17 @@ const Project_Header = () => {
     }
   };
 
-
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  
+
     return () => {
       document.body.style.overflow = "auto"; // Reset on unmount
     };
   }, [isModalOpen]);
-  
 
   return (
     <Stairs>
