@@ -135,6 +135,7 @@
 }
 .center {
   text-align: center;
+  padding-top: 5rem;
 }
 .instagram1 {
   display: flex;
@@ -232,6 +233,9 @@
   .data {
     flex-wrap: wrap;
     padding: 0 50px;
+  }
+  .center {
+    text-align: center;
   }
   .dataOuter {
     width: 50%;
