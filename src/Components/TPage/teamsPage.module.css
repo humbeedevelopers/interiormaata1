@@ -89,7 +89,7 @@
   font-weight: 400;
   text-align: center;
   line-height: normal;
-  text-transform: capitalize;
+/*   text-transform: capitalize; */
 }
 .teamPage_content4_Text p {
   padding: 8px 0;
