@@ -144,24 +144,24 @@ const TeamPage = () => {
                 animate={inView2 ? "visible" : "hidden"}
                 transition={{ duration: 0.9 }}
               >
-                <HeadingTextAnimation
-                  heading={"United by passion,"}
+              <HeadingTextAnimation
+                  heading={"UNITED BY PASSION,"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={"driven by the"}
+                  heading={"DRIVEN BY THE"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={" excellence get to"}
+                  heading={" EXCELLENCE GET TO"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={" know he faces "}
+                  heading={" KNOW HE FACES "}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={"behind our success"}
+                  heading={"BEHIND OUR SUCCESS"}
                   justifyContent={"center"}
                 />
               </motion.div>
