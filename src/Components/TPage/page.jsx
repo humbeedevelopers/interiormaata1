@@ -145,23 +145,23 @@ const TeamPage = () => {
                 transition={{ duration: 0.9 }}
               >
                 <HeadingTextAnimation
-                  heading={"UNITED BY PASSION,"}
+                  heading={"United by passion,"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={"DRIVEN BY THE"}
+                  heading={"driven by the"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={" EXCELLENCE GET TO"}
+                  heading={" excellence get to"}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={" KNOW HE FACES "}
+                  heading={" know he faces "}
                   justifyContent={"center"}
                 />
                 <HeadingTextAnimation
-                  heading={"BEHIND OUR SUCCESS"}
+                  heading={"behind our success"}
                   justifyContent={"center"}
                 />
               </motion.div>
