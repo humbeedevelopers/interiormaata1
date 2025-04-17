@@ -172,11 +172,11 @@ const TeamPage = () => {
         <div className={styles.teamPage_content4}>
           <div className={styles.teamPage_content4_Text}>
             <p>
-              And When It Stops, It’s Not Over - It’s In You Now, In Your Head,
-              Your Heart, And Spirit. You Have To Tell Someone, Right Now, ‘you
-              Must See This’. You Share It, And They Get It. They’re In It With
-              You, And It’s In Them Too. You Shared The Wonder You Know Feeling?
-              That’s What We’re After, Every Time We Make A Film.
+              And when it stops, it’s not over - it’s in you now, in your head,
+              your heart, and spirit. you have to tell someone, right now, ‘you
+              must see this’. you share it, and they get it. they’re in it with
+              you, and it’s in them too. you shared the wonder you know feeling?
+              that’s what we’re after, every time we make a film.
             </p>
           </div>
         </div>
