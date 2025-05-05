@@ -326,10 +326,11 @@
   }
 
   .interiormaata {
-    position: absolute;
+    position: absolute !important;
     left: 3rem;
     font-size: 6.5vw;
-    bottom: 33rem;
+/*     bottom: 33rem; */
+bottom: 18rem !important;
   }
 
   .buttonOuter {
