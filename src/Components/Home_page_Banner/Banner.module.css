@@ -326,7 +326,7 @@
   }
 
   .interiormaata {
-    position: absolute !important;
+    position: absolute;
     left: 3rem;
     font-size: 6.5vw;
     bottom: 33rem;
