@@ -351,7 +351,7 @@
     bottom: 20rem;
   }
   .interiormaata {
-    bottom: 15rem;
+    bottom: 18rem;
   }
 }
 @media(max-height: 600px){
@@ -359,7 +359,7 @@
     bottom: 18rem;
   }
   .interiormaata {
-    bottom: 14rem;
+    bottom: 16rem;
   }
 }
 
