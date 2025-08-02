@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Home from "@/app/Home/page";
 const Page = () => {
   useEffect(() => {
-    document.title = "Interior Maata";
+    document.title = "Interior Maata - Designer Studio";
   }, []);
 
   return (

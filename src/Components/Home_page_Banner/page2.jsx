@@ -78,53 +78,27 @@ const Animation = ({ loadImage, counter }) => {
     // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/mobile/0001.webp
     const frameCount = 720;
     const currentFrame = (index) =>
-      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(
+      `https://res.cloudinary.com/du5kmd8li/image/upload/v1754100173/interiormaata/mobile/${(
         index + 1
       )
         .toString()
         .padStart(4, "0")}.webp`;
 
-    // let imgL = [];
-    // for (let i = 0; i < frameCount; i++) {
-    //   let img = new Image();
-    //   img.src = currentFrame(i);
-    //   imagesRef.current.push(img);
-    //   imgL.push(img.src);
-    // }
+    let imgL = [];
+    for (let i = 0; i < frameCount; i++) {
+      let img = new Image();
+      img.src = currentFrame(i);
+      imagesRef.current.push(img);
+      imgL.push(img.src);
+    }
 
-    // const loadImages = async () => {
-    //   const loadBatch = async (startIndex) => {
-    //     const batchSize = 10;
-    //     const promises = [];
-    
-    //     for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
-    //       promises.push(new Promise((resolve) => {
-    //         const img = new Image();
-    //         img.src = currentFrame(i);
-    //         img.onload = () => {
-    //           imagesRef.current[i] = img;
-    //           resolve();
-    //         };
-    //       }));
-    //     }
-    
-    //     await Promise.all(promises);
-    //     setLoadingCounter((prev) => prev + batchSize);
-    //   };
-    
-    //   for (let i = 0; i < frameCount; i += 10) {
-    //     await loadBatch(i);
-    //   }
-    
-    //   setLoading(false);
-    // };
-     // Preloading images in batches
-     const loadImages = async () => {
+    const loadImages = async () => {
       const loadBatch = async (startIndex) => {
-        const batchSize = 10;
+        const batchSize = 100;
         const promises = [];
 
         for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+          console.log("Loading image at index:", i);
           promises.push(new Promise((resolve) => {
             const img = new Image();
             img.src = currentFrame(i);
@@ -139,12 +113,40 @@ const Animation = ({ loadImage, counter }) => {
         setLoadingCounter((prev) => prev + batchSize);
       };
 
-      for (let i = 0; i < frameCount; i += 10) {
+      for (let i = 0; i < frameCount; i += 100) {
+        console.log("Loading batch starting at index:", i);
         await loadBatch(i);
       }
 
       setLoading(false);
     };
+    // Preloading images in batches
+    // const loadImages = async () => {
+    //   const loadBatch = async (startIndex) => {
+    //     const batchSize = 100;
+    //     const promises = [];
+
+    //     for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
+    //       promises.push(new Promise((resolve) => {
+    //         const img = new Image();
+    //         img.src = currentFrame(i);
+    //         img.onload = () => {
+    //           imagesRef.current[i] = img;
+    //           resolve();
+    //         };
+    //       }));
+    //     }
+
+    //     await Promise.all(promises);
+    //     setLoadingCounter((prev) => prev + batchSize);
+    //   };
+
+    //   for (let i = 0; i < frameCount; i += 100) {
+    //     await loadBatch(i);
+    //   }
+
+    //   setLoading(false);
+    // };
 
     loadImages();
     // console.log(imgL);
@@ -183,9 +185,9 @@ const Animation = ({ loadImage, counter }) => {
         trigger: section,
         pin: true,
         scrub: true, // Increase scrub value for smoother transitions effect it will take 2 seconds to scroll use true for default effect
-  //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-  // effects: true, // looks for data-speed and data-lag attributes on elements
-  // smoothTouch: 100,
+        //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+        // effects: true, // looks for data-speed and data-lag attributes on elements
+        // smoothTouch: 100,
         end: "+=1200%",
         onUpdate: (self) => {
           const progress = self.progress;
@@ -204,10 +206,10 @@ const Animation = ({ loadImage, counter }) => {
     // });
 
     // imagesRef.current[0].onload = render;
-       // Ensure that the first image is loaded before setting onload handler
-      //  if (imagesRef.current[0]) {
-      //   imagesRef.current[0].onload = render;
-      // }
+    // Ensure that the first image is loaded before setting onload handler
+    //  if (imagesRef.current[0]) {
+    //   imagesRef.current[0].onload = render;
+    // }
 
     // function render() {
     //   // Ensure that we only render if the current image is available
@@ -287,24 +289,24 @@ const Animation = ({ loadImage, counter }) => {
 
 
   //  code for video show and hide 
-// useEffect(() => {
-//   // Function to handle scroll direction and video visibility
-//   const handleScroll = () => {
-//     const video = document.querySelector(`.${styles.videoBg}`);
-//     if (window.scrollY > 0) {
-//       // Check if window has scrolled down
-//       video.style.visibility = "hidden";
-//     } else {
-//       video.style.visibility = "visible";
-//     }
-//   };
+  // useEffect(() => {
+  //   // Function to handle scroll direction and video visibility
+  //   const handleScroll = () => {
+  //     const video = document.querySelector(`.${styles.videoBg}`);
+  //     if (window.scrollY > 0) {
+  //       // Check if window has scrolled down
+  //       video.style.visibility = "hidden";
+  //     } else {
+  //       video.style.visibility = "visible";
+  //     }
+  //   };
 
-//   // Add scroll event listener
-//   window.addEventListener("scroll", handleScroll);
-//   return () => {
-//     window.removeEventListener("scroll", handleScroll);
-//   };
-// }, []);
+  //   // Add scroll event listener
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -398,9 +400,9 @@ const Animation = ({ loadImage, counter }) => {
         )}
       </div>
 
-{/* just add the second video new one link here >> source is in public folder  */}
+      {/* just add the second video new one link here >> source is in public folder  */}
 
-       {/* <video
+      {/* <video
         className={styles.videoBg}
         width="750"
         height="500"
@@ -428,24 +430,24 @@ const Animation = ({ loadImage, counter }) => {
                   ? "upsideDown"
                   : "visible"
                 : window.innerWidth < 1024
-                ? scrollPercentage >= 62
-                  ? "upsideDown"
-                  : "visible"
-                : window.innerWidth < 1400
-                ? scrollPercentage >= 65
-                  ? "upsideDown"
-                  : "visible"
-                : window.innerWidth < 500
-                ? scrollPercentage >= 58
-                  ? "upsideDown"
-                  : "visible"
-                : window.innerWidth < 1600
-                ? scrollPercentage >= 60
-                  ? "upsideDown"
-                  : "visible"
-                : scrollPercentage >= 63
-                ? "upsideDown"
-                : "visible"
+                  ? scrollPercentage >= 62
+                    ? "upsideDown"
+                    : "visible"
+                  : window.innerWidth < 1400
+                    ? scrollPercentage >= 65
+                      ? "upsideDown"
+                      : "visible"
+                    : window.innerWidth < 500
+                      ? scrollPercentage >= 58
+                        ? "upsideDown"
+                        : "visible"
+                      : window.innerWidth < 1600
+                        ? scrollPercentage >= 60
+                          ? "upsideDown"
+                          : "visible"
+                        : scrollPercentage >= 63
+                          ? "upsideDown"
+                          : "visible"
             }
             variants={buttonVariants}
           >

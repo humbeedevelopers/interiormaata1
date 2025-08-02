@@ -80,7 +80,7 @@ const Animation = ({ loadImage, counter }) => {
     // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/desktop/0001.webp
     const frameCount = 749;
     const currentFrame = (index) =>
-      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Desktop3/${(
+      `https://res.cloudinary.com/du5kmd8li/image/upload/v1754098560/interiormaata/${(
         index + 1
       )
         .toString()
@@ -116,7 +116,7 @@ const Animation = ({ loadImage, counter }) => {
 // new code
     const loadImages = async () => {
       const loadBatch = async (startIndex) => {
-        const batchSize = 10;
+        const batchSize = 100;
         const promises = [];
     
         for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
@@ -134,7 +134,7 @@ const Animation = ({ loadImage, counter }) => {
         setLoadingCounter((prev) => prev + batchSize);
       };
     
-      for (let i = 0; i < frameCount; i += 10) {
+      for (let i = 0; i < frameCount; i += 100) {
         await loadBatch(i);
       }
     
