@@ -80,9 +80,12 @@ const Animation = ({ loadImage, counter }) => {
     // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/desktop/0001.webp
     const frameCount = 749;
     const currentFrame = (index) =>
-      `https://res.cloudinary.com/du5kmd8li/image/upload/v1754098560/interiormaata/${(
+      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Desktop3/${(
         index + 1
       )
+      // `https://res.cloudinary.com/du5kmd8li/image/upload/v1754098560/interiormaata/${(
+      //   index + 1
+      // )
         .toString()
         .padStart(4, "0")}.webp`;
 

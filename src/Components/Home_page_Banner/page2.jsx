@@ -78,9 +78,12 @@ const Animation = ({ loadImage, counter }) => {
     // https://interiormaataassets.humbeestudio.xyz/mainsiteassets/mobile/0001.webp
     const frameCount = 720;
     const currentFrame = (index) =>
-      `https://res.cloudinary.com/du5kmd8li/image/upload/v1754100173/interiormaata/mobile/${(
+      `https://interiormaataassets.humbeestudio.xyz/mainsiteassets/MobileFrames/${(
         index + 1
       )
+      // `https://res.cloudinary.com/du5kmd8li/image/upload/v1754100173/interiormaata/mobile/${(
+      //   index + 1
+      // )
         .toString()
         .padStart(4, "0")}.webp`;
 
